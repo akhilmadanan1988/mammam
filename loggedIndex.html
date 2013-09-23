@@ -13,7 +13,8 @@
 	 <script>
               $(document).on('pagebeforeshow', '#index', function(){   
             
-                     $.getScript('scripts/simple-app.js');   
+                     $.getScript('scripts/simple-app.js');  
+                    
                        
                 });
 
@@ -80,8 +81,6 @@
 	<link rel="stylesheet" href="styles/simple-app.css">
 	<link rel="stylesheet" type="text/css" href="styles/elastislide.css" />
 	<script src="scripts/modernizr.custom.17475.js"></script>
-	<script src="cordova.js"></script>
-	<script src="scripts/splash.js"></script>
 
 <style>
 @font-face {
@@ -136,8 +135,10 @@
 	<div class="overlay" style="display:none">
     <div class="overlay-content">
     <ul id='tas_list' data-role='listview' data-theme="e">
-            <li><a href="signIn.html"  data-transition="slide" >SIGN IN</a></li>
-            <li><a href="signUp.html"  data-transition="slide" >SIGN UP</a></li>
+    	<li style="text-align:center; ">WELCOME JAMES</li>
+            <li><a href="profile.html"  data-transition="slide" >MY ACCOUNT</a></li>
+            <li><a href="recent.html"  data-transition="slide" >RECENT ORDERS</a></li>
+            <li><a href="index.html"  data-transition="slide" >SIGN OUT</a></li>
         </ul>
     </div>
 </div>
@@ -153,9 +154,24 @@
 		<div class="ui-grid-a ui-responsive formOption">
 				<div class="ui-block-a">
 					<div class="ui-body ui-body-d">
-				<select name="select-choice-a"  data-mini="true" id="zone_name">
-							<option>Select City</option>
-							
+				<select name="select-choice-a"  data-mini="true">
+							<option>City</option>
+							<option value="">City 1</option>
+							<option value="">City 2</option>
+							<option value="">City 3</option>
+							<option value="">City 4</option>
+							<option value="">City 5</option>
+							<option value="">City 6</option>
+							<option value="">City 7</option>
+							<option value="">City 8</option>
+							<option value="">City 9</option>
+							<option value="">City 10</option>
+							<option value="">City 11</option>
+							<option value="">City 12</option>
+							<option value="">City 13</option>
+							<option value="">City 14</option>
+							<option value="">City 15</option>
+							<option value="">City 16</option>
 				</select>
 					</div>
 				</div>
