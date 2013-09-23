@@ -156,8 +156,11 @@ input:-moz-placeholder { color: rgb(73, 70, 70); }
 	background-image: -o-linear-gradient( #D8D6D5,#DDDCDA );
 	background-image: linear-gradient( #D8D6D5,#DDDCDA );
 }
-.ui-btn-active {
+#navbar .ui-btn-active {
 border: 1px solid #CACCD1 !important;
+}
+.content-primary .ui-btn-active:visited,.content-primary .ui-btn-active:hover,.content-primary .ui-btn-active a.ui-link-inherit{
+	color: #2F3E46 !important;
 }
 .ui-dialog-contain > .ui-header{
 background-color:rgba(235, 30, 30, 0.65);
@@ -310,7 +313,7 @@ border: 2px solid #686262;}
 				font-family: 'robotocondensed';
 				font-size:13px;
 			}
-			.tabArea .ui-btn-active{
+			.tabArea .ui-navbar .ui-btn-active{
 				background:url(../images/tabBgActive.png) repeat;
 			}
 			
@@ -727,4 +730,21 @@ margin-top:10px;
 }
 .overlay-content .tabArea .ui-btn{
 	background:none !important; 
+}
+.orderView h3,.ui-input-search input.ui-input-text{
+	font-weight:normal !important;
+	font-family: 'robotocondensed';
+}
+.spacingHolder{
+	margin-top:15px;
+	font-weight:normal !important;
+	font-family: 'robotocondensed';
+}
+.cartHeader{
+	padding-bottom:0;
+	font-size:17px;
+	font-weight:normal;
+	background-color:#E2E2E2 !important; 
+	padding-left:8px;
+	padding-right:8px;
 }

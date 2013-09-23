@@ -14,15 +14,14 @@
               $(document).on('pagebeforeshow', '#index', function(){   
             
                      $.getScript('scripts/simple-app.js');   
-                      
+                       
                 });
 
                 $(document).on('pagebeforeshow', '#recentPage', function myCallback () { 
 					 $.getScript('scripts/simple-app.js');
 					 
 	
-       
-	                  
+        	                  
                 });    
                  $(document).on('pagebeforeshow', '#about', function myCallback () { 
                  	
@@ -137,8 +136,8 @@
 	<div class="overlay" style="display:none">
     <div class="overlay-content">
     <ul id='tas_list' data-role='listview' data-theme="e">
-            <li><a href="signIn.html"  data-rel="dialog" data-transition="pop">SIGN IN</a></li>
-            <li><a href="signUp.html"  data-rel="dialog" data-transition="pop">SIGN UP</a></li>
+            <li><a href="signIn.html"  data-transition="slide" >SIGN IN</a></li>
+            <li><a href="signUp.html"  data-transition="slide" >SIGN UP</a></li>
         </ul>
     </div>
 </div>
@@ -156,7 +155,7 @@
 					<div class="ui-body ui-body-d">
 				<select name="select-choice-a"  data-mini="true" id="zone_name">
 							<option>Select City</option>
-						
+							
 				</select>
 					</div>
 				</div>
@@ -261,8 +260,9 @@
 <div data-role="footer" data-position="fixed" class="ui-bar-footerBg">
 	<div class="swiper-nav swiper-container">
 		<div class="swiper-wrapper">
-		
-			<div class="swiper-slide activeMenu"><span><a href="index.html">HOME</a></span></div>		
+			<div class="swiper-slide activeMenu"><span><a href="index.html">HOME</a></span></div>
+		<div class="swiper-slide"><span><a href="profile.html" data-transition="slide">HOW IT WORKS</a></span></div>
+			<div class="swiper-slide"><span><a href="recent.html" data-transition="slide">UPCOMING</a></span></div>
 			<div class="swiper-slide"><span><a href="contact.html" data-transition="slide">CONTACT</a></span></div>
 			<div class="swiper-slide "><span><a href="about.html" data-transition="slide">ABOUT</a></span></div>
 
