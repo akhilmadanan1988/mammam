@@ -34,4 +34,10 @@
     <Capability Name="ID_CAP_NETWORKING" />
 	</Capabilities>
 	
+	
+	  <!-- Splash screen -->
+	<gap:splash src="images/splash/ios/splash.png" gap:platform="ios" width="2048" height="1496" />
+	<gap:splash src="images/splash/ios/splash.png" gap:platform="ios" width="1536" height="2008" />
+	
+	
 	</widget>
