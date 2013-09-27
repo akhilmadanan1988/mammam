@@ -35,9 +35,22 @@
 	</Capabilities>
 	
 	
-	  <!-- Splash screen -->
+	  <!-- Splash screen ios-->
 	<gap:splash src="images/splash/ios/splash.png" gap:platform="ios" width="2048" height="1496" />
 	<gap:splash src="images/splash/ios/splash.png" gap:platform="ios" width="1536" height="2008" />
+	
+	<!-- Splash screen Android-->
+	<gap:splash src="images/splash/Android/drawable-ldpi/splash.png" gap:platform="android" gap:density="ldpi" />
+	<gap:splash src="images/splash/Android/drawable-mdpi/splash.png" gap:platform="android" gap:density="mdpi" />
+	<gap:splash src="images/splash/Android/drawable-hdpi/splash.png" gap:platform="android" gap:density="hdpi" />
+	<gap:splash src="images/splash/Android/drawable-xhdpi/splash.png" gap:platform="android" gap:density="xhdpi" />
+
+	<!-- Splash screen Blackberry-->
+	<gap:splash src="images/splash/bb/splash.png" gap:platform="blackberry" />
+	
+	<!-- Splash screen Windows phone-->
+	<gap:splash src="images/splash/Windows/splash.jpg" gap:platform="winphone" />
+	
 	
 	
 	</widget>

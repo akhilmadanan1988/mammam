@@ -55,33 +55,8 @@
 	$(document).ready(function(){
                   
 				  
-			 getData();
-			
+		
 
 					});
 		
-		function getData()
-		{
 		
-		
-		
-		$.getJSON("http://192.168.1.119:81/mammam/Development/Sites/AdminSite/JSONService/getJson.php?method=getHomePage",function(result){
-			
-			  var obj = result[0].zoneData;
-			
-				   for(var i=0;i<obj.length;i++)
-                        {
-							//alert(obj[i].ZoneName);  
-							$('#zone_name').append('<option value="">'+obj[i].ZoneName+'</option>');
-							
-						}
-						
-						
-			 }).error(function(){
-                                    
-                                   alert("Something wromg happend!!!!"); 
-								   navigator.app.exitApp();
-                               
-							   });
-		
-		}
