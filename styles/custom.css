@@ -748,3 +748,37 @@ margin-top:10px;
 	padding-left:8px;
 	padding-right:8px;
 }
+.customizedHolder,.customizedHolder select{
+	font-weight:normal !important;
+	font-family: 'robotocondensed';
+}
+.customizedHolder .ui-select{
+	margin-bottom:20px; 
+}
+.customizedHolder .ui-body-d,.customizedHolder .ui-overlay-d{
+	background:none!important ;
+	border:none; 
+}
+.customizedHolder .ui-header .ui-btn-inner,.customizedHolder .ui-footer .ui-btn-inner,.customizedHolder .ui-mini .ui-btn-inner{
+	font-weight:normal !important;
+	font-family: 'robotocondensed';
+	font-size:14px;
+}
+.customizedHolder input[type="text"]{
+	border:1px solid silver;
+	background-color:#fff !important; 
+	padding:5px 0;
+	text-align:center;  
+	margin:0; 
+}
+.topLogoArea{
+	text-align:center; 
+}
+.reverseBut{
+	left: -15px !important;
+	top: 30px !important;
+
+}
+.reverseBut .ui-btn-text{
+		font-size: 12px !important;
+}

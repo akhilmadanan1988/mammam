@@ -1,4 +1,17 @@
 
+var app = angular.module('plunker', [], function($routeProvider, $locationProvider) {
+  $routeProvider.otherwise({templateUrl: 'index.html'});
+});
+
+
+app.directive('jqueryMobileTpl', function() {
+  return {
+    link: function(scope, elm, attr) {
+      elm.trigger('create');
+    }
+  };
+});
+
 
 	var devices;
 	document.addEventListener("deviceready", onDeviceReady, false);
@@ -52,11 +65,13 @@
 		
 		}
 		
+		
+		
 	$(document).ready(function(){
                   
 				  
 		
 
-					});
+		});
 		
 		

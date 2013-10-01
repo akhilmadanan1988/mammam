@@ -4,81 +4,22 @@
 	<title>My Page</title> 
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<link rel="stylesheet" href="styles/jquery.mobile-1.2.1.min.css" />
+	<link rel="stylesheet" href="styles/custom.css" />
 	
 		
-	<script src="scripts/jquery-1.8.3.min.js"></script>
-	
-	
-	
-	 <script>
-              $(document).on('pagebeforeshow', '#index', function(){   
-            
-                     $.getScript('scripts/simple-app.js');  
-                    
-                       
-                });
-
-                $(document).on('pagebeforeshow', '#recentPage', function myCallback () { 
-					 $.getScript('scripts/simple-app.js');
-					 
-	
-        	                  
-                });    
-                 $(document).on('pagebeforeshow', '#about', function myCallback () { 
-                 	
-					 $.getScript('scripts/simple-app.js');
-					
-	                  
-                });   
-                 $(document).on('pagebeforeshow', '#checkout', function myCallback () { 
-					 $.getScript('scripts/simple-app.js');
-	                  
-                });     
-                  $(document).on('pagebeforeshow', '#contact', function myCallback () { 
-					 $.getScript('scripts/simple-app.js');
-	                  
-                });   
-                $(document).on('pagebeforeshow', '#productDetail', function myCallback () { 
-					 $.getScript('scripts/simple-app.js');
-	                  
-                }); 
-                $(document).on('pagebeforeshow', '#profile', function myCallback () { 
-					 $.getScript('scripts/simple-app.js');
-	                  
-                }); 
-                $(document).on('pagebeforeshow', '#tabArea', function myCallback () { 
-					 $.getScript('scripts/simple-app.js');
-	
-			        var prevSelection = "tab1";
-			        $("#navbar ul li").live("click",function(){
-			        
-			        	
-			        	var test=$(this).find('span.ui-btn-text').html();
-			        	
-			        	var tabVal=$('.tabValue').html().split('/');
-			        	
-			        	 $('.tabValue').html($('.tabValue').html().replace(tabVal[1],test));
-			        	
-			            var newSelection = $(this).children("a").attr("data-tab-class");
-			            $("."+prevSelection).addClass("ui-screen-hidden");
-			            $("."+newSelection).removeClass("ui-screen-hidden");
-			            prevSelection = newSelection;
-			        });
-
-	                  
-                });       
-    </script>  
-
-	<script src="scripts/jquery.mobile-1.2.1.min.js"></script>
-	<script src="scripts/idangerous.swiper-2.0.min.js"></script>
-	<script src="scripts/simple-app.js"></script>	
-	
-		<!-- scripts for swipe-->
-	<link rel="stylesheet" href="styles/custom.css" />
 	<!--styles for swipe-->
 	<link rel="stylesheet" href="styles/idangerous.swiper.css">
 	<link rel="stylesheet" href="styles/normalize.css">
 	<link rel="stylesheet" href="styles/simple-app.css">
+	
+	<script src="scripts/jquery-1.8.3.min.js"></script>
+	<script src="scripts/jquery.mobile-1.2.1.min.js"></script>
+	
+	<!-- scripts for swipe-->
+	<script src="scripts/idangerous.swiper-2.0.min.js"></script>
+	<script src="scripts/simple-app.js"></script>
+
+
 	<link rel="stylesheet" type="text/css" href="styles/elastislide.css" />
 	<script src="scripts/modernizr.custom.17475.js"></script>
 
@@ -96,13 +37,10 @@
 </style>
 
  <script>
- 
-        $("#show-overlay").live("click",function(e){
-        	 e.stopPropagation();
-        	$(".overlay").toggle(50);
+        $("#show-overlay").live("click",function(){
+            $(".overlay").toggle(50);
         });
         $(".ui-mobile-viewport").live("click",function(event){
-        	
             var target = event.target;
             //Close the overlay if you have clicked on anywhere in body except the overlay itself and the button in header.
             //If the check for button in this if is skipped,you will not be able to show the overlay.Clicking on button in header to close is //handled by previous event handler.
@@ -112,11 +50,10 @@
             
         });
     </script>
-  
 </head> 
 <body> 
 
-<div data-role="page" class="insideSpacing" id="index">
+<div data-role="page" class="insideSpacing">
 <div class="topBorderSeperation">
 	<div data-role="header" class="topLogoArea">
 		<img src="images/logo.png" alt="" width="160" class="logo"/>
@@ -135,18 +72,13 @@
 	<div class="overlay" style="display:none">
     <div class="overlay-content">
     <ul id='tas_list' data-role='listview' data-theme="e">
-    	<li style="text-align:center; ">WELCOME JAMES</li>
-            <li><a href="profile.html"  data-transition="slide" >MY ACCOUNT</a></li>
-            <li><a href="recent.html"  data-transition="slide" >RECENT ORDERS</a></li>
-            <li><a href="index.html"  data-transition="slide" >SIGN OUT</a></li>
+            <li>SIGN IN</li>
+            <li>SIGN UP</li>
+            <li>ITEM 3</li>
+            <li>ITEM 4</li>
         </ul>
     </div>
 </div>
-	
-	
-
-
-
 	
 	<fieldset>
 		<legend>SELECT LOCATION</legend>
@@ -154,7 +86,7 @@
 		<div class="ui-grid-a ui-responsive formOption">
 				<div class="ui-block-a">
 					<div class="ui-body ui-body-d">
-				<select name="select-choice-a"  data-mini="true">
+				<select name="select-choice-a" id="select-choice-a" data-native-menu="false" data-mini="true">
 							<option>City</option>
 							<option value="">City 1</option>
 							<option value="">City 2</option>
@@ -178,7 +110,7 @@
 				
 				<div class="ui-block-b">
 					<div class="ui-body ui-body-d">
-					<select name="select-choice-a" data-mini="true">
+					<select name="select-choice-a" id="select-choice-a" data-native-menu="false" data-mini="true">
 							<option>Area</option>
 							<option value="">Area 1</option>
 							<option value="">Area 2</option>
@@ -210,7 +142,7 @@
 			</div>
 		
 		<div>
-		<select name="select-choice-1"  data-mini="true">
+		<select name="select-choice-a" id="select-choice-a" data-native-menu="false" data-mini="true">
 							<option>Restuarants</option>
 							<option value="">Restuarant 1</option>
 							<option value="">Restuarant 2</option>
@@ -229,16 +161,11 @@
 							<option value="">Restuarant 15</option>
 							<option value="">Restuarant 16</option>
 				</select>
-				
-				
-		
-				
-				
 		</div>	
 		
 		<input type="text" name="name" id="basic" value="" placeholder="Item Name" />	
 		<input type="text" name="name" id="basic" value="" placeholder="Food Description" />	
-		<a href="recentPage.html"  data-transition="slide" ><img src="images/submit_1.png" / width="80"></a>
+		<a href="index.html" onClick="location.href='recentPage.html'" data-transition="slide"><img src="images/submit_1.png" / width="80"></a>
 			
 	</fieldset>	
   
@@ -276,33 +203,28 @@
 <div data-role="footer" data-position="fixed" class="ui-bar-footerBg">
 	<div class="swiper-nav swiper-container">
 		<div class="swiper-wrapper">
-			<div class="swiper-slide activeMenu"><span><a href="index.html">HOME</a></span></div>
-		<div class="swiper-slide"><span><a href="profile.html" data-transition="slide">HOW IT WORKS</a></span></div>
-			<div class="swiper-slide"><span><a href="recent.html" data-transition="slide">UPCOMING</a></span></div>
-			<div class="swiper-slide"><span><a href="contact.html" data-transition="slide">CONTACT</a></span></div>
-			<div class="swiper-slide "><span><a href="about.html" data-transition="slide">ABOUT</a></span></div>
-
+			<div class="swiper-slide activeMenu"><span><a href="#" onClick="location.href='index.html'" >HOME</a></span></div>
+			<div class="swiper-slide"><span>PROFILE</span></div>
+			<div class="swiper-slide"><span>RECENT</span></div>
+			<div class="swiper-slide"><span>CONTACT</span></div>
+			<div class="swiper-slide"><span>ABOUT</span></div>
+			<div class="swiper-slide"><span>GALLERY</span></div>
+			<div class="swiper-slide"><span>SERVICES</span></div>
 		</div>
 	</div>
 	</div><!-- /footer -->
-
 
 	
 
 </div><!-- /page -->
 
-
-
-		
-
 <!-- Placed at the end of the document so the pages load faster -->
- <script type="text/javascript" src="scripts/jquery.elastislide.js"></script>
-<script type="text/javascript">	
-
-//$(document).ready(function() {
-  $( '#carousel' ).elastislide();	
-  console.log($( '#carousel' ));
- // });	
+<script type="text/javascript" src="scripts/jquery.elastislide.js"></script>
+<script type="text/javascript">
+			
+			$( '#carousel' ).elastislide();
+			
 		</script>
+
 </body>
 </html>
