@@ -4,7 +4,7 @@ var root = "http://mammam.biztro.in/AdminSite/JSONService/getJson.php?method=get
 	
 
 
-function getData($http,$scope)
+function honePage($http,$scope)
 {
 	
 		$scope.name = [];
@@ -43,13 +43,41 @@ function getData($http,$scope)
 	
 
 	
-	$scope.onchange = function()
+	$scope.onchangeZone = function()
+			{
+	
+				var citySelect = $('#city');
+				citySelect[0].selectedIndex = 0;
+				citySelect.selectmenu('refresh', true);
+				 $('#submitbtn').html('');
+				//alert($scope.zone_name.Zone);
+	
+			};
+			
+	$scope.onchangeCity = function()
 			{
 	
 				var citySelect = $('#city');
 				citySelect[0].selectedIndex = 0;
 				citySelect.selectmenu('refresh', true);
 				
+				//alert($scope.city_name.city);
+				 $('#submitbtn').html('');
+				
+				$('#submitbtn').append('<a href="restaurants.html?zoneId='+$scope.zone_name.Zone+'&areaId='+$scope.city_name.city+'" data-transition="slide" ><img src="images/submit_1.png" / width="80"></a>')
+	
+			};
+			
+			
+			$scope.onchangeRest = function()
+			{
+	
+			
+				
+				//alert($scope.rest_name.restaurantId);
+				 $('#submitbtn').html('');
+				
+				$('#submitbtn').append('<a href="restaurants.html?zoneId='+$scope.zone_name.Zone+'&areaId='+$scope.city_name.city+'" data-transition="slide" ><img src="images/submit_1.png" / width="80"></a>')
 	
 			};
 	
