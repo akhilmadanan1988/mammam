@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.phonegap.example"
+        versionCode="10" 
+        version   = "1.0.0">
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>PhoneGap Example</name>
+
+    <description>
+        An example for phonegap build docs. 
+    </description>
+
+    <author href="https://build.phonegap.com" email="support@phonegap.com">
+        Hardeep Shoker 
+    </author>
+
+	 <!-- Internet connection -->
+	<feature name="NetworkStatus">
+    <param name="android-package" value="org.apache.cordova.NetworkManager" />
+	</feature>
+	
+	<feature name="Network Status">
+    <param name="blackberry-package" value="org.apache.cordova.network.Network" />
+	</feature>
+	
+	<feature name="NetworkStatus">
+    <param name="ios-package" value="CDVConnection" />
+	</feature>
+	
+	<Capabilities>
+    <Capability Name="ID_CAP_NETWORKING" />
+	</Capabilities>
+	
+	
+	  <!-- Splash screen ios-->
+	<gap:splash src="images/splash/ios/splash.png" gap:platform="ios" width="2048" height="1496" />
+	<gap:splash src="images/splash/ios/splash.png" gap:platform="ios" width="1536" height="2008" />
+	
+	<!-- Splash screen Android-->
+	<gap:splash src="images/splash/Android/drawable-ldpi/splash.png" gap:platform="android" gap:density="ldpi" />
+	<gap:splash src="images/splash/Android/drawable-mdpi/splash.png" gap:platform="android" gap:density="mdpi" />
+	<gap:splash src="images/splash/Android/drawable-hdpi/splash.png" gap:platform="android" gap:density="hdpi" />
+	<gap:splash src="images/splash/Android/drawable-xhdpi/splash.png" gap:platform="android" gap:density="xhdpi" />
+
+	<!-- Splash screen Blackberry-->
+	<gap:splash src="images/splash/bb/splash.png" gap:platform="blackberry" />
+	
+	<!-- Splash screen Windows phone-->
+	<gap:splash src="images/splash/Windows/splash.jpg" gap:platform="winphone" />
+	
+	
+	
+	</widget>
