@@ -1,5 +1,12 @@
 
+<script>
 
+function goBack()
+  {
+  window.history.back()
+  }
+
+</script>
 
 <div data-role="page" class="insideSpacing" id="restaurants"  >
 <div class="topBorderSeperation">
@@ -11,7 +18,7 @@
 	</div>
 		
 
-		<a data-direction="reverse" data-role="button" href="index.html" data-icon="back" data-transition="slide" class="reverseBut">Back</a>
+		<a data-direction="reverse" data-role="button" onClick="goBack()" data-icon="back" data-transition="slide" class="reverseBut">Back</a>
 		
 	</div><!-- /header -->
 	</div>

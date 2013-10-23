@@ -1,3 +1,11 @@
+<script>
+
+	function goBack()
+			{
+				window.history.go(-1);
+			}
+
+</script>
 
 
 <div data-role="page" class="insideSpacing" id="tabArea">
@@ -9,7 +17,7 @@
 		<a name="submit" value="submit-value" id="show-overlay"><img src="images/menu_icon.png"/></a>
 	</div>
 		
- <a data-direction="reverse" data-role="button" href="restaurants.html" data-icon="back" data-transition="slide" class="reverseBut">Back</a>
+ <a data-direction="reverse" data-role="button" onclick="goBack()" data-icon="back" data-transition="slide" class="reverseBut">Back</a>
 		
 	</div><!-- /header -->
 	</div>

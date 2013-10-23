@@ -51,6 +51,10 @@
 	<!-- Splash screen Windows phone-->
 	<gap:splash src="images/splash/Windows/splash.jpg" gap:platform="winphone" />
 	
+	 <!-- icon screen ios-->
+	<icon src="images/icons/ios/icon.png" gap:platform="ios" width="114" height="114" />
 	
+	<!-- icon screen Android-->
+	<icon src="images/icons/Android/icon.png" gap:platform="android" gap:density="xhdpi" />
 	
 	</widget>

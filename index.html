@@ -57,6 +57,7 @@
                 }); 
                 $(document).on('pagebeforeshow', '#tabArea', function myCallback () { 
 					 $.getScript('scripts/simple-app.js');
+					  $.getScript('scripts/rest_menu.js');
 	
 			        var prevSelection = "tab1";
 			        $("#navbar ul li").live("click",function(){
@@ -82,7 +83,7 @@
 	<script src="scripts/idangerous.swiper-2.0.min.js"></script>
 	<script src="scripts/simple-app.js"></script>
 
-	<script src="cordova.js"></script>
+	<!--<script src="cordova.js"></script>-->
 	
 		<!-- scripts for swipe-->
 	<link rel="stylesheet" href="styles/custom.css" />

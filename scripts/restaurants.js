@@ -1,7 +1,8 @@
 
 $(document).ready(function()
                   {
-				  
+			
+			
 				var getdata = window.location.href.slice(window.location.href.indexOf('?')+1).split('&');  
 				
 				var zoneId = getdata[0].split('=')
@@ -10,7 +11,9 @@ $(document).ready(function()
 
   chk();
    function chk(){
-		actionUrl = "http://192.168.1.119:81/mammam/Development/Sites/PublicSite/JSONService/getJson.php";
+   
+
+		actionUrl = "http://192.168.1.119:81/mammam/Development/Sites/PublicSite/json/getJson.php";
 		data = {ajaxRequest:true,method:'getRestaurantList',argumentz:'{"zoneId":"'+zoneId[1]+'","areaId":"'+areaId[1]+'","pageStart":0,"pageLimit":3}'};
 		intiateAjaxRequest("POST", actionUrl, data, res, errorInProcessing);
 	}
