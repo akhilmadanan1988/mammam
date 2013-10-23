@@ -1,14 +1,14 @@
-
-
-
-$(document).ready(function()
-                  {
 	
+$(document).ready(function()
+            
+		{
+	
+
 
 		var getdata = window.location.href.slice(window.location.href.indexOf('?')+1).split('&');  
 		var restId = getdata[0].split('=');
 				
-				alert(restId[1]);
+				
 				
 			 chk();
 		function chk(){
@@ -45,6 +45,7 @@ $(document).ready(function()
 					}
 				
 			}
+		
 		function intiateAjaxRequest(method, url, data, callBackFunction, erroFunction)
 			{
 			$.mobile.loading( "show", {
