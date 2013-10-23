@@ -8,7 +8,7 @@ $(document).ready(function()
 		var getdata = window.location.href.slice(window.location.href.indexOf('?')+1).split('&');  
 		var restId = getdata[0].split('=');
 				
-				//alert(restId[1]);
+				alert(restId[1]);
 				
 			 chk();
 		function chk(){
@@ -16,7 +16,9 @@ $(document).ready(function()
 			data = {ajaxRequest:true,method:'getProductList',argumentz:'{"restaurantId":"'+restId[1]+'","pageStart":0,"pageLimit":3}'};
 			intiateAjaxRequest("POST", actionUrl, data, res, errorInProcessing);
 			}
+		
 		function res(result){
+		
 		$.mobile.loading( "hide" );
 		var obj = (JSON.parse(result))[0].MenuData;
 			
