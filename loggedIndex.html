@@ -1,34 +1,25 @@
 <!DOCTYPE html> 
-<html ng-app> 
+<html> 
 <head> 
 	<title>My Page</title> 
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
-	<!--<link rel="stylesheet" href="styles/jquery.mobile-1.2.1.min.css" />-->
+	<link rel="stylesheet" href="styles/jquery.mobile-1.2.1.min.css" />
 	
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+		
 	<script src="scripts/jquery-1.8.3.min.js"></script>
-	 <script src="scripts/angular.min.js"></script>
+	
 	
 	
 	 <script>
               $(document).on('pagebeforeshow', '#index', function(){   
-				
-                     $.getScript('scripts/simple-app.js');   
-                   
-					
-					
+            
+                     $.getScript('scripts/simple-app.js');  
+                    
                        
                 });
-			
-			$(document).on('pagebeforeshow', '#restaurants' ,function(){
-					
-					
-					   $.getScript('scripts/simple-app.js');   
-					  $.getScript('scripts/restaurants.js');
-  
-			});
-                $(document).on('pagebeforeshow', '#restaurants', function myCallback () { 
-					
+
+                $(document).on('pagebeforeshow', '#recentPage', function myCallback () { 
+					 $.getScript('scripts/simple-app.js');
 					 
 	
         	                  
@@ -80,9 +71,7 @@
 
 	<script src="scripts/jquery.mobile-1.2.1.min.js"></script>
 	<script src="scripts/idangerous.swiper-2.0.min.js"></script>
-	<script src="scripts/simple-app.js"></script>
-
-	<!--<script src="cordova.js"></script>-->
+	<script src="scripts/simple-app.js"></script>	
 	
 		<!-- scripts for swipe-->
 	<link rel="stylesheet" href="styles/custom.css" />
@@ -124,16 +113,11 @@
         });
     </script>
   
- 
-	<script src="scripts/jsonparser.js"></script>
-	
-	<script src="scripts/splash.js"></script>
-		
 </head> 
 <body> 
 
-<div data-role="page" class="insideSpacing" id="index" >
-	<div class="topBorderSeperation">
+<div data-role="page" class="insideSpacing" id="index">
+<div class="topBorderSeperation">
 	<div data-role="header" class="topLogoArea">
 		<img src="images/logo.png" alt="" width="160" class="logo"/>
 		
@@ -146,47 +130,76 @@
 	</div><!-- /header -->
 	</div>
 
-	<div data-role="content" class="innerForm"  ng-controller="homePage">	
+	<div data-role="content" class="innerForm">	
 	
 	<div class="overlay" style="display:none">
     <div class="overlay-content">
     <ul id='tas_list' data-role='listview' data-theme="e">
-            <li><a href="signIn.html"  data-transition="slide" >SIGN IN</a></li>
-            <li><a href="signUp.html"  data-transition="slide" >SIGN UP</a></li>
+    	<li style="text-align:center; ">WELCOME JAMES</li>
+            <li><a href="profile.html"  data-transition="slide" >MY ACCOUNT</a></li>
+            <li><a href="recent.html"  data-transition="slide" >RECENT ORDERS</a></li>
+            <li><a href="index.html"  data-transition="slide" >SIGN OUT</a></li>
         </ul>
     </div>
-	</div>
+</div>
 	
 	
 
-		
+
+
 	
 	<fieldset>
 		<legend>SELECT LOCATION</legend>
 		
-		<div class="ui-grid-a ui-responsive formOption"  >
-				<div class="ui-block-a" >
+		<div class="ui-grid-a ui-responsive formOption">
+				<div class="ui-block-a">
 					<div class="ui-body ui-body-d">
-				<select  data-mini="true" ng-model="zone_name" ng-options="c.ZoneName for c in zonedata" ng-change="onchangeZone()" >
-						
-						<option value="" >Select Zone </option>
-							
+				<select name="select-choice-a"  data-mini="true">
+							<option>City</option>
+							<option value="">City 1</option>
+							<option value="">City 2</option>
+							<option value="">City 3</option>
+							<option value="">City 4</option>
+							<option value="">City 5</option>
+							<option value="">City 6</option>
+							<option value="">City 7</option>
+							<option value="">City 8</option>
+							<option value="">City 9</option>
+							<option value="">City 10</option>
+							<option value="">City 11</option>
+							<option value="">City 12</option>
+							<option value="">City 13</option>
+							<option value="">City 14</option>
+							<option value="">City 15</option>
+							<option value="">City 16</option>
 				</select>
 					</div>
 				</div>
 				
 				<div class="ui-block-b">
 					<div class="ui-body ui-body-d">
-					<select  data-mini="true" id="city" ng-model="city_name" ng-options="d.cityname  for d in zone_name.Citys" ng-change="onchangeCity()">
-							
-								<option value="" selected="selected">Select City</option>
-							
-					</select>	
-					
+					<select name="select-choice-a" data-mini="true">
+							<option>Area</option>
+							<option value="">Area 1</option>
+							<option value="">Area 2</option>
+							<option value="">Area 3</option>
+							<option value="">Area 4</option>
+							<option value="">Area 5</option>
+							<option value="">Area 6</option>
+							<option value="">Area 7</option>
+							<option value="">Area 8</option>
+							<option value="">Area 9</option>
+							<option value="">Area 10</option>
+							<option value="">Area 11</option>
+							<option value="">Area 12</option>
+							<option value="">Area 13</option>
+							<option value="">Area 14</option>
+							<option value="">Area 15</option>
+							<option value="">Area 16</option>
+				</select>	
+
 					</div>
 				</div>
-				
-				
 		</div>
 		
 		
@@ -194,24 +207,39 @@
 		
 		<div class="centerText">
 				<h5><span>OR SEARCH WITH</span></h5>
-		</div>
+			</div>
 		
 		<div>
-				<select name="select-choice-1"  data-mini="true"  ng-model="rest_name" ng-options="e.restaurantName for e in rest" ng-change="onchangeRest()">
-							
-							<option value="">Select Restuarant</option>
-						
+		<select name="select-choice-1"  data-mini="true">
+							<option>Restuarants</option>
+							<option value="">Restuarant 1</option>
+							<option value="">Restuarant 2</option>
+							<option value="">Restuarant 3</option>
+							<option value="">Restuarant 4</option>
+							<option value="">Restuarant 5</option>
+							<option value="">Restuarant 6</option>
+							<option value="">Restuarant 7</option>
+							<option value="">Restuarant 8</option>
+							<option value="">Restuarant 9</option>
+							<option value="">Restuarant 10</option>
+							<option value="">Restuarant 11</option>
+							<option value="">Restuarant 12</option>
+							<option value="">Restuarant 13</option>
+							<option value="">Restuarant 14</option>
+							<option value="">Restuarant 15</option>
+							<option value="">Restuarant 16</option>
 				</select>
 				
-			
+				
+		
+				
 				
 		</div>	
 		
 		<input type="text" name="name" id="basic" value="" placeholder="Item Name" />	
 		<input type="text" name="name" id="basic" value="" placeholder="Food Description" />	
-		<div id="submitbtn">
-		
-		</div>	
+		<a href="recentPage.html"  data-transition="slide" ><img src="images/submit_1.png" / width="80"></a>
+			
 	</fieldset>	
   
 	<div class="sectionBorder">
@@ -271,10 +299,10 @@
  <script type="text/javascript" src="scripts/jquery.elastislide.js"></script>
 <script type="text/javascript">	
 
-$(document).ready(function() {
+//$(document).ready(function() {
   $( '#carousel' ).elastislide();	
-
- });	
+  console.log($( '#carousel' ));
+ // });	
 		</script>
 </body>
 </html>
