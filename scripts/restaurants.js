@@ -56,24 +56,14 @@ $(document).ready(function()
 						for(var i=0;i<obj.length;i++)
 						{
 							
-							if((obj[i].RestaurantLogo).indexOf("http") != -1)
-							{
-                           //alert(obj[i].RestaurantId);
-                           $('#list_view').append('<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="tabArea.html?restId='+obj[i].RestaurantId+'" data-transition="slide" class="ui-link-inherit"><img src="images/OUR PARTNERS_logo_2.png" class="ui-li-thumb"><h3 class="ui-li-heading">'+obj[i].RestaurantName+'</h3><p class="ui-li-desc">Delivery Fee:<span>Free</span>  <em>Rating: <img src="images/star_1.png"> <img src="images/star_1.png"> <img src="images/star_1.png"> <img src="images/star_1.png"> <img src="images/star_2.png"></em> </p>	</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>');
-                           
-                           // i = i + 2;
-							}  
 							
-							else
-							{
 						
-                           //alert(obj[i].RestaurantId);
-                           $('#list_view').append('<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="tabArea.html?restId='+obj[i].RestaurantId+'" data-transition="slide" class="ui-link-inherit"><img src="images/placeholder.png" class="ui-li-thumb"><h3 class="ui-li-heading">'+obj[i].RestaurantName+'</h3><p class="ui-li-desc">Delivery Fee:<span>Free</span>  <em>Rating: <img src="images/star_1.png"> <img src="images/star_1.png"> <img src="images/star_1.png"> <img src="images/star_1.png"> <img src="images/star_2.png"></em> </p>	</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>');
+						//alert((obj[i].RestaurantLogo));
+                           $('#list_view').append('<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="tabArea.html?restId='+obj[i].RestaurantId+'&restName='+obj[i].RestaurantName+'" data-transition="slide" class="ui-link-inherit"><img src="'+imgURL+obj[i].RestaurantLogo+'"  onerror=this.src="images/placeholder.png"; class="ui-li-thumb"><h3 class="ui-li-heading">'+obj[i].RestaurantName+'</h3><p class="ui-li-desc">Delivery Fee:<span>Free</span>  <em>Rating: <img src="images/star_1.png"> <img src="images/star_1.png"> <img src="images/star_1.png"> <img src="images/star_1.png"> <img src="images/star_2.png"></em> </p>	</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>');
                            
                            // i = i + 2;
 							
 						
-							}
 						
 						}	
 						
