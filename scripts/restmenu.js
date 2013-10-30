@@ -5,7 +5,7 @@
 	var menuQty;
 	var menuPrice;
 	var total;
-	alert("inside");
+	
 $(document).ready(function()
          {
 	
