@@ -61,12 +61,23 @@ app.directive('jqueryMobileTpl', function() {
 		function deviceinfo()
 		{
 				var dev = device.platform;	
-					alert(dev); 
-		
+					//alert(dev); 
+				
+				database();
 		}
 		
+		function database()
+		{
+		var db = window.openDatabase("db_mammam", "1.0", "Mammam DB", 1000000);
+		 
+		}
 		
+		function populateDB(tx) 
+			{
+			tx.executeSql('DROP TABLE IF EXISTS CART');
 		
+			
+			}
 	$(document).ready(function(){
                   
 				  

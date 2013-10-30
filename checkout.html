@@ -1,6 +1,5 @@
 
-
-<div data-role="page" class="insideSpacing" id="checkout">
+<div data-role="page" class="insideSpacing" id="profile">
 <div class="topBorderSeperation">
 	<div data-role="header" class="topLogoArea">
 		<img src="images/logo.png" alt="" width="160" class="logo"/>
@@ -9,16 +8,16 @@
 		<a name="submit" value="submit-value" id="show-overlay"><img src="images/menu_icon.png"/></a>
 	</div>
 		
- <a data-direction="reverse" data-role="button" href="tabArea.html" data-icon="back" data-transition="slide" class="reverseBut">Back</a>
+ <a data-direction="reverse" data-role="button" href="checkout.html" data-icon="back" data-transition="slide" class="reverseBut">Back</a>
 		
 	</div><!-- /header -->
 	</div>
 
-	<div data-role="content" class="innerForm checkoutHolder">	
+	<div data-role="content" class="innerForm contactFrm">	
 	
 	<div class="overlay" style="display:none">
     <div class="overlay-content">
-    <ul id='tas_list' data-role='listview' data-theme="e">
+   <ul id='tas_list' data-role='listview' data-theme="e">
             <li><a href="signIn.html"  data-transition="slide" >SIGN IN</a></li>
             <li><a href="signUp.html"  data-transition="slide" >SIGN UP</a></li>
         </ul>
@@ -26,308 +25,191 @@
 </div>
 	
 	
-	<fieldset class="topBorderSeperation">
-		<legend style="float:left;">MY BASKET</legend>
-		<a href="finalCart.html" data-transition="slide" data-transition="slide" class="ui-link actionBut"><input type="submit" value="CHECKOUT"></a>
+	<fieldset>
+		<legend>ORDER SUMMARY</legend>
 			</fieldset>	
 
-		
-		<div class="content-primary  menuListing">
-		
-		<ul data-role="listview">
-				<li><a href="productDetail.html" data-transition="slide" style="padding-top:0;float:left; ">
-				<img src="images/chicken.png" /></a>
-				<h3>BURGER SPECIALITIES</h3>
-				
-					
-			<div class="ui-grid-a ui-responsive ">
-				<div class="ui-block-a">
-					<div class="ui-body ui-body-d centerAlign" style="padding-top:0 ">
-					<span>&nbsp;</span>
-					<div class="ui-grid-b ui-responsive">
-						<a href="#positionWindow" data-inline="true" data-rel="popup" data-position-to="window" style="text-decoration:none;">
-							<b style="color:#0902AD;">CUSTOMIZE</b>
-						</a>
-						
-						
-		<div data-role="popup" id="positionWindow" class="ui-content" style="width:250px;">
-			<a  data-rel="back" data-role="button" data-theme="a" data-icon="delete"  data-iconpos="notext" class="ui-btn-left">Close</a>
-			
-			<div class="ui-bar customizedHolder">
-				<label for="select-pizza-size" class="select">Select Item Size</label>
-				<br>
-					<select name="select-choice-a"  data-mini="true">
-							<option>Large - Rs 205</option>
-							<option>Small - Rs 105</option>
-				</select>
-				
-				
-				<label for="select-pizza-size" class="select">Select Your Extra Toppings</label>
-				<br>
-					<select name="select-choice-a"  data-mini="true">
-							<option>Veg</option>
-							<option>Non-Veg</option>
-				</select>
-				
-				<div class="ui-grid-b ui-responsive">
-						<div class="ui-block-a"><div class="ui-body ui-body-d" style="text-align:right; "><img src="images/minus.png" style="margin-right:2px; "></div></div>
-						<div class="ui-block-b"><div class="ui-body ui-body-d"><input type="text" value="2" /></div></div>
-						<div class="ui-block-c"><div class="ui-body ui-body-d" style="text-align:left; "><img src="images/plus.png" style="margin-left:2px; "></div></div>
-					</div><!-- /grid-b -->
-				<div style="text-align:center;margin-top:10px; ">
-				<label class="select">Price: Rs 150</label>
-				</div>
-			</div>
-			
-		</div>
-		
-					</div><!-- /grid-b -->
-							
-					</div>
-				</div>
-				<div class="ui-block-b"><div class="ui-body ui-body-d centerAlign" style="padding-top:0 ">
-				<span style="margin-left: 20px;"><b>&nbsp;</b></span>
-			<div class="ui-grid-b ui-responsive">
-						<div class="ui-block-a"><div class="ui-body ui-body-d" style="text-align:right; ">&nbsp;</div></div>
-						<div class="ui-block-b"><div class="ui-body ui-body-d" style="width:200%;margin-top:5px;"><b>&nbsp;</b></div></div>
-						<div class="ui-block-c"><div class="ui-body ui-body-d" style="text-align:left; ">&nbsp;</div></div>
-			</div><!-- /grid-b -->
-					
-				</div></div>
-			</div><!-- /grid-a -->
-					
-					
-				
-				</li>	
 
+		
+<div class="spacingHolder">
 
-          		<li><a href="productDetail.html" data-transition="slide" style="padding-top:0;float:left; ">
-				<img src="images/chicken.png" /></a>
-				<h3>BURGER SPECIALITIES</h3>
-				
-					
-			<div class="ui-grid-a ui-responsive ">
-				<div class="ui-block-a">
-					<div class="ui-body ui-body-d centerAlign" style="padding-top:0 ">
-					<span><b>Quantity</b></span>
-					<div class="ui-grid-b ui-responsive">
-						<div class="ui-block-a"><div class="ui-body ui-body-d" style="text-align:right; "><img src="images/minus.png" style="margin-right:2px; "></div></div>
-						<div class="ui-block-b"><div class="ui-body ui-body-d"><input type="text" value="2" /></div></div>
-						<div class="ui-block-c"><div class="ui-body ui-body-d" style="text-align:left; "><img src="images/plus.png" style="margin-left:2px; "></div></div>
-					</div><!-- /grid-b -->
-							
-					</div>
-				</div>
-				<div class="ui-block-b"><div class="ui-body ui-body-d centerAlign" style="padding-top:0 ">
-				<span style="margin-left: 20px;"><b>MRP</b></span>
-			<div class="ui-grid-b ui-responsive">
-						<div class="ui-block-a"><div class="ui-body ui-body-d" style="text-align:right; ">&nbsp;</div></div>
-						<div class="ui-block-b"><div class="ui-body ui-body-d" style="width:200%;margin-top:5px;"><b>125.00</b></div></div>
-						<div class="ui-block-c"><div class="ui-body ui-body-d" style="text-align:left; ">&nbsp;</div></div>
-			</div><!-- /grid-b -->
-					
-				</div></div>
-			</div><!-- /grid-a -->
-					
-					
-				
-				</li>	
-				
-				
-							<li><a href="productDetail.html" data-transition="slide" style="padding-top:0;float:left; ">
-				<img src="images/chicken.png" /></a>
-				<h3>BURGER SPECIALITIES</h3>
-				
-					
-			<div class="ui-grid-a ui-responsive ">
-				<div class="ui-block-a">
-					<div class="ui-body ui-body-d centerAlign" style="padding-top:0 ">
-					<span><b>Quantity</b></span>
-					<div class="ui-grid-b ui-responsive">
-						<div class="ui-block-a"><div class="ui-body ui-body-d" style="text-align:right; "><img src="images/minus.png" style="margin-right:2px; "></div></div>
-						<div class="ui-block-b"><div class="ui-body ui-body-d"><input type="text" value="2" /></div></div>
-						<div class="ui-block-c"><div class="ui-body ui-body-d" style="text-align:left; "><img src="images/plus.png" style="margin-left:2px; "></div></div>
-					</div><!-- /grid-b -->
-							
-					</div>
-				</div>
-				<div class="ui-block-b"><div class="ui-body ui-body-d centerAlign" style="padding-top:0 ">
-				<span style="margin-left: 20px;"><b>MRP</b></span>
-			<div class="ui-grid-b ui-responsive">
-						<div class="ui-block-a"><div class="ui-body ui-body-d" style="text-align:right; ">&nbsp;</div></div>
-						<div class="ui-block-b"><div class="ui-body ui-body-d" style="width:200%;margin-top:5px;"><b>125.00</b></div></div>
-						<div class="ui-block-c"><div class="ui-body ui-body-d" style="text-align:left; ">&nbsp;</div></div>
-			</div><!-- /grid-b -->
-					
-				</div></div>
-			</div><!-- /grid-a -->
-					
-					
-				
-				</li>	
-		
-				
-				
-				
-				<li><a href="productDetail.html" data-transition="slide" style="padding-top:0;float:left; ">
-				<img src="images/chicken.png" /></a>
-				<h3>BURGER SPECIALITIES</h3>
-				
-					
-			<div class="ui-grid-a ui-responsive ">
-				<div class="ui-block-a">
-					<div class="ui-body ui-body-d centerAlign" style="padding-top:0 ">
-					<span><b>Quantity</b></span>
-					<div class="ui-grid-b ui-responsive">
-						<div class="ui-block-a"><div class="ui-body ui-body-d" style="text-align:right; "><img src="images/minus.png" style="margin-right:2px; "></div></div>
-						<div class="ui-block-b"><div class="ui-body ui-body-d"><input type="text" value="2" /></div></div>
-						<div class="ui-block-c"><div class="ui-body ui-body-d" style="text-align:left; "><img src="images/plus.png" style="margin-left:2px; "></div></div>
-					</div><!-- /grid-b -->
-							
-					</div>
-				</div>
-				<div class="ui-block-b"><div class="ui-body ui-body-d centerAlign" style="padding-top:0 ">
-				<span style="margin-left: 20px;"><b>MRP</b></span>
-			<div class="ui-grid-b ui-responsive">
-						<div class="ui-block-a"><div class="ui-body ui-body-d" style="text-align:right; ">&nbsp;</div></div>
-						<div class="ui-block-b"><div class="ui-body ui-body-d" style="width:200%;margin-top:5px;"><b>125.00</b></div></div>
-						<div class="ui-block-c"><div class="ui-body ui-body-d" style="text-align:left; ">&nbsp;</div></div>
-			</div><!-- /grid-b -->
-					
-				</div></div>
-			</div><!-- /grid-a -->
-					
-					
-				
-				</li>	
-				
-				
-				
-				<li><a href="productDetail.html" data-transition="slide" style="padding-top:0;float:left; ">
-				<img src="images/chicken.png" /></a>
-				<h3>BURGER SPECIALITIES</h3>
-				
-					
-			<div class="ui-grid-a ui-responsive ">
-				<div class="ui-block-a">
-					<div class="ui-body ui-body-d centerAlign" style="padding-top:0 ">
-					<span><b>Quantity</b></span>
-					<div class="ui-grid-b ui-responsive">
-						<div class="ui-block-a"><div class="ui-body ui-body-d" style="text-align:right; "><img src="images/minus.png" style="margin-right:2px; "></div></div>
-						<div class="ui-block-b"><div class="ui-body ui-body-d"><input type="text" value="2" /></div></div>
-						<div class="ui-block-c"><div class="ui-body ui-body-d" style="text-align:left; "><img src="images/plus.png" style="margin-left:2px; "></div></div>
-					</div><!-- /grid-b -->
-							
-					</div>
-				</div>
-				<div class="ui-block-b"><div class="ui-body ui-body-d centerAlign" style="padding-top:0 ">
-				<span style="margin-left: 20px;"><b>MRP</b></span>
-			<div class="ui-grid-b ui-responsive">
-						<div class="ui-block-a"><div class="ui-body ui-body-d" style="text-align:right; ">&nbsp;</div></div>
-						<div class="ui-block-b"><div class="ui-body ui-body-d" style="width:200%;margin-top:5px;"><b>125.00</b></div></div>
-						<div class="ui-block-c"><div class="ui-body ui-body-d" style="text-align:left; ">&nbsp;</div></div>
-			</div><!-- /grid-b -->
-					
-				</div></div>
-			</div><!-- /grid-a -->
-					
-					
-				
-				</li>	
-				
-				
-				
-					<li><a href="productDetail.html" data-transition="slide" style="padding-top:0;float:left; ">
-				<img src="images/chicken.png" /></a>
-				<h3>BURGER SPECIALITIES</h3>
-				
-					
-			<div class="ui-grid-a ui-responsive ">
-				<div class="ui-block-a">
-					<div class="ui-body ui-body-d centerAlign" style="padding-top:0 ">
-					<span><b>Quantity</b></span>
-					<div class="ui-grid-b ui-responsive">
-						<div class="ui-block-a"><div class="ui-body ui-body-d" style="text-align:right; "><img src="images/minus.png" style="margin-right:2px; "></div></div>
-						<div class="ui-block-b"><div class="ui-body ui-body-d"><input type="text" value="2" /></div></div>
-						<div class="ui-block-c"><div class="ui-body ui-body-d" style="text-align:left; "><img src="images/plus.png" style="margin-left:2px; "></div></div>
-					</div><!-- /grid-b -->
-							
-					</div>
-				</div>
-				<div class="ui-block-b"><div class="ui-body ui-body-d centerAlign" style="padding-top:0 ">
-				<span style="margin-left: 20px;"><b>MRP</b></span>
-			<div class="ui-grid-b ui-responsive">
-						<div class="ui-block-a"><div class="ui-body ui-body-d" style="text-align:right; ">&nbsp;</div></div>
-						<div class="ui-block-b"><div class="ui-body ui-body-d" style="width:200%;margin-top:5px;"><b>125.00</b></div></div>
-						<div class="ui-block-c"><div class="ui-body ui-body-d" style="text-align:left; ">&nbsp;</div></div>
-			</div><!-- /grid-b -->
-					
-				</div></div>
-			</div><!-- /grid-a -->
-					
-					
-				
-				</li>	
-				
-				
-					<li><a href="productDetail.html" data-transition="slide" style="padding-top:0;float:left; ">
-				<img src="images/chicken.png" /></a>
-				<h3>BURGER SPECIALITIES</h3>
-				
-					
-			<div class="ui-grid-a ui-responsive ">
-				<div class="ui-block-a">
-					<div class="ui-body ui-body-d centerAlign" style="padding-top:0 ">
-					<span><b>Quantity</b></span>
-					<div class="ui-grid-b ui-responsive">
-						<div class="ui-block-a"><div class="ui-body ui-body-d" style="text-align:right; "><img src="images/minus.png" style="margin-right:2px; "></div></div>
-						<div class="ui-block-b"><div class="ui-body ui-body-d"><input type="text" value="2" /></div></div>
-						<div class="ui-block-c"><div class="ui-body ui-body-d" style="text-align:left; "><img src="images/plus.png" style="margin-left:2px; "></div></div>
-					</div><!-- /grid-b -->
-							
-					</div>
-				</div>
-				<div class="ui-block-b"><div class="ui-body ui-body-d centerAlign" style="padding-top:0 ">
-				<span style="margin-left: 20px;"><b>MRP</b></span>
-			<div class="ui-grid-b ui-responsive">
-						<div class="ui-block-a"><div class="ui-body ui-body-d" style="text-align:right; ">&nbsp;</div></div>
-						<div class="ui-block-b"><div class="ui-body ui-body-d" style="width:200%;margin-top:5px;"><b>125.00</b></div></div>
-						<div class="ui-block-c"><div class="ui-body ui-body-d" style="text-align:left; ">&nbsp;</div></div>
-			</div><!-- /grid-b -->
-					
-				</div></div>
-			</div><!-- /grid-a -->
-					
-					
-				
-				</li>			
-				
-			
-					
-					</ul>
-		
-		
-		
-		
-		
-		</div><!--/content-primary -->	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-  
-
+	<div class="ui-grid-c cartHeader topBorderSeperation">
+		<div class="ui-block-a">Items</div>
+		<div class="ui-block-b" style="text-align:center;">Price</div>
+		<div class="ui-block-c" style="text-align:center;">Quantity</div>
+		<div class="ui-block-d" style="margin-bottom:10px;text-align:right ">Sub Total</div>
+	</div>
 	
-		
-		
+    <div id="items">
+    	<div class="ui-grid-c" style="border-bottom:1px dashed #aaaaaa;font-size:14px;margin-top:10px;">
+    		<div class="ui-block-a" style="text-align:left;">
+    			Butter Roti
+    		</div>
+    	<div class="ui-block-b" style="text-align:center;">
+    		Rs 18
+    	</div>
+    	
+    	<div class="ui-block-c" style="text-align:center;">
+    		1
+    	</div>
+    	
+    	<div class="ui-block-d" style="margin-bottom:10px;text-align:right; ">
+    		18
+    	</div>
+    	
+    </div>
+    
+    
+    	<div class="ui-grid-c" style="border-bottom:1px dashed #aaaaaa;font-size:14px;margin-top:10px;">
+    		<div class="ui-block-a" style="text-align:left;">
+    			Butter Roti
+    		</div>
+    	<div class="ui-block-b" style="text-align:center;">
+    		Rs 18
+    	</div>
+    	
+    	<div class="ui-block-c" style="text-align:center;">
+    		2
+    	</div>
+    	
+    	<div class="ui-block-d" style="margin-bottom:10px;text-align:right; ">
+    		36
+    	</div>
+    	
+    </div>
+    
+    
+    	<div class="ui-grid-c" style="border-bottom:1px dashed #aaaaaa;font-size:14px;margin-top:10px;">
+    		<div class="ui-block-a" style="text-align:left;">
+    			Butter Roti
+    		</div>
+    	<div class="ui-block-b" style="text-align:center;">
+    		Rs 18
+    	</div>
+    	
+    	<div class="ui-block-c" style="text-align:center;">
+    		1
+    	</div>
+    	
+    	<div class="ui-block-d" style="margin-bottom:10px;text-align:right; ">
+    		18
+    	</div>
+    	
+    </div>
+    
+    
+    	<div class="ui-grid-c" style="border-bottom:1px dashed #aaaaaa;font-size:14px;margin-top:10px;">
+    		<div class="ui-block-a" style="text-align:left;">
+    			Butter Roti
+    		</div>
+    	<div class="ui-block-b" style="text-align:center;">
+    		Rs 10
+    	</div>
+    	
+    	<div class="ui-block-c" style="text-align:center;">
+    		2
+    	</div>
+    	
+    	<div class="ui-block-d" style="margin-bottom:10px;text-align:right; ">
+    		20
+    	</div>
+    	
+    </div>
+    
+    
+    	<div class="ui-grid-c" style="border-bottom:1px dashed #aaaaaa;font-size:14px;margin-top:10px;">
+    		<div class="ui-block-a" style="text-align:left;">
+    			Butter Roti
+    		</div>
+    	<div class="ui-block-b" style="text-align:center;">
+    		Rs 180
+    	</div>
+    	
+    	<div class="ui-block-c" style="text-align:center;">
+    		10
+    	</div>
+    	
+    	<div class="ui-block-d" style="margin-bottom:10px;text-align:right; ">
+    		1800
+    	</div>
+    	
+    </div>
+    
+    	<div class="ui-grid-c" style="border-bottom:1px dashed #aaaaaa;font-size:14px;margin-top:10px;">
+    		<div class="ui-block-a" style="text-align:left;">
+    			Butter Roti
+    		</div>
+    	<div class="ui-block-b" style="text-align:center;">
+    		Rs 18
+    	</div>
+    	
+    	<div class="ui-block-c" style="text-align:center;">
+    		1
+    	</div>
+    	
+    	<div class="ui-block-d" style="margin-bottom:10px;text-align:right; ">
+    		18
+    	</div>
+    	
+    </div>
+    
+	<div data-theme="f" class="ui-bar ui-grid-a" style="margin-top:10px;">
+		<div class="ui-block-a" style="text-align:right;width:75%">Sub-total : &nbsp;</div>	 
+		<div class="ui-block-b" style="text-align:left;width:25%">
+            <img src="http://static1.justeat.in/assets/images/mobile/rupee-symbol.png" height="10px"> <span id="subtotal">268.00</span>
+        </div>
+	</div>
+	<div data-theme="f" class="ui-bar ui-grid-a">
+		<div class="ui-block-a" style="text-align:right;width:75%">Taxes : &nbsp;</div>	 
+		<div class="ui-block-b" style="text-align:left;width:25%">
+            <img src="http://static1.justeat.in/assets/images/mobile/rupee-symbol.png" height="10px">
+            <span id="tax">0.00</span>
+        </div>
+	</div>
+	<div data-theme="f" class="ui-bar ui-grid-a">
+		<div class="ui-block-a" style="text-align:right;width:75%">Container Charges : &nbsp;</div>	 
+		<div class="ui-block-b" style="text-align:left;width:25%">
+            <img src="http://static1.justeat.in/assets/images/mobile/rupee-symbol.png" height="10px">
+            <span id="container_charges">0.00</span>
+        </div>
+	</div>
+	<div data-theme="f" class="ui-bar ui-grid-a">
+		<div class="ui-block-a" style="text-align:right;width:75%">Delivery Charges : &nbsp;</div>	 
+		<div class="ui-block-b" style="text-align:left;width:25%">
+            <img src="http://static1.justeat.in/assets/images/mobile/rupee-symbol.png" height="10px">
+            <span id="delivery_charges">0.00</span>
+        </div>
+	</div>
+	<div data-theme="f" class="ui-bar ui-grid-a">
+		<div class="ui-block-a" style="text-align:right;width:75%">Total : &nbsp;</div>	 
+		<div class="ui-block-b" style="text-align:left;width:25%">
+            <img src="http://static1.justeat.in/assets/images/mobile/rupee-symbol.png" height="10px">
+            <span id="grand_total">268.00</span>
+        </div>
+	</div>
+	<div class="ui-grid-a" style="margin-bottom:15px; ">
+		<div class="ui-block-a">
+          
+            	<div data-role="fieldcontain">
+                    
+                        <a href="#" data-transition="slide" data-ajax="false" class="ui-link actionBut"><input type="submit" value="EDIT ORDER"></a>
+					</div>
+					
+					
+        </div>
+		<div class="ui-block-b">
+         
+			<div data-role="fieldcontain">
+                    
+                        <a href="#" data-transition="slide" data-ajax="false" class="ui-link actionBut"><input type="submit" value="ORDER NOW"></a>
+					</div>
+					
+        </div>	   
+	</div>
 
-		
-		
+</div>
+
+
 		
 	</div><!-- /content -->
 	
@@ -335,17 +217,16 @@
 <div data-role="footer" data-position="fixed" class="ui-bar-footerBg">
 	<div class="swiper-nav swiper-container">
 		<div class="swiper-wrapper">
-			<div class="swiper-slide"><span><a href="index.html"  data-transition="slide" data-transition="slide">HOME</a></span></div>
+			<div class="swiper-slide"><span><a href="index.html"  data-transition="slide" >HOME</a></span></div>
 			<div class="swiper-slide"><span><a href="profile.html" data-transition="slide">PROFILE</a></span></div>
-				<div class="swiper-slide"><span><a href="recent.html" data-transition="slide">RECENT</a></span></div>
+			<div class="swiper-slide"><span>RECENT</span></div>
 			<div class="swiper-slide"><span><a href="contact.html" data-transition="slide">CONTACT</a></span></div>
 			<div class="swiper-slide"><span><a href="about.html" data-transition="slide">ABOUT</a></span></div>
-</div>
+
+		</div>
 	</div>
 	</div><!-- /footer -->
 
 	
 
 </div><!-- /page -->
-
-<!-- Placed at the end of the document so the pages load faster -->

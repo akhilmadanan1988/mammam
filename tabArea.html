@@ -56,7 +56,7 @@
                 }); 
                 $(document).on('pagebeforeshow', '#tabArea', function myCallback () { 
 					 $.getScript('scripts/simple-app.js');
-					  $.getScript('scripts/restmenu.js');
+					 
 	
 			        var prevSelection = "tab1";
 			        $("#navbar ul li").live("click",function(){
@@ -72,6 +72,7 @@
 			            $("."+prevSelection).addClass("ui-screen-hidden");
 			            $("."+newSelection).removeClass("ui-screen-hidden");
 			            prevSelection = newSelection;
+						
 			        });
 
 	                  
@@ -83,7 +84,7 @@
 	<script src="scripts/simple-app.js"></script>
 	<script src="scripts/appVariable.js"></script>
 
-	<script src="cordova.js"></script>
+	<!--<script src="cordova.js"></script>-->
 	
 		<!-- scripts for swipe-->
 	<link rel="stylesheet" href="styles/custom.css" />
@@ -127,7 +128,7 @@
   
  
 	<script src="scripts/jsonparser.js"></script>
-	
+		<script src="scripts/addTocart.js"></script>
 	<script src="scripts/splash.js"></script>
 		
 </head> 

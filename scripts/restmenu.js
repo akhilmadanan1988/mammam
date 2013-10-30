@@ -1,4 +1,10 @@
 	
+	var obj;
+	var menuId;
+	var menuName;
+	var menuQty;
+	var menuPrice;
+	var total;
 $(document).ready(function()
          {
 	
@@ -8,9 +14,11 @@ $(document).ready(function()
 		var restId = getdata[0].split('=');
 		var restName = getdata[1].split('=');
 		
-		//alert(restName[1]);
+		
+		
+		//alert(decodeURI(restName[1]));
 				
-			$('#restName').append(restName[1]+' / MENU');	
+			$('#restName').append(decodeURI(restName[1])+' / MENU');	
 			
 			 chk();
 		function chk(){
@@ -22,7 +30,7 @@ $(document).ready(function()
 		function res(result){
 		
 		$.mobile.loading( "hide" );
-		var obj = (JSON.parse(result))[0].MenuData;
+		 obj = (JSON.parse(result))[0].MenuData;
 			
 		//alert(obj[0].RestaurantName);
 	//IsValidImageUrl("https://www.google.com/logos/2012/hertz-2011-hp.gif")
@@ -30,7 +38,7 @@ $(document).ready(function()
 	//sValidImageUrl("http://google.com");
 			
 		
-
+	
 
 				if(obj.length>0)
 					{
@@ -40,7 +48,7 @@ $(document).ready(function()
 						
 											
 							
-							$('#rest_menu_list').append('<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="productDetail.html" data-transition="slide" style="padding-top:0;float:left; " class="ui-link-inherit"><img src="'+imgURL+obj[i].MenuImage+'"  onerror=this.src="images/placeholder.png";  class="ui-li-thumb"></a>	<h3 class="ui-li-heading">'+obj[i].MenuName+'</h3>	<p class="reviewContent ui-li-desc">'+obj[i].MenuDesc+'</p> <p class="menuRateSecton ui-li-desc"><span>Rs. '+obj[i].MenuPrice +'</span><a href="checkout.html" data-transition="slide" class="ui-link"><img src="images/cart.png"></a> </p> </div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>');
+							$('#rest_menu_list').append('<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="productDetail.html" data-transition="slide" style="padding-top:0;float:left; " class="ui-link-inherit"><img src="'+imgURL+obj[i].MenuImage+'"  onerror=this.src="images/placeholder.png";  class="ui-li-thumb"></a>	<h3 class="ui-li-heading">'+obj[i].MenuName+'</h3>	<p class="reviewContent ui-li-desc">'+obj[i].MenuDesc+'</p> <p class="menuRateSecton ui-li-desc"><span>Rs. '+obj[i].MenuPrice +'</span><a  data-transition="slide" class="ui-link"><img src="images/cart.png" onclick="addToCart('+obj[i].MenuId+')"></a> </p> </div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>');
 											
 							
 					
@@ -84,5 +92,57 @@ $(document).ready(function()
 			alert('Some errors occured. Please try again');
 			}
 			
+	
 			
 	});
+	
+		function addToCart(menuid)
+			{
+
+   
+			var db = window.openDatabase("db_mammam", "1.0", "Mammam DB", 1000000);
+				
+				for(var i=0;i<obj.length;i++)
+                        {
+						
+						if(obj[i].MenuId == menuid)
+							{
+							
+								//alert(obj[i].MenuName);
+								
+								menuName = obj[i].MenuName;
+								menuId = menuid;
+								menuQty = 1;
+								menuPrice = obj[i].MenuPrice;
+								
+								 db.transaction(populateDB, errorCB, successCB);
+							}
+						
+						
+						}
+			
+			}
+			function populateDB(tx) 
+			{
+			
+			
+			 tx.executeSql('CREATE TABLE IF NOT EXISTS CART (id , menuName, menuQty, menuPrice, menuTotal)');
+			 tx.executeSql('INSERT INTO CART (id, menuName, menuQty, menuPrice, menuTotal) VALUES ('+menuId+', "'+menuName+'", '+menuQty+', '+menuPrice+', 1000)');
+			 
+			}
+			
+			 function errorCB(tx, err) 
+				{	
+				
+					alert("Error processing SQL: "+err);
+		
+				}
+	
+			function successCB()
+				{
+					alert(menuName+" added to cart");
+				}
+			
+			
+				
+			
