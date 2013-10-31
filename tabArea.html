@@ -127,9 +127,10 @@
     </script>
   
  
-	<script src="scripts/jsonparser.js"></script>
+		<script src="scripts/jsonparser.js"></script>
 		<script src="scripts/addTocart.js"></script>
-	<script src="scripts/splash.js"></script>
+		<script src="scripts/restReview.js"></script>
+	
 		
 </head> 
 <body> 
@@ -168,7 +169,7 @@
 <div data-role="navbar" id="navbar">
                 <ul>
                     <li><a href="#" class="ui-btn-active" data-tab-class="tab1">MENU</a></li>
-                    <li><a href="#" data-tab-class="tab2">REVIEWS</a></li>
+                    <li><a onclick="chk()" data-tab-class="tab2">REVIEWS</a></li>
                     <li><a href="#" data-tab-class="tab3">INFORMATION</a></li>
                     <li><a href="#" data-tab-class="tab4">DEALS</a></li>
                 </ul>
@@ -195,11 +196,11 @@
 				 <!--MENU tab ends-->
 		
 		<!--review tab-->		
-         <div class="tab2 ui-screen-hidden">
+         <div class="tab2 ui-screen-hidden" >
                    
 		
 				
-				<form class="tabContentHolder">
+				<form class="tabContentHolder" >
 					
 					<div data-role="fieldcontain">
                          <label for="text-12">Rate:</label>
@@ -231,52 +232,9 @@
 			
 			<h2 class="tabContentHolder">Reviews</h2>
 
-			<div class="content-primary tabContentHolder reviewRows">
-				<h3 class="ui-li-heading">Edward Dennis</h3>
-				<p class="ui-li-desc">22 Aug 2013 
-					<em>Rating: 
-						<img src="images/star_1.png"> <img src="images/star_1.png"> 
-						<img src="images/star_1.png"> <img src="images/star_1.png"> 
-						<img src="images/star_1.png">
-					</em> 
-				</p>
-				<p class="reviewContent">Lorem ipsum dolor sit amet, exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-			</div>
+			<div id="custReview">
 			
-				<div class="content-primary tabContentHolder reviewRows">
-				<h3 class="ui-li-heading">Edward Dennis</h3>
-				<p class="ui-li-desc">22 Aug 2013 
-					<em>Rating: 
-						<img src="images/star_1.png"> <img src="images/star_1.png"> 
-						<img src="images/star_1.png"> <img src="images/star_1.png"> 
-						<img src="images/star_1.png">
-					</em> 
-				</p>
-				<p class="reviewContent">Lorem ipsum dolor sit amet, exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-			</div>
 			
-				<div class="content-primary tabContentHolder reviewRows">
-				<h3 class="ui-li-heading">Edward Dennis</h3>
-				<p class="ui-li-desc">22 Aug 2013 
-					<em>Rating: 
-						<img src="images/star_1.png"> <img src="images/star_1.png"> 
-						<img src="images/star_1.png"> <img src="images/star_1.png"> 
-						<img src="images/star_1.png">
-					</em> 
-				</p>
-				<p class="reviewContent">Lorem ipsum dolor sit amet, exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-			</div>
-			
-				<div class="content-primary tabContentHolder reviewRows">
-				<h3 class="ui-li-heading">Edward Dennis</h3>
-				<p class="ui-li-desc">22 Aug 2013 
-					<em>Rating: 
-						<img src="images/star_1.png"> <img src="images/star_1.png"> 
-						<img src="images/star_1.png"> <img src="images/star_1.png"> 
-						<img src="images/star_1.png">
-					</em> 
-				</p>
-				<p class="reviewContent">Lorem ipsum dolor sit amet, exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 			</div>
 				
 

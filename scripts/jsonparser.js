@@ -18,6 +18,8 @@ function homePage($http,$scope)
 	
 		
 	//to parse data from the server using angular.js
+	//delete $http.defaults.headers.common['X-Requested-With'];
+	
 	$http({method: 'GET', url: root}).
 	success(function(data, status, headers, config) {
    
