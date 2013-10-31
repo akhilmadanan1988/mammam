@@ -3,7 +3,7 @@
 	
 			function chk(){
 			actionUrl = rootPath;
-			data = {ajaxRequest:true,method:'getCustomerReviewForRestaurant',argumentz:'{"restaurantId":"20","pageStart":0,"pageLimit":3}'};
+			data = {ajaxRequest:true,method:'getCustomerReviewForRestaurant',argumentz:'{"restaurantId":"'+restId[1]+'","pageStart":0,"pageLimit":3}'};
 			intiateAjaxRequest("POST", actionUrl, data, res, errorInProcessing);
 			}
 		
