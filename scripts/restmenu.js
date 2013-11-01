@@ -5,7 +5,7 @@
 	var menuQty;
 	var menuPrice;
 	var total;
-	var restId;
+	var restId1;
 	var searchId;
 	
 $(document).ready(function()
@@ -17,7 +17,7 @@ $(document).ready(function()
 		 
 		 
 		 searchId = getdata[0].split('=');
-		 restId = getdata[1].split('=');
+		 restId1 = getdata[1].split('=');
 		 
 		 
 		//
@@ -32,24 +32,33 @@ $(document).ready(function()
 				var restName = getdata[2].split('=');
 			
 				$('#restName').html('');
-			$('#restName').append(decodeURI(restName[1])+' / MENU');	
+				$('#restName').append(decodeURI(restName[1])+' / MENU');	
 			
 			
-			$('#rest_menu_list').html('');
-			actionUrl = rootPath;
-			data = {ajaxRequest:true,method:'getProductList',argumentz:'{"restaurantId":"'+restId[1]+'","pageStart":0,"pageLimit":3}'};
-			intiateAjaxRequest("POST", actionUrl, data, res, errorInProcessing);
+					$('#rest_menu_list').html('');
+					actionUrl = rootPath;
+						data = {ajaxRequest:true,method:'getProductList',argumentz:'{"restaurantId":"'+restId1[1]+'","pageStart":0,"pageLimit":3}'};
+					intiateAjaxRequest("POST", actionUrl, data, res, errorInProcessing);
 				
 				}
 				
 				else if(searchId[1] == 1)
 				{
 				
+				var restName = getdata[2].split('=');
+			
+				$('#restName').html('');
+				$('#restName').append(decodeURI(restName[1])+' / MENU');
+			
+				$('#rest_menu_list').html('');
+				actionUrl = rootPath;
+				var itemNamess = getdata[3].split('=');
+				var itemdesc = getdata[4].split('=');
 				
-			$('#rest_menu_list').html('');
-			actionUrl = rootPath;
-			data = {ajaxRequest:true,method:'getProductList',argumentz:'{"restaurantId":"'+restId[1]+'","pageStart":0,"pageLimit":3}'};
-			intiateAjaxRequest("POST", actionUrl, data, res, errorInProcessing);
+				//alert(decodeURI(itemdesc[1]));
+				
+				data = {ajaxRequest:true,method:'searchForProducts',argumentz:'{"restaurantId":"'+restId1[1]+'","itemName":"'+itemNamess[1]+'","foodDesc":"'+itemdesc[1]+'","pageStart":0,"pageLimit":2}'};
+				intiateAjaxRequest("POST", actionUrl, data, res, errorInProcessing);
 				
 				
 				}
@@ -61,15 +70,7 @@ $(document).ready(function()
 		$.mobile.loading( "hide" );
 		 obj = (JSON.parse(result))[0].MenuData;
 			
-		//alert(obj[0].RestaurantName);
-	//IsValidImageUrl("https://www.google.com/logos/2012/hertz-2011-hp.gif")
-	
-	//sValidImageUrl("http://google.com");
-			
-		
-	
-
-				if(obj.length>0)
+			if(obj.length>0)
 					{
                            
                         for(var i=0;i<obj.length;i++)

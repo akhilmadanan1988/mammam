@@ -137,7 +137,7 @@ function homePage($http,$scope)
 			var itemName = document.getElementById("itemName").value;
 			var itemDesc = document.getElementById("itemDesc").value;
 				 
-			location.href = "tabArea.html?restId="+restId+"&restName="+restName;
+			//location.href = "tabArea.html?restId="+restId+"&restName="+restName;
 		
  
 		}
