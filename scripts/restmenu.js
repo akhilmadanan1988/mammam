@@ -6,30 +6,55 @@
 	var menuPrice;
 	var total;
 	var restId;
+	var searchId;
+	
 $(document).ready(function()
          {
 	
 
 
 		var getdata = window.location.href.slice(window.location.href.indexOf('?')+1).split('&');  
-		 restId = getdata[0].split('=');
-		var restName = getdata[1].split('=');
-		
-		
-		
-		//alert(decodeURI(restName[1]));
-		
+		 
+		 
+		 searchId = getdata[0].split('=');
+		 restId = getdata[1].split('=');
+		 
+		 
+		//
+			
+			 chk();
+		function chk()
+		{
+				
+			if(searchId[1] == 0)
+				{
+				
+				var restName = getdata[2].split('=');
+			
 				$('#restName').html('');
 			$('#restName').append(decodeURI(restName[1])+' / MENU');	
 			
-			 chk();
-		function chk(){
-		
-		$('#rest_menu_list').html('');
+			
+			$('#rest_menu_list').html('');
 			actionUrl = rootPath;
 			data = {ajaxRequest:true,method:'getProductList',argumentz:'{"restaurantId":"'+restId[1]+'","pageStart":0,"pageLimit":3}'};
 			intiateAjaxRequest("POST", actionUrl, data, res, errorInProcessing);
-			}
+				
+				}
+				
+				else if(searchId[1] == 1)
+				{
+				
+				
+			$('#rest_menu_list').html('');
+			actionUrl = rootPath;
+			data = {ajaxRequest:true,method:'getProductList',argumentz:'{"restaurantId":"'+restId[1]+'","pageStart":0,"pageLimit":3}'};
+			intiateAjaxRequest("POST", actionUrl, data, res, errorInProcessing);
+				
+				
+				}
+			
+		}
 		
 		function res(result){
 		

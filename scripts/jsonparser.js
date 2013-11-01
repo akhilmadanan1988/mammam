@@ -107,7 +107,7 @@ function homePage($http,$scope)
 				 restId = $scope.rest_name.restaurantId;
 				 restName = $scope.rest_name.restaurantName; 
 
-				$('#submitbtn').append('<a onclick="submit()" data-transition="slide" ><img src="images/submit_1.png" / width="80"></a>')
+				$('#submitbtn').append('<a  href="tabArea.html?searchId=1&restId='+restId+'&restName='+restName+'&itemName='+document.getElementById("itemName").value+'&foodDesc='+document.getElementById("itemDesc").value+'" data-transition="slide" ><img src="images/submit_1.png" / width="80"></a>')
 	
 			};
 	
@@ -121,6 +121,15 @@ function homePage($http,$scope)
 	
  }
  
+	function restNameChange()
+		{
+			
+			
+			$('#submitbtn').html('');
+			$('#submitbtn').append('<a  href="tabArea.html?searchId=1&restId='+restId+'&restName='+restName+'&itemName='+document.getElementById("itemName").value+'&foodDesc='+document.getElementById("itemDesc").value+'" data-transition="slide" ><img src="images/submit_1.png" / width="80"></a>')
+	
+
+		}
  
 	function submit()
 		{
