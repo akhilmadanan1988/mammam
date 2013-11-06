@@ -1,7 +1,7 @@
 
 	var obj;
 	
-			function chk(){
+			function chk1(){
 			actionUrl = rootPath;
 			data = {ajaxRequest:true,method:'getCustomerReviewForRestaurant',argumentz:'{"restaurantId":"'+restId[1]+'","pageStart":0,"pageLimit":3}'};
 			intiateAjaxRequest("POST", actionUrl, data, res, errorInProcessing);
