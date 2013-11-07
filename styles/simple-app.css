@@ -49,13 +49,13 @@ border:none;
 	padding: 15px 20px;
 }
 input[type="text"], textarea {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	background-color: #fff;
-	border:1px solid #C7C9CB;
-	border-radius: 4px;
-	padding: 9px 10px;
+	-webkit-box-sizing: border-box !important;
+	-moz-box-sizing: border-box !important;
+	box-sizing: border-box !important;
+	background-color: #fff !important;
+	border:1px solid #C7C9CB !important;
+	border-radius: 4px !important;
+	padding: 9px 10px !important;
 	width: 100%;
 
 }
