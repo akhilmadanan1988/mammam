@@ -1,6 +1,6 @@
 
 
-<div data-role="page" class="insideSpacing" id="tabArea">
+<div data-role="page" class="insideSpacing" id="menuItem">
  <div data-role="panel" id="navigationPanel" data-theme="a" >
 				 <div class="panelNav">
 				  <ul>
@@ -26,7 +26,7 @@
 	<a  href="#navigationPanel" class="dodgeIcon"><img src="images/menu_icon.png"/></a>
 		
 
- <a data-direction="reverse" data-role="button" href="recentPage.html" data-icon="back" data-transition="slide" class="reverseBut ui-btn-right">Back</a>
+ <a data-direction="reverse" data-role="button"onclick="history.back();" data-icon="back" data-transition="slide" class="reverseBut ui-btn-right">Back</a>
 		
 	<div class="sectionBorder">
 	</div>
@@ -36,14 +36,14 @@
 
 
 	<fieldset class="topBorderSeperation">
-						<legend class="tabContentHolder tabValue">SYLVIA'S RESTUARANT / MENU</legend>
+						<legend class="tabContentHolder tabValue" id="restName"></legend>
 					</fieldset>
 					
 							
 <div data-role="navbar" id="navbar">
                 <ul>
                     <li><a href="#" class="ui-btn-active" data-tab-class="tab1">MENU</a></li>
-                    <li><a href="#" data-tab-class="tab2">REVIEWS</a></li>
+                     <li><a onclick="getReview()" data-tab-class="tab2">REVIEWS</a></li>
                     <li><a href="#" data-tab-class="tab3">INFORMATION</a></li>
                     <li><a href="#" data-tab-class="tab4">DEALS</a></li>
                 </ul>
@@ -56,56 +56,7 @@
 					
 					
 		<div class="content-primary tabContentHolder menuListing">	
-		<ul data-role="listview">
-			<li><a href="productDetail.html" data-transition="slide" style="padding-top:0;float:left; ">
-				<img src="images/item1.png" /></a>
-				<h3>Burger Specialities</h3>
-				<p class="reviewContent">Lorem ipsum dolor sit amet, exercitation ullamco laboris nisi ut aliquip</p>
-				<p class="menuRateSecton"><span>Rs. 85.00</span><a href="checkout.html" data-transition="slide"><img src="images/cart.png"/></a> </p>
-			
-			</li>
-<li><a href="productDetail.html" data-transition="slide" style="padding-top:0;float:left;">
-				<img src="images/item2.png" /></a>
-				<h3>Mutton Fry Special</h3>
-				<p class="reviewContent">Lorem ipsum dolor sit amet, exercitation ullamco laboris nisi ut aliquip</p>
-			<p class="menuRateSecton"><span>Rs. 85.00</span><a href="checkout.html" data-transition="slide"><img src="images/cart.png"/></a> </p>
-			</li>
-					
-				<li><a href="productDetail.html" data-transition="slide" style="padding-top:0;float:left;">
-				<img src="images/item3.png" /></a>
-				<h3>Chicken Fry Special</h3>
-				<p class="reviewContent">Lorem ipsum dolor sit amet, exercitation ullamco laboris nisi ut aliquip</p>	
-				<p class="menuRateSecton"><span>Rs. 85.00</span><a href="checkout.html" data-transition="slide"><img src="images/cart.png"/></a> </p>	
-			</li>
-			
-			<li><a href="productDetail.html" data-transition="slide" style="padding-top:0;float:left;">
-				<img src="images/item4.png" /></a>
-				<h3>Chocolate Raspberry</h3>
-				<p class="reviewContent">Lorem ipsum dolor sit amet, exercitation ullamco laboris nisi ut aliquip</p>	
-				<p class="menuRateSecton"><span>Rs. 85.00</span><a href="checkout.html" data-transition="slide"><img src="images/cart.png"/></a></p>				
-			</li>
-			
-			
-			<li><a href="productDetail.html" data-transition="slide" style="padding-top:0;float:left;">
-				<img src="images/item2.png" /></a>
-				<h3>Vegetable Snacks</h3>
-				<p class="reviewContent">Lorem ipsum dolor sit amet, exercitation ullamco laboris nisi ut aliquip</p>
-				<p class="menuRateSecton"><span>Rs. 85.00</span><a href="checkout.html" data-transition="slide"><img src="images/cart.png"/></a> </p>			
-			</li>
-			
-			<li><a href="productDetail.html" data-transition="slide" style="padding-top:0;float:left;">
-				<img src="images/item1.png" /></a>
-				<h3>Chicken Roll</h3>
-				<p class="reviewContent">Lorem ipsum dolor sit amet, exercitation ullamco laboris nisi ut aliquip</p>	
-				<p class="menuRateSecton"><span>Rs. 85.00</span><a href="checkout.html" data-transition="slide"><img src="images/cart.png"/></a> </p>	
-			</li>
-			
-			<li><a href="productDetail.html" data-transition="slide" style="padding-top:0;float:left;">
-				<img src="images/item2.png" /></a>
-				<h3>Pizza Special</h3>
-				<p class="reviewContent">Lorem ipsum dolor sit amet, exercitation ullamco laboris nisi ut aliquip</p>
-				<p class="menuRateSecton"><span>Rs. 85.00</span><a href="checkout.html" data-transition="slide"><img src="images/cart.png"/></a> </p>				
-			</li>
+		<ul data-role="listview" id="rest_menu_list">
 			
 					
 					</ul>
@@ -155,53 +106,12 @@
 			
 			<h2 class="tabContentHolder">Reviews</h2>
 
-			<div class="content-primary tabContentHolder reviewRows">
-				<h3 class="ui-li-heading">Edward Dennis</h3>
-				<p class="ui-li-desc">22 Aug 2013 
-					<em>Rating: 
-						<img src="images/star_1.png"> <img src="images/star_1.png"> 
-						<img src="images/star_1.png"> <img src="images/star_1.png"> 
-						<img src="images/star_1.png">
-					</em> 
-				</p>
-				<p class="reviewContent">Lorem ipsum dolor sit amet, exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-			</div>
 			
-				<div class="content-primary tabContentHolder reviewRows">
-				<h3 class="ui-li-heading">Edward Dennis</h3>
-				<p class="ui-li-desc">22 Aug 2013 
-					<em>Rating: 
-						<img src="images/star_1.png"> <img src="images/star_1.png"> 
-						<img src="images/star_1.png"> <img src="images/star_1.png"> 
-						<img src="images/star_1.png">
-					</em> 
-				</p>
-				<p class="reviewContent">Lorem ipsum dolor sit amet, exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-			</div>
+			<div id="custReview">
 			
-				<div class="content-primary tabContentHolder reviewRows">
-				<h3 class="ui-li-heading">Edward Dennis</h3>
-				<p class="ui-li-desc">22 Aug 2013 
-					<em>Rating: 
-						<img src="images/star_1.png"> <img src="images/star_1.png"> 
-						<img src="images/star_1.png"> <img src="images/star_1.png"> 
-						<img src="images/star_1.png">
-					</em> 
-				</p>
-				<p class="reviewContent">Lorem ipsum dolor sit amet, exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-			</div>
 			
-				<div class="content-primary tabContentHolder reviewRows">
-				<h3 class="ui-li-heading">Edward Dennis</h3>
-				<p class="ui-li-desc">22 Aug 2013 
-					<em>Rating: 
-						<img src="images/star_1.png"> <img src="images/star_1.png"> 
-						<img src="images/star_1.png"> <img src="images/star_1.png"> 
-						<img src="images/star_1.png">
-					</em> 
-				</p>
-				<p class="reviewContent">Lorem ipsum dolor sit amet, exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 			</div>
+						
 				
 
 	   
