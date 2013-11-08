@@ -1,81 +1,48 @@
 <!DOCTYPE html> 
-<html  ng-app> 
+<html> 
 <head> 
 	<title>My Page</title> 
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+	<link rel="stylesheet" href="styles/jquery.mobile-1.3.1.min.css" />
 	
 	
 	<script src="scripts/jquery-1.8.3.min.js"></script>
-	 <script src="scripts/angular.min.js"></script>
-	<script src="scripts/jquery.mobile-1.3.1.min.js"></script>
-	<script src="scripts/jsonparser.js"></script>
+	
+	
+	
 	 <script>
-          
-		 		
-			 $(document).on('pageinit', '#index', function() { 
-					 $.getScript('scripts/jsonparser.js');
-					  $.getScript('scripts/getHome.js');
-				 
-						
-        	                  
-                }); 
-                $(document).on('pageinit', '#restaurants', function() { 
-						 $.getScript('scripts/jsonparser.js');
-					  $.getScript('scripts/restaurants.js');
-					
-        	                  
-                }); 
-		 
-		 		 $(document).on('pageinit', '#menuItem', function() { 
-					
-					 $.getScript('scripts/jsonparser.js');
-					$.getScript('scripts/restmenu.js');
-					 $.getScript('scripts/restReview.js');
-	 				
-			      
+             
+                $(document).on('pagebeforeshow', '#tabArea', function myCallback () { 
+					 $.getScript('scripts/simple-app.js');
+	
+			        var prevSelection = "tab1";
+			        $("#navbar ul li").live("click",function(){
+			        
+			        	
+			        	var test=$(this).find('span.ui-btn-text').html();
+			        	
+			        	var tabVal=$('.tabValue').html().split('/');
+			        	
+			        	 $('.tabValue').html($('.tabValue').html().replace(tabVal[1],test));
+			        	
+			            var newSelection = $(this).children("a").attr("data-tab-class");
+			            $("."+prevSelection).addClass("ui-screen-hidden");
+			            $("."+newSelection).removeClass("ui-screen-hidden");
+			            prevSelection = newSelection;
+			        });
 
 	                  
-                });     
-		 
-                 $(document).on('pagebeforeshow', '#about', function myCallback () { 
-                 	
-					 $.getScript('scripts/simple-app.js');
-					
-	                  
-                });   
-                 $(document).on('pagebeforeshow', '#checkout', function myCallback () { 
-					 $.getScript('scripts/simple-app.js');
-	                  
-                });     
-                  $(document).on('pagebeforeshow', '#contact', function myCallback () { 
-					 $.getScript('scripts/simple-app.js');
-	                  
-                });   
-                $(document).on('pagebeforeshow', '#productDetail', function myCallback () { 
-					 $.getScript('scripts/simple-app.js');
-	                  
-                }); 
-                $(document).on('pagebeforeshow', '#profile', function myCallback () { 
-					 $.getScript('scripts/simple-app.js');
-	                  
-                }); 
-                 
+                });       
     </script>  
-	
-	<script src="scripts/appVariable.js"></script>
-	<!-- <script src="scripts/jsonparser.js"></script> -->
-	<script src="scripts/getHome.js"></script>
-	
-	<script src="scripts/idangerous.swiper-2.0.min.js"></script>
-	<script src="scripts/simple-app.js"></script>
-	
+
+	<script src="scripts/jquery.mobile-1.3.1.min.js"></script>
+
 	
 		<!-- scripts for swipe-->
 	<link rel="stylesheet" href="styles/custom.css" />
 	<!--styles for swipe-->
-	<link rel="stylesheet" href="styles/idangerous.swiper.css">
-	<link rel="stylesheet" href="styles/normalize.css">
+
+	
 	<link rel="stylesheet" href="styles/simple-app.css">
 	<link rel="stylesheet" type="text/css" href="styles/elastislide.css" />
 	<script src="scripts/modernizr.custom.17475.js"></script>
@@ -109,17 +76,17 @@
 		 <div data-role="panel" id="navigationPanel" data-theme="a" >
 				 <div class="panelNav">
 				  <ul>
-				  		<li class="panelnavMain "><a href="services.html">LOGIN</a></li>
-      		  	    <li><img src="images/bullet.png"/><a href="aboutus-services_customerguide.html">SIGN IN</a></li>
-		            <li><img src="images/bullet.png"/><a href="aboutus-services-general_guide.html">SIGN UP</a></li>
+				  		<li class="panelnavMain"><a href="#">LOGIN</a></li>
+      		  	    <li><img src="images/bullet.png"/><a href="signIn.html">SIGN IN</a></li>
+		            <li><img src="images/bullet.png"/><a href="signUp.html">SIGN UP</a></li>
 		            
-				  	<li class="panelnavMain "><a href="services.html">MENU</a></li>
-      		  	    <li><img src="images/bullet.png"/><a href="aboutus-services_customerguide.html">HOME</a></li>
-		            <li class=""><img src="images/bullet.png"/><a href="aboutus-services-general_guide.html">HOW IT WORKS</a></li>
-		            <li><img src="images/bullet.png"/><a href="aboutus-services-important_notice.html">ABOUT US</a></li>
-		           <li><img src="images/bullet.png"/><a href="aboutus-services_customerguide.html">CONTACT US</a></li>
-		            <li class=""><img src="images/bullet.png"/><a href="aboutus-services-general_guide.html">GALLERY</a></li>
-		            <li><img src="images/bullet.png"/><a href="aboutus-services-important_notice.html">TOP DEALS</a></li>
+				  	<li class="panelnavMain"><a href="#">MENU</a></li>
+      		  	    <li><img src="images/bullet.png"/><a href="index.html">HOME</a></li>
+		            <li class=""><img src="images/bullet.png"/><a href="#">HOW IT WORKS</a></li>
+		            <li><img src="images/bullet.png"/><a href="about.html" data-transition="slide">ABOUT US</a></li>
+		           <li><img src="images/bullet.png"/><a href="contact.html">CONTACT US</a></li>
+		            <li class=""><img src="images/bullet.png"/><a href="#">GALLERY</a></li>
+		            <li><img src="images/bullet.png"/><a href="profile.html">PROFILE</a></li>
                   </ul>	
 				 </div>
 			</div>	
@@ -139,7 +106,8 @@
 	</div><!-- /header -->
 	
 	
-	<div data-role="content" class="innerForm" ng-controller="homePage">	
+	<div data-role="content" class="innerForm">	
+		
 		
 	
 	<div class="overlay" style="display:none">
@@ -156,30 +124,57 @@
 		
 	
 	<fieldset>
-        
-	       <div class="ui-grid-a ui-responsive formOption"  >
-				<div class="ui-block-a" >
+		<legend>SELECT LOCATION</legend>
+		
+		<div class="ui-grid-a ui-responsive formOption">
+				<div class="ui-block-a">
 					<div class="ui-body ui-body-d">
-				<select  data-mini="true" ng-model="zone_name" ng-options="c.ZoneName for c in zonedata" ng-change="onchangeZone()" >
-						
-						<option value="" >Select Zone </option>
-							
+				<select name="select-choice-a"  data-mini="true">
+							<option>City</option>
+							<option value="">City 1</option>
+							<option value="">City 2</option>
+							<option value="">City 3</option>
+							<option value="">City 4</option>
+							<option value="">City 5</option>
+							<option value="">City 6</option>
+							<option value="">City 7</option>
+							<option value="">City 8</option>
+							<option value="">City 9</option>
+							<option value="">City 10</option>
+							<option value="">City 11</option>
+							<option value="">City 12</option>
+							<option value="">City 13</option>
+							<option value="">City 14</option>
+							<option value="">City 15</option>
+							<option value="">City 16</option>
 				</select>
 					</div>
 				</div>
 				
 				<div class="ui-block-b">
 					<div class="ui-body ui-body-d">
-					<select  data-mini="true" id="city" ng-model="city_name" ng-options="d.cityname  for d in zone_name.Citys" ng-change="onchangeCity()">
-							
-								<option value="" selected="selected">Select City</option>
-							
-					</select>	
-					
+					<select name="select-choice-a" data-mini="true">
+							<option>Area</option>
+							<option value="">Area 1</option>
+							<option value="">Area 2</option>
+							<option value="">Area 3</option>
+							<option value="">Area 4</option>
+							<option value="">Area 5</option>
+							<option value="">Area 6</option>
+							<option value="">Area 7</option>
+							<option value="">Area 8</option>
+							<option value="">Area 9</option>
+							<option value="">Area 10</option>
+							<option value="">Area 11</option>
+							<option value="">Area 12</option>
+							<option value="">Area 13</option>
+							<option value="">Area 14</option>
+							<option value="">Area 15</option>
+							<option value="">Area 16</option>
+				</select>	
+
 					</div>
 				</div>
-				
-				
 		</div>
 		
 		
@@ -190,10 +185,24 @@
 			</div>
 		
 		<div>
-		<select name="select-choice-1"  data-mini="true"  ng-model="rest_name" ng-options="e.restaurantName for e in rest" ng-change="onchangeRest()">
-							
-							<option value="">Select Restuarant</option>
-						
+		<select name="select-choice-1"  data-mini="true">
+							<option>Restuarants</option>
+							<option value="">Restuarant 1</option>
+							<option value="">Restuarant 2</option>
+							<option value="">Restuarant 3</option>
+							<option value="">Restuarant 4</option>
+							<option value="">Restuarant 5</option>
+							<option value="">Restuarant 6</option>
+							<option value="">Restuarant 7</option>
+							<option value="">Restuarant 8</option>
+							<option value="">Restuarant 9</option>
+							<option value="">Restuarant 10</option>
+							<option value="">Restuarant 11</option>
+							<option value="">Restuarant 12</option>
+							<option value="">Restuarant 13</option>
+							<option value="">Restuarant 14</option>
+							<option value="">Restuarant 15</option>
+							<option value="">Restuarant 16</option>
 				</select>
 				
 				
@@ -202,9 +211,9 @@
 				
 		</div>	
 		
-		<input type="text" name="name" id="itemName" value="" placeholder="Item Name" onkeyup="restNameChange()"/>	
-		<input type="text" name="name" id="itemDesc" value="" placeholder="Food Description"  onkeyup="restNameChange()"/>	
-		<div id="submitbtn">
+		<input type="text" name="name" id="basic" value="" placeholder="Item Name" />	
+		<input type="text" name="name" id="basic" value="" placeholder="Food Description" />	
+		<a href="recentPage.html"  data-transition="slide" ><img src="images/submit_1.png" / width="80"></a>
 			
 	</fieldset>	
   
@@ -230,7 +239,8 @@
 		
 	</div>	
 		
-	<div class="bottomBanner" id="bannerAd">
+	<div class="bottomBanner">
+		<img src="images/ad_1.png" />
 	</div>	
 		
 		
