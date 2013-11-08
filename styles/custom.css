@@ -831,8 +831,8 @@ margin-top:10px;
 	text-shadow: none;
 }
 
-.panelnavMain{background-color: #5D5D5F!important;padding-left: 0!important;text-transform: uppercase!important;}
-.panelCurrent{	background-color: #D21E24!important;}
+.panelnavMain{background-color: #D94D48 !important;padding-left: 0!important;text-transform: uppercase!important;}
+.panelCurrent{	background-color: #8585CF !important;}
 
 #navigationPanel{
 	background-color: #5D5D5F!important;
