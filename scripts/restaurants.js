@@ -92,43 +92,4 @@
 	
 	
 	
-			
-			/*	
-                $.getJSON("http://192.168.1.119:81/mammam/Development/Sites/AdminSite/JSONService/getJson.php?method=getRestaurantList&"+getdata[0]+"&"+getdata[1]+"&pageEnd=5",function(result){
-                   
-                 
-                      var obj = result[0].RestaurantData;
-                       
-                         
-                     
-
-					if(obj.length>0)
-					{
-                           
-                        for(var i=0;i<obj.length;i++)
-                        {
-                           //alert(obj[i].RestaurantId);
-                           $('#list_view').append('<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="tabArea.html" data-transition="slide" class="ui-link-inherit"><img src="images/OUR PARTNERS_logo_2.png" class="ui-li-thumb"><h3 class="ui-li-heading">'+obj[i].RestaurantName+'</h3><p class="ui-li-desc">Delivery Fee:<span>Free</span>  <em>Rating: <img src="images/star_1.png"> <img src="images/star_1.png"> <img src="images/star_1.png"> <img src="images/star_1.png"> <img src="images/star_2.png"></em> </p>	</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>');
-                           
-                           // i = i + 2;
-                        }  
-                    }
-
-					else
-					{
-					
-						
-					alert("Sorry no restaurants to display"); 
-					
-					}
-                           
-                       }).error(function()
-                                {
-                                    
-                                   alert("Something wrong happend!!!!"); 
-                                });
-                      
-                      
-                  });
-
-			*/		
+		

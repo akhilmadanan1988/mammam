@@ -129,7 +129,7 @@ function homePage($http,$scope)
 			
 			
 			$('#submitbtn').html('');
-			$('#submitbtn').append('<a  href="tabArea.html?searchId=1&restId='+restId+'&restName='+restName+'&itemName='+document.getElementById("itemName").value+'&foodDesc='+document.getElementById("itemDesc").value+'" data-transition="slide" ><img src="images/submit_1.png" / width="80"></a>')
+			$('#submitbtn').append('<a  href="menuItem.html?searchId=1&restId='+restId+'&restName='+restName+'&itemName='+document.getElementById("itemName").value+'&foodDesc='+document.getElementById("itemDesc").value+'" data-transition="slide" ><img src="images/submit_1.png" / width="80"></a>')
 	
 
 		}
