@@ -178,7 +178,7 @@
 							{
 								
 						var qty = ((result.rows.item(i).menuQty) + 1);	
-						var tot = 	((result.rows.item(i).menuQty) * qty);	
+						var tot = 	((result.rows.item(i).menuPrice) * qty);	
 								tblCart.executeSql('UPDATE cart SET menuQty="'+qty+'",menuTotal="'+tot+'" WHERE id="'+menuId+'"');
 						alert("updated "+menuName);
 								
