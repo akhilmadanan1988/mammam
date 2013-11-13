@@ -866,3 +866,18 @@ padding: 0px;
 .dodgeIcon span{
 	padding:0 !important;
 }
+.backClass{
+	
+	padding:0 !important;
+	border:0;
+	background:none;
+	
+	}
+.backClass ui-btn-text{
+	padding:0;
+	border-radius:0;
+	background:none;
+	background-color:transparent;
+	
+	
+	}

@@ -7,6 +7,7 @@
 	var total;
 	var restId1;
 	var searchId;
+	var imageUrl;
 	
 
 
@@ -114,8 +115,8 @@
 		function addToCart(menuid)
 			{
 
-   
-			var db = window.openDatabase("db_mammam", "1.0", "Mammam DB", 1000000);
+  
+			
 				
 				for(var i=0;i<obj.length;i++)
                         {
@@ -123,40 +124,90 @@
 						if(obj[i].MenuId == menuid)
 							{
 							
-								//alert(obj[i].MenuName);
+							
 								
 								menuName = obj[i].MenuName;
 								menuId = menuid;
 								menuQty = 1;
 								menuPrice = obj[i].MenuPrice;
+								imageUrl = obj[i].MenuImage
 								
-								 db.transaction(populateDB, errorCB, successCB);
+									
 							}
 						
 						
 						}
+								
+								 var db = window.openDatabase("dbmammam", "1.0", "mammam", 1000000);
+								 db.transaction(cartTbl, errorCart);
 			
 			}
-			function populateDB(tx) 
+
+		function cartTbl(tx) 
 			{
 			
-			
-			 tx.executeSql('CREATE TABLE IF NOT EXISTS CART (id , menuName, menuQty, menuPrice, menuTotal)');
-			 tx.executeSql('INSERT INTO CART (id, menuName, menuQty, menuPrice, menuTotal) VALUES ('+menuId+', "'+menuName+'", '+menuQty+', '+menuPrice+', 1000)');
+				
 			 
+				
+			 tx.executeSql('CREATE TABLE IF NOT EXISTS cart (id integer primary key, menuName text, menuQty integer, menuPrice double, menuTotal double,imageUrl integer)');
+				
+				
+				tx.executeSql('SELECT * FROM cart WHERE id="'+menuId+'"', [], successCart, errorCart);
+				
+			
+			 
+			
 			}
 			
-			 function errorCB(tx, err) 
-				{	
+		function errorCart(tx, err) 
+			{	
 				
-					alert("Error processing SQL: "+err);
+			alert("Error processing SQL: "+err);
 		
-				}
+			}
 	
-			function successCB()
+		function successCart(tblCart,result)
+			{
+				alert(result.rows.length+ " "+ menuId);
+				
+				
+				for(var i = 0;i<result.rows.length;i++)
 				{
-					alert(menuName+" added to cart");
-				}
+				
+					if(menuId == result.rows.item(i).id)
+							{
+								
+						var qty = ((result.rows.item(i).menuQty) + 1);	
+						var tot = 	((result.rows.item(i).menuQty) * qty);	
+								tblCart.executeSql('UPDATE cart SET menuQty="'+qty+'",menuTotal="'+tot+'" WHERE id="'+menuId+'"');
+						alert("updated "+menuName);
+								
+							}
+					
+						else
+							{
+								
+						
+						 tblCart.executeSql('INSERT INTO cart (id, menuName, menuQty, menuPrice, menuTotal,imageUrl) VALUES ("'+menuId+'", "'+menuName+'", "'+menuQty+'", "'+menuPrice+'", "1000","'+imageUrl+'")');
+						alert(menuName+" added to cart");
+								
+							}
+					
+				}	
+					
+				
+				
+				if(result.rows.length == 0)
+					{
+					 tblCart.executeSql('INSERT INTO cart (id, menuName, menuQty, menuPrice, menuTotal,imageUrl) VALUES ("'+menuId+'", "'+menuName+'", "'+menuQty+'", "'+menuPrice+'", "1000","'+imageUrl+'")');
+						alert(menuName+" 11added to cart");
+					}
+				
+				
+				
+				
+				
+			}
 			
 			
 				

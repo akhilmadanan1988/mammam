@@ -66,10 +66,13 @@
 					
 	                  
                 });   
-                 $(document).on('pagebeforeshow', '#checkout', function myCallback () { 
+                 $(document).on('pagebeforeshow', '#cart', function myCallback () { 
 					 $.getScript('scripts/simple-app.js');
+					 $.getScript('scripts/cart.js');
+					  $.getScript('scripts/getConnection.js');
 	                  
-                });     
+                }); 
+		 
                   $(document).on('pagebeforeshow', '#contact', function myCallback () { 
 					 $.getScript('scripts/simple-app.js');
 	                  
@@ -260,18 +263,9 @@
 	</div><!-- /content -->
 	
   
-<!--<div data-role="footer" data-position="fixed" class="ui-bar-footerBg">
-	<div class="swiper-nav swiper-container">
-		<div class="swiper-wrapper">
-			<div class="swiper-slide activeMenu"><span><a href="index.html">HOME</a></span></div>
-		<div class="swiper-slide"><span><a href="profile.html" data-transition="slide">HOW IT WORKS</a></span></div>
-			<div class="swiper-slide"><span><a href="recent.html" data-transition="slide">UPCOMING</a></span></div>
-			<div class="swiper-slide"><span><a href="contact.html" data-transition="slide">CONTACT</a></span></div>
-			<div class="swiper-slide "><span><a href="about.html" data-transition="slide">ABOUT</a></span></div>
-
-		</div>
-	</div>
-	</div>--><!-- /footer -->
+<div data-role="footer" data-position="fixed" style="text-align:center">
+	
+	</div><!-- /footer -->
 
 
 	
