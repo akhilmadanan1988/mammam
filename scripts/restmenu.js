@@ -149,7 +149,7 @@
 				
 			 
 				
-			 tx.executeSql('CREATE TABLE IF NOT EXISTS cart (id integer primary key, menuName text, menuQty integer, menuPrice double, menuTotal double,imageUrl integer)');
+			 tx.executeSql('CREATE TABLE IF NOT EXISTS cart (id integer primary key, menuName text, menuQty integer, menuPrice double, menuTotal double,imageUrl text)');
 				
 				
 				tx.executeSql('SELECT * FROM cart WHERE id="'+menuId+'"', [], successCart, errorCart);
@@ -168,7 +168,7 @@
 	
 		function successCart(tblCart,result)
 			{
-				alert(result.rows.length+ " "+ menuId);
+				//alert(result.rows.length+ " "+ menuId);
 				
 				
 				for(var i = 0;i<result.rows.length;i++)
