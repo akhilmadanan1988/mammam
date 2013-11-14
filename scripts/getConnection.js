@@ -2,11 +2,15 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 var userName;
 
+
+
 function onDeviceReady() 
 		{
         
 			checkConnection();
 			dbCreation();
+			
+			
 			
 		}
 
