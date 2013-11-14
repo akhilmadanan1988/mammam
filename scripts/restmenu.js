@@ -210,5 +210,9 @@
 			}
 			
 			
-				
-			
+//  $(".backClass").on("tap",function(){
+//   
+//	  $(this).hide();
+//	 
+//	  
+//  	});                       

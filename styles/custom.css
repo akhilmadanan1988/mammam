@@ -878,6 +878,10 @@ padding: 0px;
 	border-radius:0;
 	background:none;
 	background-color:transparent;
+		
+	}
+.backClass:hover
+	{
 	
-	
+	background-color:white;	
 	}
