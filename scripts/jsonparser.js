@@ -10,14 +10,17 @@ function intiateAjaxRequest(method, url, data, callBackFunction, erroFunction)
 			html: ""
 				});
 			
+					
 			
 			$.ajax({
+				
 			url: url,
 			type: method, 
-			data:data,
+			data: data,
 			dataType: 'json',
-			success:callBackFunction,
-			error:erroFunction
+			success: callBackFunction,
+			error: erroFunction
+				
 				});
 			
 			

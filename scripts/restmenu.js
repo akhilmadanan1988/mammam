@@ -1,5 +1,5 @@
 	
-	var obj;
+	var resMenu;
 	var menuId;
 	var menuName;
 	var menuQty;
@@ -8,7 +8,7 @@
 	var restId1;
 	var searchId;
 	var imageUrl;
-	
+	var loadMore = 6;
 
 
 
@@ -21,10 +21,10 @@
 		
 			//alert(restId1[1]);
 			
-			 getData();
+			 getData(3);
 
 			 
-		function getData()
+		function getData(pageLimit)
 		{
 				
 			if(searchId[1] == 0)
@@ -38,8 +38,8 @@
 			
 					$('#rest_menu_list').html('');
 					actionUrl = rootPath;
-					data = {ajaxRequest:true,method:'getProductList',argumentz:'{"restaurantId":"'+restId1[1]+'","pageStart":0,"pageLimit":3}'};
-					intiateAjaxRequest("POST", actionUrl, data, response, errorInProcessing);
+					data = {ajaxRequest:true,method:'getProductList',argumentz:'{"restaurantId":"'+restId1[1]+'","pageStart":0,"pageLimit":'+pageLimit+'}'};
+					intiateAjaxRequest("POST", actionUrl, data, menuResponse, menuErrorInProcessing);
 				
 				}
 				
@@ -51,42 +51,83 @@
 				$('#restName').html('');
 				$('#restName').append(decodeURI(restName[1])+' / MENU');
 			
-				$('#rest_menu_list').html('');
+				//$('#rest_menu_list').html('');
 				actionUrl = rootPath;
 				var itemNamess = getdata[3].split('=');
 				var itemdesc = getdata[4].split('=');
 				
 				//alert(decodeURI(itemdesc[1]));
 				
-	data ={ajaxRequest:true,method:'searchForProducts',argumentz:'{"restaurantId":"'+restId1[1]+'","itemName":"'+itemNamess[1]+'","foodDesc":"'+itemdesc[1]+'","pageStart":0,"pageLimit":2}'};
-				intiateAjaxRequest("POST", actionUrl, data, response, errorInProcessing);
+	data ={ajaxRequest:true,method:'searchForProducts',argumentz:'{"restaurantId":"'+restId1[1]+'","itemName":"'+itemNamess[1]+'","foodDesc":"'+itemdesc[1]+'","pageStart":0,"pageLimit":'+pageLimit+'}'};
+				intiateAjaxRequest("POST", actionUrl, data, menuResponse, menuErrorInProcessing);
 				
 				
 				}
 			
 		}
 		
-		function response(result)
+		function menuResponse(result, textStatus , xhr)
 		{
 	
+				
+			
 		$.mobile.loading( "hide" );
-		 obj = (result)[0].MenuData;
+		
+//			var types = xhr.getResponseHeader("content-type")  || "";
+			   
+			 
+			 		
+		if(typeof result=="object")
+			{
+		
+			//var menuObj = JSON.parse(result);
+			menuList(result);
+				
+				
+			}
 			
+			else
+			{
+				//alert(JSON.parse(result));
+				
+					menuList(JSON.parse(result));
+			}
+		}	
+				
+		
+
+
+	function menuList(result)
+				{
+					
+					
+				resMenu = (result)[0].MenuData;
+				//alert((resMenu)[0].MenuName);
 			
-			if(obj.length>0)
+			if(resMenu.length>0)
 					{
-                           
-                        for(var i=0;i<obj.length;i++)
+                       	$('#rest_menu_list').html('' );   
+                       
+					for(var i=0;i<resMenu.length;i++)
                         {
 						
-											
+					if(	resMenu[i].IsCustom	== 1)
+					{
+						
+						
+					}
 							
-							$('#rest_menu_list').append('<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="productDetail.html" data-transition="slide" style="padding-top:0;float:left; " class="ui-link-inherit"><img src="'+imgURL+obj[i].MenuImage+'"  onerror=this.src="images/placeholder.png";  class="ui-li-thumb"></a>	<h3 class="ui-li-heading">'+obj[i].MenuName+'</h3>	<p class="reviewContent ui-li-desc">'+obj[i].MenuDesc+'</p> <p class="menuRateSecton ui-li-desc"><span>Rs. '+obj[i].MenuPrice +'</span><a  data-transition="slide" class="ui-link"><img src="images/cart.png" onclick="addToCart('+obj[i].MenuId+')"></a> </p> </div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>');
+				
 											
+							$('#rest_menu_list').append('<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="productDetail.html" data-transition="slide" style="padding-top:0;float:left; " class="ui-link-inherit"><img src="'+imgURL+resMenu[i].MenuImage+'"  onerror=this.src="images/placeholder.png";  class="ui-li-thumb"></a>	<h3 class="ui-li-heading">'+resMenu[i].MenuName+'</h3>	<p class="reviewContent ui-li-desc">'+resMenu[i].MenuDesc+'</p> <p class="menuRateSecton ui-li-desc"><span>Rs. '+resMenu[i].MenuPrice +'</span><a  data-transition="slide" class="ui-link"><img src="images/cart.png" onclick="addToCart('+resMenu[i].MenuId+')"></a> </p> </div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>');
+								
 							
 					
 						}
-					
+						
+						$('#rest_menu_list').append('<a data-role="button" onclick="getData('+loadMore+')" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner"><span class="ui-btn-text">             Load More         </span></span></a>');
+						
+					loadMore = loadMore + 3;
 					}
 					
 					else
@@ -95,18 +136,22 @@
 					alert("Sorry no Menu items to display"); 
 					
 					}
-				
-			}
-			
-				
-			
+					
+					
+					
+					
+					
+				}
+	
+
 			//<img src="http://192.168.1.119:81/mammam/Development/Sites/PublicSite/resources/img/noImage.png" onerror="this.src='http://192.168.1.119:81/mammam/Development/Sites/PublicSite/resources/img/noImage.png';">
 		
 		
-		function errorInProcessing()
+		function menuErrorInProcessing(response, status, xhr)
 			{
+				
 			$.mobile.loading( "hide" );
-			alert('Some errors occured. Please try again');
+			alert( response + "  " + status+' Some errors occured. Please try again');
 			}
 			
 	
@@ -116,21 +161,19 @@
 			{
 
   
-			
-				
-				for(var i=0;i<obj.length;i++)
+				for(var i=0;i<resMenu.length;i++)
                         {
 						
-						if(obj[i].MenuId == menuid)
+						if(resMenu[i].MenuId == menuid)
 							{
 							
 							
 								
-								menuName = obj[i].MenuName;
+								menuName = resMenu[i].MenuName;
 								menuId = menuid;
 								menuQty = 1;
-								menuPrice = obj[i].MenuPrice;
-								imageUrl = obj[i].MenuImage
+								menuPrice = resMenu[i].MenuPrice;
+								imageUrl = resMenu[i].MenuImage
 								
 									
 							}
@@ -188,7 +231,7 @@
 							{
 								
 						
-						 tblCart.executeSql('INSERT INTO cart (id, menuName, menuQty, menuPrice, menuTotal,imageUrl) VALUES ("'+menuId+'", "'+menuName+'", "'+menuQty+'", "'+menuPrice+'", "1000","'+imageUrl+'")');
+						 tblCart.executeSql('INSERT INTO cart (id, menuName, menuQty, menuPrice, menuTotal,imageUrl) VALUES ("'+menuId+'", "'+menuName+'", "'+menuQty+'", "'+menuPrice+'", "'+menuPrice+'","'+imageUrl+'")');
 						alert(menuName+" added to cart");
 								
 							}
@@ -199,7 +242,7 @@
 				
 				if(result.rows.length == 0)
 					{
-					 tblCart.executeSql('INSERT INTO cart (id, menuName, menuQty, menuPrice, menuTotal,imageUrl) VALUES ("'+menuId+'", "'+menuName+'", "'+menuQty+'", "'+menuPrice+'", "1000","'+imageUrl+'")');
+					 tblCart.executeSql('INSERT INTO cart (id, menuName, menuQty, menuPrice, menuTotal,imageUrl) VALUES ("'+menuId+'", "'+menuName+'", "'+menuQty+'", "'+menuPrice+'", "'+menuPrice+'","'+imageUrl+'")');
 						alert(menuName+" 11added to cart");
 					}
 				

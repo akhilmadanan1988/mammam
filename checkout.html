@@ -1,8 +1,7 @@
 
-
-<div data-role="page" class="insideSpacing" id="cart">
+<div data-role="page" class="insideSpacing" id="checkout">
 	
-		 <div data-role="panel" id="navigationPanel" data-theme="a" >
+	 <div data-role="panel" id="navigationPanel" data-theme="a" >
 				 <div class="panelNav">
 				  <ul>
 				  		<li class="panelnavMain"><a href="#">LOGIN</a></li>
@@ -19,7 +18,7 @@
                   </ul>	
 				 </div>
 			</div>	
-			
+
 
 	<div data-role="header" class="topLogoArea">
 		<img src="images/logo.png" alt="" width="160" class="logo"/>
@@ -27,39 +26,46 @@
 	<a  href="#navigationPanel" class="dodgeIcon"><img src="images/menu_icon.png"/></a>
 		
 
-  <a data-direction="reverse" onclick="history.back();"  data-transition="slide" class="reverseBut ui-btn-right backClass"><img src="images/back-02.png" style="width:57px;	height:28px;"> </a>
+<a data-direction="reverse" onclick="history.back();"  data-transition="slide" class="reverseBut ui-btn-right backClass"><img src="images/back-02.png" style="width:57px;	height:28px;"> </a>
 		
 	<div class="sectionBorder">
 	</div>
 	</div><!-- /header -->
 
 
-	<div data-role="content" class="innerForm checkoutHolder">	
+	<div data-role="content" class="innerForm contactFrm">	
+	
+
 	
 	
-	
-	
-	<fieldset class="topBorderSeperation">
-		<legend style="float:left;">MY BASKET</legend>
-		<a href="checkout.html" data-transition="slide" data-transition="slide" class="ui-link actionBut"><input type="submit" value="CHECKOUT"></a>
+	<fieldset>
+		<legend>ORDER SUMMARY</legend>
 			</fieldset>	
 
+
 		
-		<div class="content-primary  menuListing ">
-		
-		<ul data-role="listview" id="cart_list" class="smallScreenSettings">
-			
-					
-		</ul>
-		
-		
-		</div><!--/content-primary -->	
-		
-				
+<div class="spacingHolder">
+
+	<div class="ui-grid-c cartHeader topBorderSeperation">
+		<div class="ui-block-a">Items</div>
+		<div class="ui-block-b" style="text-align:center;">Price</div>
+		<div class="ui-block-c" style="text-align:center;">Quantity</div>
+		<div class="ui-block-d" style="margin-bottom:10px;text-align:right ">Sub Total</div>
+	</div>
+	
+    <div id="checkoutItems">
+    		   
+	</div>
+
+</div>
+
+
 		
 	</div><!-- /content -->
 	
   
-</div><!-- /page -->
 
-<!-- Placed at the end of the document so the pages load faster -->
+
+	
+
+</div><!-- /page -->
