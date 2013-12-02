@@ -14,6 +14,9 @@
 	<script src="cordova.js"></script>
 	<script src="scripts/getConnection.js"></script>
 	<script src="scripts/jsonparser.js"></script> 
+    
+    
+    <link rel="stylesheet" href="scripts/rating/jquery.rating.css" /> 
 	
 	 <script>
           
@@ -22,6 +25,8 @@
 				 
 					 
 					  $.getScript('scripts/getHome.js');
+                 
+               
 				 	$.getScript('scripts/getConnection.js');
 						
         	                  
@@ -78,12 +83,21 @@
 					 $.getScript('scripts/getConnection.js');
 	                   $.getScript('scripts/checkout.js');
                 });   
-                $(document).on('pagebeforeshow', '#productDetail', function myCallback () { 
-					 $.getScript('scripts/simple-app.js');
+                $(document).on('pagebeforeshow', '#menuDetail', function myCallback () { 
+					 $.getScript('scripts/jsonparser.js');
+                    $.getScript('scripts/getConnection.js');
+                  
+                    $.getScript('scripts/rating/jquery.MetaData.js');
+                    $.getScript('scripts/rating/jquery.rating.js');
+                    $.getScript('scripts/menuDetails.js');
+                    $.getScript('scripts/menuDetailsReview.js');
 	                  
                 }); 
-                $(document).on('pagebeforeshow', '#profile', function myCallback () { 
-					 $.getScript('scripts/simple-app.js');
+                $(document).on('pagebeforeshow', '#signin', function myCallback () { 
+					
+                     $.getScript('scripts/jsonparser.js');
+                    $.getScript('scripts/getConnection.js');
+                    $.getScript('scripts/signIn.js');
 	                  
                 }); 
                  
@@ -136,8 +150,8 @@
 				 <div class="panelNav" id="sideMenu">
 				  <ul>
 				  		<li class="panelnavMain "><a href="services.html">LOGIN</a></li>
-      		  	    <li><img src="images/bullet.png"/><a href="signIn.html" data-transition="slide">SIGN IN</a></li>
-		            <li><img src="images/bullet.png"/><a href="signUp.html" data-transition="slide">SIGN UP</a></li>
+      		  	    <li><img src="images/bullet.png"/><a href="signIN.html" data-transition="slide">SIGN IN</a></li>
+		            <li><img src="images/bullet.png"/><a href="signUp1.html" data-transition="slide">SIGN UP</a></li>
 		            
 				  	<li class="panelnavMain "><a href="services.html">MENU</a></li>
       		  	    <li  href="aboutus-services_customerguide.html"><img src="images/bullet.png"/><a>HOME</a></li>

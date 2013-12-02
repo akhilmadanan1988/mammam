@@ -5,6 +5,7 @@ var userPhoneNo;
 var userPass;
 var userPassCon;
 var userId;
+var emailValRes;
 
 function submitSignUp()
 {
@@ -62,17 +63,45 @@ function checkEmail() {
 	
 	else
 	{
-		
+        
+		actionUrl = rootPath;
+        data = {ajaxRequest:true,method:'checkCustomerEmailExists',argumentz:'{"email":"'+email.value+'","customerId":"0"}'};
+			intiateAjaxRequest("POST", actionUrl, data, emailValidate, errorInemailValidate);
+        
 	return true;
 	}
  }
 
 function emailValidate(response)
 {
-	
-	
-	
-	
+    
+    
+	$.mobile.loading( "hide" );
+    
+    emailValRes = JSON.parse(JSON.stringify(response, null, 2));
+    
+    
+//	alert(emailValRes.intCount);
+    
+    
+    if(emailValRes.intCount == 0)
+    {        
+         //alert("Email is available");  
+          document.getElementById("divSubmitBtn").style.display="block";
+           
+    }
+    
+    
+    else
+    {
+         alert("Soory!!! Email is alerdy taken");    
+        
+      document.getElementById("divSubmitBtn").style.display="none";
+        
+    }
+        
+   
+    
 }
  
  
@@ -80,7 +109,9 @@ function emailValidate(response)
 	function getData(){
 	
 			actionUrl = rootPath;
-			data = {ajaxRequest:true,method:'newCustomerSignup',argumentz:'{"firstName":"'+userName+'","password":"'+userPass+'","phone":"'+userPhoneNo+'","email":"'+userEmail+'","isActive":"Y"}'};
+			
+        data = {ajaxRequest:true,method:'newCustomerSignup',argumentz:'{"firstName":"'+userName+'","password":"'+userPass+'","phone":"'+userPhoneNo+'","email":"'+userEmail+'","isActive":"Y"}'};
+        
 			intiateAjaxRequest("POST", actionUrl, data, response, errorInProcessing);
 			
 			}
@@ -89,7 +120,7 @@ function emailValidate(response)
 	{
 	$.mobile.loading( "hide" );
 	
-	alert(result.intCustomerId);
+	//alert(result.intCustomerId);
 		
 		userId = result.intCustomerId;
 	//var obj = (result[0].intCount);
@@ -101,7 +132,7 @@ function emailValidate(response)
 	
 	
 	function errorInProcessing(d)
-			{
+			{    
 			
 			$.mobile.loading( "hide" );
 			alert('Some errors occured. Please try again');
@@ -121,7 +152,8 @@ function populateDB(tx)
 function successCB()
 	{
    
-		alert("success!");
+        document.location.href = 'index.html';
+		//alert("success!");
 	}
 
 function errorCB(err) 
@@ -132,3 +164,14 @@ function errorCB(err)
 		
 	}
 	
+
+function errorInemailValidate(response, status, xhr)
+{
+    
+    
+     $.mobile.loading( "hide" );
+    
+    alert( response + "  " + status+' Some errors occured. Please try again');
+    
+    
+}

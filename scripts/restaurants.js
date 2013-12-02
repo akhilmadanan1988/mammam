@@ -7,12 +7,13 @@
 				var restObj;
 				var restList;
 				var restUrl;
-			getData();
+				var loadMore = 6;
+			getData(3);
   
-   function getData()
+   function getData(pageLimit)
 	{
 		restUrl = rootPath;
-		data =	{ajaxRequest:true,method:'getRestaurantList',argumentz:'{"zoneId":"'+zoneId[1]+'","areaId":"'+areaId[1]+'","pageStart":0,"pageLimit":3}'};
+		data =	{ajaxRequest:true,method:'getRestaurantList',argumentz:'{"zoneId":"'+zoneId[1]+'","areaId":"'+areaId[1]+'","pageStart":0,"pageLimit":'+pageLimit+'}'};
 		intiateAjaxRequest("POST", restUrl, data, restResponse, restErrorInProcessing);
 	}
 	
@@ -61,7 +62,7 @@
 				//alert(restList[0].RestaurantId)	
 				if(restList.length>0)
 					{
-                          
+                      $('#list_view').html('');     
 					
 						for(var i=0;i<restList.length;i++)
 						{
@@ -103,6 +104,10 @@
 						
 						
 						}	
+						
+						$('#list_view').append('<a data-role="button" onclick="getData('+loadMore+')" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner"><span class="ui-btn-text">             Load More         </span></span></a>');
+						
+					loadMore = loadMore + 3;
 						
                     }
 

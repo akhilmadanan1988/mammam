@@ -71,7 +71,7 @@ function errorCB(err)
 		{
 			
 			//alert(tblSettings);
-			tblSettings.executeSql('SELECT * FROM SETTINGS', [], querySuccess, errorCB);
+			tblSettings.executeSql('SELECT * FROM settings', [], querySuccess, errorCB);
 			
 		}
 	function querySuccess(tblSettings,result)

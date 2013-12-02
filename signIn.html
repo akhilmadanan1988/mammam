@@ -1,5 +1,5 @@
 
-<div data-role="page" class="insideSpacing" id="profile">
+<div data-role="page" class="insideSpacing" id="signin">
 <div data-role="panel" id="navigationPanel" data-theme="a" >
 				 <div class="panelNav">
 				  <ul>
@@ -42,16 +42,18 @@
 			
 				<form>
 					<div data-role="fieldcontain" class="nobdr">
-                         <input type="text" name="text-12" id="text-12" value="" placeholder="Name">
+                         <input type="text" name="text-12" id="signinEmail"  placeholder="Name" >
 					</div>
 					
 					<div data-role="fieldcontain" class="nobdr">
-                         <input type="password" name="text-12" id="text-12" value="" placeholder="Password">
+                         <input type="password" name="text-12" id="signPass"  placeholder="Password" >
 					</div>
 					
 					<div data-role="fieldcontain">
                     
-                        <a href="loggedIndex.html"  class="ui-link actionBut" data-transition="slide" data-rel="external" data-ajax="false"><input type="submit" value="SIGN IN"></a>
+                        <a  class="ui-link actionBut" data-transition="slide"  data-rel="external" data-ajax="false" onclick="signIn()"><input type="submit" value="SIGN IN"></a>
+                        
+                       
 					</div>
 				</form>	
 			

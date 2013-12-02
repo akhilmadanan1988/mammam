@@ -3,6 +3,7 @@
 	
 			function getReview()
 				{
+                    userReg();
 			actionUrl = rootPath;
 			data = 								{ajaxRequest:true,method:'getCustomerReviewForRestaurant',argumentz:'{"restaurantId":"'+restId1[1]+'","pageStart":0,"pageLimit":3}'};
 			intiateAjaxRequest("POST", actionUrl, data, response, errorInProcessing);
@@ -82,6 +83,51 @@
 			$.mobile.loading( "hide" );
 			alert('Some errors occured. Please try again');
 			}
+
+function userReg()
+    {
+    
+    
+        
+        var db = window.openDatabase("dbmammam", "1.0", "mammam", 1000000);
+	   db.transaction(restUserDb, errorCB);
+    
+    
+    }
+
+function restUserDb(tblSettings)
+    {   
+    
+        tblSettings.executeSql('SELECT * FROM settings', [], successRestLIst, errorRestReview);
+        
+        
+    
+    }
+
+function successRestLIst(tblSettings,result)
+    {
+       
+        if(result.rows.length == 0)
+        {
+             document.getElementById('restReviewForm').style.display='none';  
+             
+        }
+        else
+        {
+             document.getElementById('restReviewForm').style.display='block'; 
+            
+        }
+      
+        
+    }
+
+function errorRestReview(error)
+    {
+    
+    
+    alert(1);
+     
+    }
 			
 	
 	
