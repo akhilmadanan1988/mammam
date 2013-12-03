@@ -101,7 +101,7 @@ function minusQty(mnId,attrId)
 				
 				
 			
-				alert("updated");
+				
 				dbCart();
 				
 			}, errorCart);
@@ -138,7 +138,7 @@ function plusQty(mnId,attrId)
 				
 				
 				
-				alert("updated");
+				
 				dbCart();
 			}, errorCB);
 		}	

@@ -176,10 +176,15 @@ function submitReview()
 function submitReviewCheck(response)
 {
     
-    alert(response);
+    $.mobile.loading( "hide" );
     
+     var reviewSubmitRes = JSON.parse(JSON.stringify(response, null, 2));
     
-    
+    if(reviewSubmitRes.status == 0)
+    {    
+        
+    alert("Review sbmited successfullt. Thanks");
+    }
 }
 
 

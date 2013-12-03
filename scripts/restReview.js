@@ -56,6 +56,7 @@
 							
 						}
 					}
+            
 		}
 		
 		
@@ -122,10 +123,9 @@ function successRestLIst(tblSettings,result)
     }
 
 function errorRestReview(error)
-    {
+    {    
     
-    
-    alert(1);
+    alert("some error occured");
      
     }
 			

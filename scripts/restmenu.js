@@ -394,21 +394,25 @@ function findTotal()
                        
 					for(var i=0;i<resMenu.length;i++)
                         {
+                            
+//                             alert(JSON.stringify(resMenu[i]));
+                            
+                            var menuUrlData = encodeURIComponent(JSON.stringify(resMenu[i]));
 						
 					if(	resMenu[i].IsCustom	== 1)
 					{
 						
 															
-							$('#rest_menu_list').append('<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="menuDetailS.html?menuId='+resMenu[i].MenuId+'&menuPrice='+resMenu[i].MenuPrice+'&CurrncyNmae='+resMenu[i].CurrncyNmae+'" data-transition="slide" style="padding-top:0;float:left; " class="ui-link-inherit"><img src="'+imgURL+resMenu[i].MenuImage+'"  onerror=this.src="images/placeholder.png";  class="ui-li-thumb"></a>	<h3 class="ui-li-heading">'+resMenu[i].MenuName+'</h3>	<p class="reviewContent ui-li-desc">'+resMenu[i].MenuDesc+'</p> <p class="menuRateSecton ui-li-desc"  style="height:30px;"><span>'+resMenu[i].CurrncyNmae+' '+resMenu[i].MenuPrice +'</span>  <a  href="#positionWindow" data-inline="true" data-rel="popup" data-position-to="window" style="text-decoration:none;" class="ui-link"><img src="images/spoonfork.png" onclick="popupMenu('+resMenu[i].MenuId+')"  href="#positionWindow"  style="height:30px;></a> </div> </p> </div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></li>');
+							$('#rest_menu_list').append('<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="menuDetailS.html?menuId='+resMenu[i].MenuId+'&menuPrice='+resMenu[i].MenuPrice+'&CurrncyNmae='+resMenu[i].CurrncyNmae+'&CurrncyNmae='+resMenu[i].CurrncyNmae+'&MenuJson=\''+menuUrlData+'\'" data-transition="slide" style="padding-top:0;float:left; " class="ui-link-inherit"><img src="'+imgURL+resMenu[i].MenuImage+'"  onerror=this.src="images/placeholder.png";  class="ui-li-thumb"></a>	<h3 class="ui-li-heading">'+resMenu[i].MenuName+'</h3>	<p class="reviewContent ui-li-desc">'+resMenu[i].MenuDesc+'</p> <p class="menuRateSecton ui-li-desc"  style="height:30px;"><span>'+resMenu[i].CurrncyNmae+' '+resMenu[i].MenuPrice +'</span>  <a  href="#positionWindow" data-inline="true" data-rel="popup" data-position-to="window" style="text-decoration:none;" class="ui-link"><img src="images/spoonfork.png" onclick="popupMenu('+resMenu[i].MenuId+')"  href="#positionWindow"  style="height:30px;></a> </div> </p> </div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></li>');
 					
 					}
 					
-					
+					//&CurrncyNmae='+resMenu[i].CurrncyNmae+'&MenuJson='+resMenu[i]+'
 					else
 					{
 						
 						
-						$('#rest_menu_list').append('<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="menuDetailS.html?menuId='+resMenu[i].MenuId+'&menuPrice='+resMenu[i].MenuPrice+'&CurrncyNmae='+resMenu[i].CurrncyNmae+'" data-transition="slide" style="padding-top:0;float:left; " class="ui-link-inherit"><img src="'+imgURL+resMenu[i].MenuImage+'"  onerror=this.src="images/placeholder.png";  class="ui-li-thumb"></a>	<h3 class="ui-li-heading">'+resMenu[i].MenuName+'</h3>	<p class="reviewContent ui-li-desc">'+resMenu[i].MenuDesc+'</p> <p class="menuRateSecton ui-li-desc"  style="height:30px;"><span>'+resMenu[i].CurrncyNmae+' '+resMenu[i].MenuPrice +'</span><a  data-transition="slide" class="ui-link"><img src="images/carts.png" onclick="addToCart('+resMenu[i].MenuId+')" style="height:30px;"></a> </p> </div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>');
+						$('#rest_menu_list').append('<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="menuDetailS.html?menuId='+resMenu[i].MenuId+'&menuPrice='+resMenu[i].MenuPrice+'&CurrncyNmae='+resMenu[i].CurrncyNmae+'&CurrncyNmae='+resMenu[i].CurrncyNmae+'&MenuJson=\''+menuUrlData+'\'" data-transition="slide" style="padding-top:0;float:left; " class="ui-link-inherit"><img src="'+imgURL+resMenu[i].MenuImage+'"  onerror=this.src="images/placeholder.png";  class="ui-li-thumb"></a>	<h3 class="ui-li-heading">'+resMenu[i].MenuName+'</h3>	<p class="reviewContent ui-li-desc">'+resMenu[i].MenuDesc+'</p> <p class="menuRateSecton ui-li-desc"  style="height:30px;"><span>'+resMenu[i].CurrncyNmae+' '+resMenu[i].MenuPrice +'</span><a  data-transition="slide" class="ui-link"><img src="images/carts.png" onclick="addToCart('+resMenu[i].MenuId+')" style="height:30px;"></a> </p> </div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>');
 							
 						
 					}

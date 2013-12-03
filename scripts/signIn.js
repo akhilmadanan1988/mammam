@@ -126,8 +126,58 @@ function errorInSignIn(response, status, xhr)
 function forgetPwd()
 {
     
+    var frg_pwd = document.getElementById("frgEmail").value;
     
+   var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+    if (!filter.test(frg_pwd)) 
+	{
+	
+    alert('Please provide a valid email address');
+        
+        
+    }
+    
+    
+    else
+    {
+        
+        actionUrl = rootPath;
+        data = {ajaxRequest:true,method:'forgotPasswordCustomer',argumentz:'{"option":"checkExists","email":"'+frg_pwd+'","code":0}'};
+			intiateAjaxRequest("POST", actionUrl, data, frgInResp, errorInSignIn);
+        
+    }
     
     
     
 }
+
+
+function frgInResp(response)
+{
+    
+    $.mobile.loading( "hide" );
+    
+//    alert(JSON.stringify(response, null, 2));
+    
+    var frgPwdnRes = JSON.parse(JSON.stringify(response, null, 2));
+    
+    
+    
+    if(frgPwdnRes.status == 1)
+    {
+        
+        alert("Please check your email");
+        
+        $( "#popupForPwd" ).popup( "close" )
+        
+    }
+    else if(frgPwdnRes.status == 0)
+    {
+        
+        alert("email not found");
+    }
+    
+    
+}
+

@@ -6,7 +6,7 @@ function intiateAjaxRequest(method, url, data, callBackFunction, erroFunction)
 			$.mobile.loading( "show", {
 			text: "Loding",
 			textVisible: true,
-			theme: "A",
+			theme: "a",
 			html: ""
 				});
 			

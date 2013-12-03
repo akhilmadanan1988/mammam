@@ -4,8 +4,8 @@
 				 <div class="panelNav">
 				  <ul>
 				  		<li class="panelnavMain"><a href="#">LOGIN</a></li>
-      		  	    <li class="panelCurrent"><img src="images/bullet.png"/><a href="signIn.html" data-transition="slide">SIGN IN</a></li>
-		            <li><img src="images/bullet.png"/><a href="signUp.html" data-transition="slide">SIGN UP</a></li>
+      		  	    <li class="panelCurrent"><img src="images/bullet.png"/><a href="signIN.html" data-transition="slide">SIGN IN</a></li>
+		            <li><img src="images/bullet.png"/><a href="signUp1.html" data-transition="slide">SIGN UP</a></li>
 		            
 				  	<li class="panelnavMain"><a href="#">MENU</a></li>
       		  	    <li><img src="images/bullet.png"/><a href="index.html" data-transition="slide">HOME</a></li>
@@ -55,12 +55,30 @@
                         
                        
 					</div>
+                    <a href="#popupForPwd" data-rel="popup" data-position-to="window" data-transition="flip"> Forget password?</a>
 				</form>	
 			
 			
 		</div><!-- /content -->
 	
-
+<div data-role="popup" id="popupForPwd" >
+			<a  data-rel="back" data-role="button" data-theme="a" data-icon="delete"  data-iconpos="notext" class="ui-btn-left">Close</a>
+			
+			<div class="ui-bar customizedHolder"  >
+				<label for="select-pizza-size" class="select">Enter your email:</label>
+				<br>
+			
+					<div data-role="fieldcontain" class="nobdr">
+                         <input type="text" name="text-12" id="frgEmail"   >
+					</div>
+                <div data-role="fieldcontain">
+					<a  class="ui-link actionBut" data-transition="slide"  data-rel="external" data-ajax="false" onclick="forgetPwd()"><input type="submit" value="SUBMIT" style="font-color:white;"></a>	
+		
+				</div>
+                
+			</div>
+			
+		</div>
 	
 
 </div><!-- /page -->
