@@ -528,7 +528,9 @@ function findTotal()
 								tblCart.executeSql('UPDATE cart SET menuQty="'+qty+'",menuTotal="'+menuCartTotal+'" WHERE id="'+menuId+'"  AND attrId="'+menuCustIdS+'"');
                                 
                                 
-						alert("updated11 "+menuName+result.rows.item(i).attrId);
+						alert("updated11 "+menuName);
+                                
+                                 $( "#positionWindow" ).popup( "close" )
 								
 							}
 					
@@ -539,7 +541,7 @@ function findTotal()
                                 
 						 tblCart.executeSql('INSERT INTO cart (id, menuName,isCust, attrId, attrNames, menuQty, menuPrice, menuTotal,imageUrl) VALUES ("'+menuId+'", "'+menuName+'", "'+isMenuCust+'", "'+menuCustIdS+'", "'+menuCustName+'","'+menuPopUpQty+'", "'+tot+'", "'+tot+'","'+imageUrl+'")');
 						
-								
+								  $( "#positionWindow" ).popup( "close" )
 							}
                     
                  }
@@ -555,6 +557,8 @@ function findTotal()
 								tblCart.executeSql('UPDATE cart SET menuQty="'+qty+'",menuTotal="'+menuCartTotal+'" WHERE id="'+menuId+'"  AND attrId="'+menuCustIdS+'"');
                                 
 						alert("updated "+menuName);
+                                
+                                  $( "#positionWindow" ).popup( "close" )
 								
 							}
 					
@@ -563,7 +567,10 @@ function findTotal()
 								
 						
 						 tblCart.executeSql('INSERT INTO cart (id, menuName, menuQty, menuPrice, menuTotal,imageUrl) VALUES ("'+menuId+'", "'+menuName+'", "'+menuQty+'", "'+menuPrice+'", "'+menuPrice+'","'+imageUrl+'")');
+                                
 						alert(menuName+" added to cart");
+                                
+                                  $( "#positionWindow" ).popup( "close" )
 								
 							}
                 
@@ -584,6 +591,8 @@ function findTotal()
                         
 						alert(menuName+" added to cart" + menuCustName);
                         
+                          $( "#positionWindow" ).popup( "close" )
+                        
 					}
                     
                 else
@@ -592,6 +601,8 @@ function findTotal()
                     tblCart.executeSql('INSERT INTO cart (id, menuName,isCust, attrId, attrNames, menuQty, menuPrice, menuTotal,imageUrl) VALUES ("'+menuId+'", "'+menuName+'", "'+isMenuCust+'", "'+menuCustIdS+'", "'+menuCustName+'","'+menuQty+'", "'+menuPrice+'", "'+menuPrice+'","'+imageUrl+'")');
                         
 						alert(menuName+" added to cart" + menuCustName);
+                        
+                          $( "#positionWindow" ).popup( "close" )
                     
                     }
                         

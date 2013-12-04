@@ -48,7 +48,7 @@ border:none;
 .page-inner {
 	padding: 15px 20px;
 }
-input[type="text"], textarea {
+input[type="text"], textarea, input[type="password"]{
 	-webkit-box-sizing: border-box !important;
 	-moz-box-sizing: border-box !important;
 	box-sizing: border-box !important;

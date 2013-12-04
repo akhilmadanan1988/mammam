@@ -575,7 +575,7 @@ function successMenuDetailsCart(tblCart,result)
                         tblCart.executeSql('INSERT INTO cart (id, menuName,isCust, attrId, attrNames, menuQty, menuPrice, menuTotal,imageUrl) VALUES ("'+menuId+'", "'+menuName+'", "'+isMenuCust+'", "'+menuCustIdS+'", "'+menuCustName+'","'+menuPopUpQty+'", "'+menuDetailsPopTotal+'", "'+tot+'","'+imageUrl+'")');
                         
                         alert(menuName+ " is added to cart");
-                        
+                         $( "#popupMenuDetails" ).popup( "close" )
                     
         
                    
@@ -610,6 +610,8 @@ function successMenuDetailsCart(tblCart,result)
                                 
                                 
 						alert("updated "+menuName);
+                                
+                                 $( "#popupMenuDetails" ).popup( "close" )
                     
                             }
                     
@@ -622,7 +624,7 @@ function successMenuDetailsCart(tblCart,result)
                             
 						 tblCart.executeSql('INSERT INTO cart (id, menuName,isCust, attrId, attrNames, menuQty, menuPrice, menuTotal,imageUrl) VALUES ("'+menuId+'", "'+menuName+'", "'+isMenuCust+'", "'+menuCustIdS+'", "'+menuCustName+'","'+menuPopUpQty+'", "'+menuDetailsPopTotal+'", "'+menuCartTotal+'","'+imageUrl+'")');
                             
-						
+						 $( "#popupMenuDetails" ).popup( "close" )
 								
 							}
                 }

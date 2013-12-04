@@ -43,6 +43,10 @@
 					
 					 $.getScript('scripts/jsonparser.js');
 					$.getScript('scripts/restmenu.js');
+                     
+                     $.getScript('scripts/rating/jquery.MetaData.js');
+                    $.getScript('scripts/rating/jquery.rating.js');
+                     
 					 $.getScript('scripts/restReview.js');
 					  $.getScript('scripts/getConnection.js');
 	 				  var prevSelection = "tab1";
@@ -103,6 +107,13 @@
                      $.getScript('scripts/jsonparser.js');
                     $.getScript('scripts/getConnection.js');
                     $.getScript('scripts/signIn.js');
+	                  
+                }); 
+         $(document).on('pagebeforeshow', '#profile', function myCallback () { 
+					
+                     $.getScript('scripts/jsonparser.js');
+                    $.getScript('scripts/getConnection.js');
+                   
 	                  
                 }); 
                  

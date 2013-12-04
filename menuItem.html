@@ -127,28 +127,31 @@
 				<form class="tabContentHolder"  >
 					
 					<div data-role="fieldcontain">
-                         <label for="text-12">Rate:</label>
-                         <img src="images/star_1.png"/>
-                         <img src="images/star_1.png"/>
-                         <img src="images/star_1.png"/>
-                         <img src="images/star_1.png"/>
-                         <img src="images/star_1.png"/>
+                        
+                        <label for="text-12">Rate:</label>
+                        
+                        <input name="star1" type="radio" class="star" value="1"/>
+                        <input name="star1" type="radio" class="star" value="2"/>
+                        <input name="star1" type="radio" class="star" value="3"/>
+                        <input name="star1" type="radio" class="star" value="4"/>
+                        <input name="star1" type="radio" class="star" value="5"/>
+                        
 					</div>
 					
 					
 					<div data-role="fieldcontain">
                          <label for="text-12">Name:</label>
-                         <input type="text" name="text-12" id="text-12" value="">
+                         <input type="text" name="text-12" id="restreviewName" value="">
 					</div>
 					
 					<div data-role="fieldcontain">
                          <label for="text-12">Describe your experience with this restuarant(optional):</label>
-                         <textarea cols="80" rows="42" name="textarea-1" id="textarea-1" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></textarea>
+                         <textarea cols="80" rows="42" name="textarea-1" id="restreviewText" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></textarea>
 					</div>
 					
-					<div data-role="fieldcontain">
+					<div data-role="fieldcontain" onclick="submitRestReview()">
                          <label for="text-12" class="mobilePortHidden">&nbsp;</label>
-                        <a href="#" data-transition="slide" data-transition="slide" class="ui-link actionBut"><input type="submit" value="SUBMIT REVIEW"></a>
+                        <a  data-transition="slide" data-transition="slide" class="ui-link actionBut"><input type="submit" value="SUBMIT REVIEW" ></a>
 					</div>
 				
 				</form>
