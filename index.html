@@ -23,14 +23,22 @@
 		 		
 			 $(document).on('pageinit', '#index', function() { 
 				 
-					 
 					  $.getScript('scripts/getHome.js');
-                 
-               
 				 	$.getScript('scripts/getConnection.js');
-						
-        	                  
+                 
+                 $("#slideIndex").owlCarousel({
+ 
+                             navigation : false, 
+                            slideSpeed : 300,
+                            paginationSpeed : 400,
+                            singleItem:false,
+                            autoHeight : true,
+                       
+                    });
+                 
+                         
                 }); 
+         
                 $(document).on('pageinit', '#restaurants', function() { 
 						 $.getScript('scripts/jsonparser.js');
 					  $.getScript('scripts/restaurants.js');
@@ -123,14 +131,14 @@
 	<!-- <script src="scripts/jsonparser.js"></script> -->
 	<script src="scripts/getHome.js"></script>
 	
-	<script src="scripts/idangerous.swiper-2.0.min.js"></script>
+	
 	<script src="scripts/simple-app.js"></script>
 	
 	
 		<!-- scripts for swipe-->
 	<link rel="stylesheet" href="styles/custom.css" />
 	<!--styles for swipe-->
-	<link rel="stylesheet" href="styles/idangerous.swiper.css">
+	
 	<link rel="stylesheet" href="styles/normalize.css">
 	<link rel="stylesheet" href="styles/simple-app.css">
 	<link rel="stylesheet" type="text/css" href="styles/elastislide.css" />
@@ -278,7 +286,23 @@
 	<div class="featuredRestuarantBox">
 		<h3>FEATURED RESTAURANT</h3>
 		
-		          <!-- Elastislide Carousel -->
+		          
+        
+        <div id="slideIndex" class="itemsScaleUp-false owl-carousel ">
+                
+        <div class="indexItem"><img src="images/strAppLogo.jpg" alt="Owl Image"> </div>
+            <div class="indexItem"><img src="images/OUR PARTNERS_logo_1.png" alt="Owl Image"></div>
+             <div class="indexItem"><img src="images/OUR PARTNERS_logo_2.png" alt="Owl Image"> </div>
+            <div class="indexItem"><img src="images/OUR PARTNERS_logo_3.png" alt="Owl Image"></div>
+             <div class="indexItem"><img src="images/OUR PARTNERS_logo_4.png" alt="Owl Image"> </div>
+            <div class="indexItem"><img src="images/OUR PARTNERS_logo_2.png" alt="Owl Image"></div>
+             <div class="indexItem"><img src="images/OUR PARTNERS_logo_1.png" alt="Owl Image"> </div>
+            <div class="indexItem"><img src="images/OUR PARTNERS_logo_3.png" alt="Owl Image"></div>
+  
+ 
+        </div>
+        
+        <!-- Elastislide Carousel 
           <ul id="carousel" class="elastislide-list">
             <li><a href="#"><img src="images/OUR PARTNERS_logo_1.png" alt="image01" /></a></li>
             <li><a href="#"><img src="images/OUR PARTNERS_logo_2.png" alt="image02" /></a></li>
@@ -290,7 +314,7 @@
             <li><a href="#"><img src="images/OUR PARTNERS_logo_4.png" alt="image04" /></a></li>
           </ul>
           <!-- End Elastislide Carousel -->
-
+     
 		
 	</div>	
 		
