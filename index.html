@@ -28,17 +28,21 @@
                  
                  $("#slideIndex").owlCarousel({
  
-                             navigation : false, 
-                            slideSpeed : 300,
-                            paginationSpeed : 400,
-                            singleItem:false,
-                            autoHeight : true,
-                       
+                           // Show next and prev buttons
+                           items : 4,
+                     
+                            itemsDesktop : [1199,6],
+                            itemsDesktopSmall : [979,5],
+                            itemsTabletSmall:[768,6],
+                            itemsMobile : [479,3],
+                            itemsCustom : [279,4],
+                            itemsCustom : [1024,4],
+                            
+ 
                     });
-                 
-                         
+						
+        	                  
                 }); 
-         
                 $(document).on('pageinit', '#restaurants', function() { 
 						 $.getScript('scripts/jsonparser.js');
 					  $.getScript('scripts/restaurants.js');
@@ -138,16 +142,17 @@
 		<!-- scripts for swipe-->
 	<link rel="stylesheet" href="styles/custom.css" />
 	<!--styles for swipe-->
-	
+	<link rel="stylesheet" href="styles/idangerous.swiper.css">
 	<link rel="stylesheet" href="styles/normalize.css">
 	<link rel="stylesheet" href="styles/simple-app.css">
 	<link rel="stylesheet" type="text/css" href="styles/elastislide.css" />
 	<script src="scripts/modernizr.custom.17475.js"></script>
 
     <!-- Menu image Slide  -->
-      <link rel="stylesheet" href="styles/owl.carousel.css">
+     <link rel="stylesheet" href="styles/owl.carousel.css">
      <link rel="stylesheet" href="styles/owl.theme.css">
      <link rel="stylesheet" href="styles/menusImageSlider.css">
+     <link rel="stylesheet" href="styles/indexSlide.css">
     
     <script src="scripts/owl.carousel.js"></script>  
     
@@ -288,16 +293,13 @@
 		
 		          
         
-        <div id="slideIndex" class="itemsScaleUp-false owl-carousel ">
+        <div id="slideIndex" class="owl-carousel ">
                 
-        <div class="indexItem"><img src="images/strAppLogo.jpg" alt="Owl Image"> </div>
-            <div class="indexItem"><img src="images/OUR PARTNERS_logo_1.png" alt="Owl Image"></div>
-             <div class="indexItem"><img src="images/OUR PARTNERS_logo_2.png" alt="Owl Image"> </div>
-            <div class="indexItem"><img src="images/OUR PARTNERS_logo_3.png" alt="Owl Image"></div>
-             <div class="indexItem"><img src="images/OUR PARTNERS_logo_4.png" alt="Owl Image"> </div>
-            <div class="indexItem"><img src="images/OUR PARTNERS_logo_2.png" alt="Owl Image"></div>
+        <div class="indexItem"><img src="images/OUR PARTNERS_logo_1.png" alt="Owl Image"> </div>
+           <div class="indexItem"><img src="images/OUR PARTNERS_logo_1.png" alt="Owl Image"> </div>
              <div class="indexItem"><img src="images/OUR PARTNERS_logo_1.png" alt="Owl Image"> </div>
-            <div class="indexItem"><img src="images/OUR PARTNERS_logo_3.png" alt="Owl Image"></div>
+             <div class="indexItem"><img src="images/OUR PARTNERS_logo_1.png" alt="Owl Image"> </div>
+             <div class="indexItem"><img src="images/OUR PARTNERS_logo_1.png" alt="Owl Image"> </div>
   
  
         </div>

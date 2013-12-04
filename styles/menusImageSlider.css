@@ -1,15 +1,14 @@
-#slideIndex .indexItem img
-{
+#owl-example .item img{
     display: block;
-   width:75%;
-    height:auto;
+    width: 100%;
+    height: auto;
     
     
 }
 
-#slideIndex .indexItem 
+.item
 {
-     
-   margin:3px;
-   
+    
+    text-align:center;
+    
 }
