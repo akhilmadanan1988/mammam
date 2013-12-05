@@ -1,0 +1,14 @@
+#slideIndex .indexItem img{
+    
+    display: block;
+    width: 100%;
+    height: auto;
+    
+}
+
+#slideIndex .indexItem
+{
+    margin: 3px;
+    text-align:center;
+    
+}
