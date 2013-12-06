@@ -46,7 +46,7 @@ function dbCreation()
 function populateDB(tx) 
 	{
 	
-		 tx.executeSql('CREATE TABLE IF NOT EXISTS settings (custId unique, userName, email,phNo,password,isActive)');
+		 tx.executeSql('CREATE TABLE IF NOT EXISTS settings (custId unique, userName, email unique,phNo,password,address,zipcode,isActive)');
 	
 	}
 

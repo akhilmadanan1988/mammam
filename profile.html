@@ -50,30 +50,35 @@
 		
 		<form class="tabContentHolder">
 					<div data-role="fieldcontain" class="nobdr">
-                         <input type="text" name="text-12" id="text-12" value="" placeholder="Name">
-					</div>
-					
-					<div data-role="fieldcontain" class="nobdr">
-                         <textarea cols="80" rows="42" name="textarea-1" id="textarea-1" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Address"></textarea>
+                         <input type="text" name="text-12" id="firstName" value="" placeholder="Name">
 					</div>
 					<div data-role="fieldcontain" class="nobdr">
-                         <input type="text" name="text-12" id="text-12" value="" placeholder="Zipcode">
+                         <input type="text" name="text-12" id="phoneNo" value="" placeholder="Phone">
 					</div>
 					<div data-role="fieldcontain" class="nobdr">
-                         <input type="text" name="text-12" id="text-12" value="" placeholder="Password">
+                         <textarea cols="80" rows="42" name="textarea-1" id="address" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Address"></textarea>
+					</div>
+					<div data-role="fieldcontain" class="nobdr">
+                         <input type="text" name="text-12" id="zip" value="" placeholder="Zipcode">
+					</div>
+					<div data-role="fieldcontain" class="nobdr">
+                         <input type="password" name="text-12" id="oldpass" value="" placeholder="Password">
+					</div>
+            	<div data-role="fieldcontain" class="nobdr">
+                         <input type="password" name="text-12" id="newPass" value="" placeholder="Password">
 					</div>
             <div data-role="fieldcontain" class="nobdr">
-                         <input type="text" name="text-12" id="text-12" value="" placeholder="New password">
+                         <input type="password" name="text-12" id="confPass" value="" placeholder="New password">
 					</div>
             
 					
 					
 					<div data-role="fieldcontain">
                     
-                        <a href="#" data-transition="slide" data-transition="slide" class="ui-link actionBut"><input type="submit" value="SUBMIT"></a>
+                        <a  data-transition="slide" data-transition="slide" class="ui-link actionBut" onclick="submitProfile()"><input type="submit" value="SUBMIT" ></a>
 					</div>
 				
-				</form>
+         </form>
 				
 		
 		

@@ -143,7 +143,7 @@ function populateDB(tx)
 	{
 	
 		
-		 tx.executeSql('CREATE TABLE IF NOT EXISTS settings (custId unique, userName, email unique,phNo,password,isActive)');
+		 tx.executeSql('CREATE TABLE IF NOT EXISTS settings (custId unique, userName, email unique,phNo,password,address,zipcode,isActive)');
 		tx.executeSql('DELETE FROM settings');
 		 tx.executeSql('INSERT INTO settings (custId, userName, email,phNo,password,isActive) VALUES("'+userId+'","'+userName+'","'+userEmail+'","'+userPhoneNo+'","'+userPass+'","Y")');
 	

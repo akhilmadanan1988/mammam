@@ -63,7 +63,7 @@ function homePage($http,$scope)
                              
                                 });
                                     
-                                    var  htmlString = '<div class="indexItem"><a href="menuItem.html?searchId=0&restId='+$scope.rest[k].restaurantId+'&restName='+$scope.rest[k].restaurantName+' data-transition="slide" ><img src="'+imgURL+$scope.rest[k].RestImageURL+'" onerror=this.src="images/placeholder.png"  alt="Owl Image"></a> </div>';
+                                    var  htmlString = '<div class="indexItem"><a href="menuItem.html?searchId=0&restId='+$scope.rest[k].restaurantId+'&restName='+$scope.rest[k].restaurantName+'" data-transition="slide" ><img src="'+imgURL+$scope.rest[k].RestImageURL+'" onerror=this.src="images/placeholder.png"  alt="Owl Image"></a> </div>';
                                     
                                 
                                     var owl = $("#slideIndex").data('owlCarousel');
