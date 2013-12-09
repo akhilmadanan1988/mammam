@@ -48,7 +48,8 @@ function getCart(tblCart)
 			$('#cart_list').html('');
             
 			tblCart.executeSql('SELECT * FROM cart', [], function(tblCarts,result){
-          res = result.rows.item(0).restId;
+          
+                res = result.rows.item(0).restId;
                 tblCarts.executeSql('SELECT * FROM cart WHERE restId='+result.rows.item(0).restId+'', [],cartSuccess,errorCart);
                 
             for(var i = 0;i<result.rows.length;i++)
@@ -57,13 +58,15 @@ function getCart(tblCart)
                 {
                     
                 tblCarts.executeSql('SELECT * FROM cart WHERE restId='+result.rows.item(i).restId+'', [],cartSuccess,errorCart);
-                
+                 res = result.rows.item(i).restId;
+                }
+                else
+                {
+                    
+                    
                 }
              }
-                
-                
-                
-            
+              
             }, errorCart);
 			
 			
@@ -71,9 +74,7 @@ function getCart(tblCart)
 
 function cartSuccess(tblCart,result)
 		{
-		
-			
-            
+		            
              $('#cart_list').append('<div class="ui-grid-c cartHeader topBorderSeperation" style="color:red;"> '+result.rows.item(0).restName+' </div>');
 			
 		for(var i = 0;i<result.rows.length;i++)
