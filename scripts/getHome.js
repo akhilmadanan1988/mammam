@@ -167,13 +167,7 @@ function homePage($http,$scope)
  
 		}
 	
-document.addEventListener("backbutton", onBackKeyDown, false);
 
-function onBackKeyDown() {
-    
-    alert(1);
-    // Handle the back button
-}
 
 
 function featRest(id)
