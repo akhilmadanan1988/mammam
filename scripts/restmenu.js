@@ -10,18 +10,19 @@
 	var imageUrl;
 	var loadMore = 6;
     var menuCustItem = new Array();
-     var selectMenu; 
+    var selectMenu; 
     var menuAtt;
     var diffMenuAtt;
-     var menuPrice;
+    var menuPrice;
     var DfAttributeValue;	
 	var attLen = 0;
-     var curName;
-     var totalMenuPrice;
-     var tot;
+    var curName;
+    var totalMenuPrice;
+    var tot;
     var isMenuCust = "N"; 
     var menuCustIdS = "00";
     var menuCustName = "null";
+    var restName;
 
 		var getdata = window.location.href.slice(window.location.href.indexOf('?')+1).split('&');  
 		 
@@ -29,7 +30,7 @@
 		 searchId = getdata[0].split('=');
 		 restId1 = getdata[1].split('=');
 		 
-		
+		restName = getdata[2].split('=');
 			//alert(restId1[1]);
 			
 			 getData(3);
@@ -386,6 +387,18 @@ function findTotal()
 					
 					
 				resMenu = (result)[0].MenuData;
+                    
+//                    var restHoliday =JSON.parse(JSON.stringify(result, null, 2));
+//                    
+//                    alert(restHoliday[0].MenuData);
+                    
+//                    if(restHoliday[0].IsHoliday == "Y")
+//                    {
+//                        
+//                        alert("This restaurant is Holiday");
+//                        
+//                        
+//                    }
 				//alert((resMenu)[0].MenuName);
 			
 			if(resMenu.length>0)
@@ -399,20 +412,20 @@ function findTotal()
                             
                             var menuUrlData = encodeURIComponent(JSON.stringify(resMenu[i]));
 						
-					if(	resMenu[i].IsCustom	== 1)
+				if(	resMenu[i].IsCustom	== 1)
 					{
 						
 															
-							$('#rest_menu_list').append('<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="menuDetailS.html?menuId='+resMenu[i].MenuId+'&menuPrice='+resMenu[i].MenuPrice+'&CurrncyNmae='+resMenu[i].CurrncyNmae+'&CurrncyNmae='+resMenu[i].CurrncyNmae+'&MenuJson=\''+menuUrlData+'\'" data-transition="slide" style="padding-top:0;float:left; " class="ui-link-inherit"><img src="'+imgURL+resMenu[i].MenuImage+'"  onerror=this.src="images/placeholder.png";  class="ui-li-thumb"></a>	<h3 class="ui-li-heading">'+resMenu[i].MenuName+'</h3>	<p class="reviewContent ui-li-desc">'+resMenu[i].MenuDesc+'</p> <p class="menuRateSecton ui-li-desc"  style="height:30px;"><span>'+resMenu[i].CurrncyNmae+' '+resMenu[i].MenuPrice +'</span>  <a  href="#positionWindow" data-inline="true" data-rel="popup" data-position-to="window" style="text-decoration:none;" class="ui-link"><img src="images/spoonfork.png" onclick="popupMenu('+resMenu[i].MenuId+')"  href="#positionWindow"  style="height:30px;></a> </div> </p> </div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></li>');
+							$('#rest_menu_list').append('<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="menuDetailS.html?menuId='+resMenu[i].MenuId+'&menuPrice='+resMenu[i].MenuPrice+'&CurrncyNmae='+resMenu[i].CurrncyNmae+'&CurrncyNmae='+resMenu[i].CurrncyNmae+'&MenuJson=\''+menuUrlData+'\' &restId='+restId1[1]+'&restName='+restName[1]+'" data-transition="slide" style="padding-top:0;float:left; " class="ui-link-inherit"><img src="'+imgURL+resMenu[i].MenuImage+'"  onerror=this.src="images/placeholder.png";  class="ui-li-thumb"></a>	<h3 class="ui-li-heading">'+resMenu[i].MenuName+'</h3>	<p class="reviewContent ui-li-desc">'+resMenu[i].MenuDesc+'</p> <p class="menuRateSecton ui-li-desc"  style="height:30px;"><span>'+resMenu[i].CurrncyNmae+' '+resMenu[i].MenuPrice +'</span>  <a  href="#positionWindow" data-inline="true" data-rel="popup" data-position-to="window" style="text-decoration:none;" class="ui-link"><img src="images/spoonfork.png" onclick="popupMenu('+resMenu[i].MenuId+')"  href="#positionWindow"  style="height:30px;></a> </div> </p> </div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></li>');
 					
 					}
 					
 					//&CurrncyNmae='+resMenu[i].CurrncyNmae+'&MenuJson='+resMenu[i]+'
-					else
+				else
 					{
 						
 						
-						$('#rest_menu_list').append('<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="menuDetailS.html?menuId='+resMenu[i].MenuId+'&menuPrice='+resMenu[i].MenuPrice+'&CurrncyNmae='+resMenu[i].CurrncyNmae+'&CurrncyNmae='+resMenu[i].CurrncyNmae+'&MenuJson=\''+menuUrlData+'\'" data-transition="slide" style="padding-top:0;float:left; " class="ui-link-inherit"><img src="'+imgURL+resMenu[i].MenuImage+'"  onerror=this.src="images/placeholder.png";  class="ui-li-thumb"></a>	<h3 class="ui-li-heading">'+resMenu[i].MenuName+'</h3>	<p class="reviewContent ui-li-desc">'+resMenu[i].MenuDesc+'</p> <p class="menuRateSecton ui-li-desc"  style="height:30px;"><span>'+resMenu[i].CurrncyNmae+' '+resMenu[i].MenuPrice +'</span><a  data-transition="slide" class="ui-link"><img src="images/carts.png" onclick="addToCart('+resMenu[i].MenuId+')" style="height:30px;"></a> </p> </div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>');
+						$('#rest_menu_list').append('<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="menuDetailS.html?menuId='+resMenu[i].MenuId+'&menuPrice='+resMenu[i].MenuPrice+'&CurrncyNmae='+resMenu[i].CurrncyNmae+'&CurrncyNmae='+resMenu[i].CurrncyNmae+'&MenuJson=\''+menuUrlData+'\' &restId='+restId1[1]+'&restName='+restName[1]+'" data-transition="slide" style="padding-top:0;float:left; " class="ui-link-inherit"><img src="'+imgURL+resMenu[i].MenuImage+'"  onerror=this.src="images/placeholder.png";  class="ui-li-thumb"></a>	<h3 class="ui-li-heading">'+resMenu[i].MenuName+'</h3>	<p class="reviewContent ui-li-desc">'+resMenu[i].MenuDesc+'</p> <p class="menuRateSecton ui-li-desc"  style="height:30px;"><span>'+resMenu[i].CurrncyNmae+' '+resMenu[i].MenuPrice +'</span><a  data-transition="slide" class="ui-link"><img src="images/carts.png" onclick="addToCart('+resMenu[i].MenuId+')" style="height:30px;"></a> </p> </div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>');
 							
 						
 					}
@@ -490,7 +503,7 @@ function findTotal()
 				
 			 
 				
-			 tx.executeSql('CREATE TABLE IF NOT EXISTS cart (id integer, menuName text, isCust text, attrId text, attrNames text, menuQty integer, menuPrice double, menuTotal double,imageUrl text)');
+			 tx.executeSql('CREATE TABLE IF NOT EXISTS cart (id integer, menuName text, isCust text, attrId text, attrNames text, menuQty integer, menuPrice double, menuTotal double,imageUrl text,restName text,restId integer)');
 				
 				
 				tx.executeSql('SELECT * FROM cart WHERE id="'+menuId+'"  AND attrId="'+menuCustIdS+'"', [], successCart, errorCart);
@@ -539,7 +552,7 @@ function findTotal()
                                
 						alert(menuName+" added to cart1 "+menuName+result.rows.item(i).attrId);
                                 
-						 tblCart.executeSql('INSERT INTO cart (id, menuName,isCust, attrId, attrNames, menuQty, menuPrice, menuTotal,imageUrl) VALUES ("'+menuId+'", "'+menuName+'", "'+isMenuCust+'", "'+menuCustIdS+'", "'+menuCustName+'","'+menuPopUpQty+'", "'+tot+'", "'+tot+'","'+imageUrl+'")');
+						 tblCart.executeSql('INSERT INTO cart (id, menuName,isCust, attrId, attrNames, menuQty, menuPrice, menuTotal,imageUrl,restName,restId) VALUES ("'+menuId+'", "'+menuName+'", "'+isMenuCust+'", "'+menuCustIdS+'", "'+menuCustName+'","'+menuPopUpQty+'", "'+tot+'", "'+tot+'","'+imageUrl+'","'+decodeURIComponent(restName[1])+'","'+restId1[1]+'")');
 						
 								  $( "#positionWindow" ).popup( "close" )
 							}
@@ -552,7 +565,7 @@ function findTotal()
 							{
 								
 						var qty = (parseInt(result.rows.item(i).menuQty) + 1);	
-						var menuCartTotal = 	(parseFloat(result.rows.item(i).menuPrice) * parseInt(qty));
+						var menuCartTotal = (parseFloat(result.rows.item(i).menuPrice) * parseInt(qty));
                                 
 								tblCart.executeSql('UPDATE cart SET menuQty="'+qty+'",menuTotal="'+menuCartTotal+'" WHERE id="'+menuId+'"  AND attrId="'+menuCustIdS+'"');
                                 
@@ -566,7 +579,7 @@ function findTotal()
 							{
 								
 						
-						 tblCart.executeSql('INSERT INTO cart (id, menuName, menuQty, menuPrice, menuTotal,imageUrl) VALUES ("'+menuId+'", "'+menuName+'", "'+menuQty+'", "'+menuPrice+'", "'+menuPrice+'","'+imageUrl+'")');
+						 tblCart.executeSql('INSERT INTO cart (id, menuName, menuQty, menuPrice, menuTotal,imageUrl,restName,restId) VALUES ("'+menuId+'", "'+menuName+'", "'+menuQty+'", "'+menuPrice+'", "'+menuPrice+'","'+imageUrl+'","'+decodeURIComponent(restName[1])+'","'+restId1[1]+'")');
                                 
 						alert(menuName+" added to cart");
                                 
@@ -587,7 +600,7 @@ function findTotal()
                     {   
                         var menuPopUpQty = document.getElementById('menuPopUpQty').value;
                         
-					 tblCart.executeSql('INSERT INTO cart (id, menuName,isCust, attrId, attrNames, menuQty, menuPrice, menuTotal,imageUrl) VALUES ("'+menuId+'", "'+menuName+'", "'+isMenuCust+'", "'+menuCustIdS+'", "'+menuCustName+'","'+menuPopUpQty+'", "'+tot+'", "'+tot+'","'+imageUrl+'")');
+					 tblCart.executeSql('INSERT INTO cart (id, menuName,isCust, attrId, attrNames, menuQty, menuPrice, menuTotal,imageUrl,restName,restId) VALUES ("'+menuId+'", "'+menuName+'", "'+isMenuCust+'", "'+menuCustIdS+'", "'+menuCustName+'","'+menuPopUpQty+'", "'+tot+'", "'+tot+'","'+imageUrl+'","'+decodeURIComponent(restName[1])+'","'+restId1[1]+'")');
                         
 						alert(menuName+" added to cart" + menuCustName);
                         
@@ -598,7 +611,7 @@ function findTotal()
                 else
                     {
                         
-                    tblCart.executeSql('INSERT INTO cart (id, menuName,isCust, attrId, attrNames, menuQty, menuPrice, menuTotal,imageUrl) VALUES ("'+menuId+'", "'+menuName+'", "'+isMenuCust+'", "'+menuCustIdS+'", "'+menuCustName+'","'+menuQty+'", "'+menuPrice+'", "'+menuPrice+'","'+imageUrl+'")');
+                    tblCart.executeSql('INSERT INTO cart (id, menuName,isCust, attrId, attrNames, menuQty, menuPrice, menuTotal,imageUrl,restName,restId) VALUES ("'+menuId+'", "'+menuName+'", "'+isMenuCust+'", "'+menuCustIdS+'", "'+menuCustName+'","'+menuQty+'", "'+menuPrice+'", "'+menuPrice+'","'+imageUrl+'","'+decodeURIComponent(restName[1])+'","'+restId1[1]+'")');
                         
 						alert(menuName+" added to cart" + menuCustName);
                         

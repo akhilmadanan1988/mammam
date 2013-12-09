@@ -10,6 +10,9 @@ var menuQty;
 var menuPrice;
 var imageUrl;
 var menuCustIdS;
+var menuDetialsRestId;
+var menuDetialsRestName;
+
 
 $("#owl-example").owlCarousel({
  
@@ -32,6 +35,8 @@ var detailsMenuCurrncy = (getdata[2].split('='))[1];
 var menuDetailsObj =decodeURIComponent((getdata[4].split('='))[1]);
 
 var menuDetailsJson =jQuery.parseJSON(eval("(" + menuDetailsObj + ")"));
+menuDetialsRestId = (getdata[5].split('='))[1];
+menuDetialsRestName = decodeURIComponent((getdata[6].split('='))[1]);
 
 
 //alert(1);
@@ -139,6 +144,8 @@ function menuDetails(result)
                 $('#menuDetailsDesc').html('');
                 
                 $('#menuDetailsDesc').append(MenuDetailsData[i].MenuDesc);
+                
+                menuDetialsRestId = MenuDetailsData[i].MenuDesc
                 
                 
             }
@@ -540,7 +547,7 @@ function menuDetailscartTbl(tx)
 {
     
     
-    tx.executeSql('CREATE TABLE IF NOT EXISTS cart (id integer, menuName text, isCust text, attrId text, attrNames text, menuQty integer, menuPrice double, menuTotal double,imageUrl text)');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS cart (id integer, menuName text, isCust text, attrId text, attrNames text, menuQty integer, menuPrice double, menuTotal double,imageUrl text,restName text,restId integer)');
 				
 				
 				tx.executeSql('SELECT * FROM cart WHERE id="'+menuId+'"  AND attrId="'+menuCustIdS+'"', [], successMenuDetailsCart, errorCart);
@@ -572,7 +579,7 @@ function successMenuDetailsCart(tblCart,result)
                     }
                         var tot = parseInt(menuDetailsPopTotal) * parseInt(menuPopUpQty);
                         
-                        tblCart.executeSql('INSERT INTO cart (id, menuName,isCust, attrId, attrNames, menuQty, menuPrice, menuTotal,imageUrl) VALUES ("'+menuId+'", "'+menuName+'", "'+isMenuCust+'", "'+menuCustIdS+'", "'+menuCustName+'","'+menuPopUpQty+'", "'+menuDetailsPopTotal+'", "'+tot+'","'+imageUrl+'")');
+                        tblCart.executeSql('INSERT INTO cart (id, menuName,isCust, attrId, attrNames, menuQty, menuPrice, menuTotal,imageUrl,restName,restId) VALUES ("'+menuId+'", "'+menuName+'", "'+isMenuCust+'", "'+menuCustIdS+'", "'+menuCustName+'","'+menuPopUpQty+'", "'+menuDetailsPopTotal+'", "'+tot+'","'+imageUrl+'","'+menuDetialsRestName+'","'+menuDetialsRestId+'")');
                         
                         alert(menuName+ " is added to cart");
                          $( "#popupMenuDetails" ).popup( "close" )
@@ -622,7 +629,7 @@ function successMenuDetailsCart(tblCart,result)
                             
                             var menuCartTotal = 	(menuDetailsPopTotal * menuPopUpQty);
                             
-						 tblCart.executeSql('INSERT INTO cart (id, menuName,isCust, attrId, attrNames, menuQty, menuPrice, menuTotal,imageUrl) VALUES ("'+menuId+'", "'+menuName+'", "'+isMenuCust+'", "'+menuCustIdS+'", "'+menuCustName+'","'+menuPopUpQty+'", "'+menuDetailsPopTotal+'", "'+menuCartTotal+'","'+imageUrl+'")');
+						 tblCart.executeSql('INSERT INTO cart (id, menuName,isCust, attrId, attrNames, menuQty, menuPrice, menuTotal,imageUrl,restName,restId) VALUES ("'+menuId+'", "'+menuName+'", "'+isMenuCust+'", "'+menuCustIdS+'", "'+menuCustName+'","'+menuPopUpQty+'", "'+menuDetailsPopTotal+'", "'+menuCartTotal+'","'+imageUrl+'","'+menuDetialsRestName+'","'+menuDetialsRestId+'")');
                             
 						 $( "#popupMenuDetails" ).popup( "close" )
 								

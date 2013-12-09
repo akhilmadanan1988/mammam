@@ -58,6 +58,8 @@
 		{
 			
 			var restList = (result)[0].RestaurantData;
+            
+          
 			
 				//alert(restList[0].RestaurantId)	
 				if(restList.length>0)
