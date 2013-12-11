@@ -1,6 +1,7 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 
 var cartTotal = 0;
+var cartGrandTotal = 0;
 	
 function onDeviceReady() 
 		{
@@ -44,27 +45,29 @@ function dbCart()
 
 function getCart(tblCart)
 		{
-            var res;
+            var res = new Array();
+            
 			$('#cart_list').html('');
             
 			tblCart.executeSql('SELECT * FROM cart', [], function(tblCarts,result){
           
-                res = result.rows.item(0).restId;
+                res[0] = result.rows.item(0).restId;
                 tblCarts.executeSql('SELECT * FROM cart WHERE restId='+result.rows.item(0).restId+'', [],cartSuccess,errorCart);
                 
             for(var i = 0;i<result.rows.length;i++)
 			{
-                if(res != result.rows.item(i).restId)
+                if(res.indexOf(result.rows.item(i).restId) == -1)
                 {
                     
                 tblCarts.executeSql('SELECT * FROM cart WHERE restId='+result.rows.item(i).restId+'', [],cartSuccess,errorCart);
-                 res = result.rows.item(i).restId;
+                   res.push(result.rows.item(i).restId);  
                 }
+                
                 else
                 {
-                    
-                    
+                   
                 }
+                
              }
               
             }, errorCart);
@@ -90,11 +93,17 @@ function cartSuccess(tblCart,result)
 			}
             
             $('#cart_total').html('');
+            
+            $('#cart_total').append('<div class="ui-grid-b">  	<div class="ui-block-b"> <a href="#popupBasic" data-rel="popup"><input type="submit" value="APPLY COUPON" style="margin-top:15px;margin-left:10px;"></a></div><div class="ui-block-c"><div  style="text-align:left;width:75%;font-size:15px;margin-top:5px">Sub Total: MYR <span id="delivery_charges">'+cartTotal+'</span></div> <div  style="text-align:left;width:100%;font-size:15px;margin-top:5px">Discount Price: MYR <span id="delivery_charges">'+cartTotal+'</span></div><div  style="text-align:left;width:100%;font-size:15px;margin-top:5px">Grand Total: MYR <span id="delivery_charges">'+cartTotal+'</span></div></div> </div>');
+        
+            /*
 			$('#cart_total').append('<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-hover-c ui-btn-up-c"><div data-theme="f" class="ui-bar ui-grid-a"> <div class="ui-block-a" style="text-align:right;width:75%">Taxes : &nbsp;</div>	 <div class="ui-block-b" style="text-align:left;width:25%">      <img src="http://static1.justeat.in/assets/images/mobile/rupee-symbol.png" height="10px"> <span id="delivery_charges">0.00</span> </div> </div></li>');
 			
 			$('#cart_total').append('<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-hover-c ui-btn-up-c"><div data-theme="f" class="ui-bar ui-grid-a"> <div class="ui-block-a" style="text-align:right;width:75%">Total : &nbsp;</div>	 <div class="ui-block-b" style="text-align:left;width:25%">      <img src="http://static1.justeat.in/assets/images/mobile/rupee-symbol.png" height="10px"> <span id="delivery_charges">'+cartTotal+'</span> </div> </div></li>');
-			
             
+            */
+			
+           checkCoupon(); 
 			
 		}	
 
@@ -147,7 +156,7 @@ function plusQty(mnId,attrId)
 						
 						mnQty = qRes.rows.item(0).menuQty + 1;
 						
-							if(mnQty == 0)
+				    if(mnQty == 0)
 						{
 								tx.executeSql('DELETE FROM cart WHERE id='+mnId+'  AND attrId="'+attrId+'"');
 						}
@@ -169,13 +178,122 @@ function plusQty(mnId,attrId)
 				dbCart();
 			}, errorCB);
 		}	
-	
+
+
+
 function errorCart(err) 
 	{
 		
 		
-    alert("Cart is empty");
+    alert("some error occured");
 		
 	}
+
+
+function applyCoupon()
+{
+    
+    
+    var couponCode = document.getElementById('couponCode').value;
+    if(couponCode == "")
+    {
+    alert("Please enter a valid coupon code");
+    }
+    
+    else
+    {
+                    actionUrl = rootPath;
+    
+				data = {ajaxRequest:true,method:'validateDiscountCoupon',argumentz:'{"couponCode":"'+couponCode+'","customerId":"125"}'};
+    
+					intiateAjaxRequest("POST", actionUrl, data, couponResponse, couponResponseError);    
+    }
+}
+
+function couponResponse(result)
+{
+    $.mobile.loading( "hide" );
+   
+    var couponRes = JSON.parse(JSON.stringify(result, null, 2));
+    
+   if(couponRes.status == 0)
+        {
+       
+       alert(couponRes.message);
+       
+        }
+      
+   else{
+        
+    if(couponRes.status == 1)
+        {
+        
+            var db = window.openDatabase("dbmammam", "1.0", "mammam", 1000000);
+			db.transaction(function(tx){
+			
+               
+					tx.executeSql('CREATE TABLE IF NOT EXISTS disCoupon (couponId integer,couponCode text,type text,value double, minAmt double)');
+                   
+                    //tx.executeSql('INSERT INTO disCoupon (couponId,couponCode,type,value,minAmt) VALUES ()');
+                
+				checkCoupon();
+			}, errorCart);
+        }
+       
+       }
+}
+
+function checkCoupon()
+{
+    
+    
+     var db = window.openDatabase("dbmammam", "1.0", "mammam", 1000000);
+			db.transaction(function(tx){
+			
+               tx.executeSql('CREATE TABLE IF NOT EXISTS disCoupon (couponId integer,couponCode text,type text,value double, minAmt double)');
+				
+                tx.executeSql('SELECT * FROM disCoupon',[],function(arg1,resp){
+                    
+                    if(resp.rows.length >0)
+                    {
+                        if(resp.rows.item(0).type == "value")
+                        {
+                            var discoutAmt = parseFloat(resp.rows.item(0).value); 
+                            
+                            cartGrandTotal = parseFloat(cartTotal) - discoutAmt;
+                            
+                        }
+                        
+                        if(resp.rows.item(0).type == "percent")
+                        {
+                            var discoutAmt = parseFloat(resp.rows.item(0).value); 
+                            cartGrandTotal =parseFloat(cartTotal) * (parseFloat(discoutAmt) /100) 
+                            
+                        }
+                        
+                    }
+                  
+                    
+                },errorCart);
+                
+                
+                   
+                    //tx.executeSql('INSERT INTO disCoupon (couponId,couponCode,type,value,minAmt) VALUES ()');
+                
+				
+			}, errorCart);
+    
+    
+}
+
+
+function couponResponseError(response, status, xhr)
+{
+     $.mobile.loading( "hide" );
+    
+    alert("some error");
+    
+    
+}
 
 
