@@ -1,5 +1,7 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 
+deliveryCheck();
+
 var checkoutTotal = 0.00;
 function onDeviceReady() 
 		{
@@ -27,6 +29,13 @@ function getCartItems(tblCart)
 function checkoutSuccess(tblCart,result)
 		{
 			$('#checkoutItems').html('');
+            
+            if(result.rows.length == 0)
+            {
+                
+             document.getElementById('shippingDetails').style.display ='none';   
+                
+            }
 			
 			for(var i = 0;i<result.rows.length;i++)
 			{	
@@ -52,41 +61,109 @@ function checkoutSuccess(tblCart,result)
 			$('#checkoutItems').append('<div data-theme="f" class="ui-bar ui-grid-a"> <div class="ui-block-a" style="text-align:right;width:75%">Total : &nbsp;</div>	  <div class="ui-block-b" style="text-align:left;width:25%">  <img src="http://static1.justeat.in/assets/images/mobile/rupee-symbol.png" height="10px">  <span id="grand_total">'+checkoutTotal+'</span>  </div> </div>');
             
             
-            $('#checkoutItems').append('<div data-role="fieldcontain" class="nobdr" style="margin_top:10px;"> Select Area	</div>'); 
-            $('#checkoutItems').append('<div data-role="fieldcontain" class="nobdr" style="margin_top:10px;"> <select name="select-choice-a"  data-mini="true" class="selectArea"><option value="hii"</option></select>	</div>'); 
-            
-            
-             $('#checkoutItems').append('<div data-role="fieldcontain" class="nobdr" style="margin_top:10px;"> Address 1	</div>');            
-            $('#checkoutItems').append('<div data-role="fieldcontain" class="nobdr" style="margin_top:10px;"> <input type="text" name="text-12" id="firstName" value=""> 	</div>');
-            
-             $('#checkoutItems').append('<div data-role="fieldcontain" class="nobdr" style="margin_top:10px;"> Address 2	</div>');
-            $('#checkoutItems').append('<div data-role="fieldcontain" class="nobdr" style="margin_top:10px;"> <input type="text" name="text-12" id="firstName" value="" > 	</div>');
-            
-             $('#checkoutItems').append('<div data-role="fieldcontain" class="nobdr" style="margin_top:10px;"> Landmark	</div>');
-            $('#checkoutItems').append('<div data-role="fieldcontain" class="nobdr" style="margin_top:10px;"> <input type="text" name="text-12" id="firstName" value="" > 	</div>');
-            
-             $('#checkoutItems').append('<div data-role="fieldcontain" class="nobdr" style="margin_top:10px;"> Phone Number	</div>');
-            $('#checkoutItems').append('<div data-role="fieldcontain" class="nobdr" style="margin_top:10px;"> <input type="text" name="text-12" id="firstName" value="" > 	</div>');
-            
-            
-             $('#checkoutItems').append('<div data-role="fieldcontain" class="nobdr" style="margin_top:10px;"> Delivery Date and Time	</div>');
-            $('#checkoutItems').append('<div class="ui-grid-a">	<div class="ui-block-a"><select name="select-choice-a"  data-mini="true" class="selectArea"><option value="hii"</option></select></div><div class="ui-block-b"><select name="select-choice-a"  data-mini="true" class="selectArea"><option value="hii"</option></select></div></div>');
-            
-            
+            /*
 			
 			$('#checkoutItems').append('<div class="ui-grid-a" style="margin-bottom:15px; "> <div class="ui-block-a"> 	<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br"><a ="cart.html" data-transition="slide" data-ajax="false" class="ui-link actionBut"><div data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" data-disabled="false" class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all" aria-disabled="false"><span class="ui-btn-inner"><span class="ui-btn-text">EDIT ORDER</span></span><input type="submit" value="EDIT ORDER" class="ui-btn-hidden" data-disabled="false"></div></a></div>       </div> <div class="ui-block-b"> 		<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br"><a href="#" data-transition="slide" data-ajax="false" class="ui-link actionBut"><div data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" data-disabled="false" class="ui-submit ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c" aria-disabled="false"><span class="ui-btn-inner"><span class="ui-btn-text">ORDER NOW</span></span><input type="submit" value="ORDER NOW" class="ui-btn-hidden" data-disabled="false"></div></a></div>        </div>	    </div>');
             
-            
-            var selectAre = $('.selectArea');
-            
-            selectAre.selectmenu({ overlayTheme: "d" });
+              */
+           
             
 			
 		}
 
+function deliveryCheck()
+    {
+        
+            actionUrl = rootPath;
+            data = {ajaxRequest:true,method:'getAreaList',argumentz:'{"isFilter":"0","stateId":"0"}'};
+            intiateAjaxRequest("POST", actionUrl, data, deliveryLIstResponse, errorCheckout);
+        
+        
+            actionUrl = rootPath;
+            data = {ajaxRequest:true,method:'getDeliveryTime',argumentz:'{}'};
+            intiateAjaxRequest("POST", actionUrl, data, getDeliveryTime, errorCheckout);
+        
+         actionUrl = rootPath;
+            data = {ajaxRequest:true,method:'getPaymentTypes',argumentz:'{}'};
+            intiateAjaxRequest("POST", actionUrl, data, getPaymentTypes, errorCheckout);
+        
+    
+    }
+
+function deliveryLIstResponse(result)
+{
+    
+    $.mobile.loading( "hide" );
+    
+    if(typeof result=="object")
+			{
+		
+			//var menuObj = JSON.parse(result);
+//			         menuDetails(result);
+                
+//                alert(result.length);
+                
+				for(var i = 0; i<result.length; i++)
+                    {
+                 
+                    var res = (result[i]);
+                        
+//                        alert(res[0]);
+                        
+                    $('#deliveryLocation').append('<option value='+res[0]+'>'+res[1]+'</option>');                      
+                    
+                    
+                    }
+			}
+			
+			else
+			{
+				//alert(JSON.parse(result));
+				
+//					menuDetails(JSON.parse(result));
+                var r = JSON.parse(result);
+                 alert(r.length);
+               
+			}
+    
+    
+    
+}
+
+
+function getDeliveryTime(response)
+{
+    for(var i = 0;i<response.length;i++)
+    {
+        
+       
+   $('#deliveryTime').append('<option value='+response[i].id+'>'+response[i].desc+' : '+response[i].startTime+' to '+response[i].endTime+'</option>');
+    }
+    
+//    alert(response[0].id);
+    
+    
+}
+
+
+function getPaymentTypes(response)
+{
+    
+    
+     for(var i = 0;i<response.length;i++)
+    {
+        
+         var res = (response[i]);
+   $('#paymentMethode').append('<option value='+res[0]+'>'+res[1]+'</option>');
+    
+    }
+    
+}
+
+
 function errorCheckout()
 		{
-			
+			 document.getElementById('shippingDetails').style.display ='none';   
 			alert("some error occured");			
 			
 		}
