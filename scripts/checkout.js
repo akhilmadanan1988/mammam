@@ -50,7 +50,7 @@ function checkoutSuccess(tblCart,result)
 			}
 		
 			
-			$('#checkoutItems').append('<div data-theme="f" class="ui-bar ui-grid-a" style="margin-top:10px;"> <div class="ui-block-a" style="text-align:right;width:75%">Sub-total : &nbsp;</div>	<div class="ui-block-b" style="text-align:left;width:25%">   <img src="http://static1.justeat.in/assets/images/mobile/rupee-symbol.png" height="10px"> <span id="subtotal">'+checkoutTotal+'</span>   </div> </div>');
+			$('#checkoutItems').append('<div data-theme="f" class="ui-bar ui-grid-a" style="margin-top:10px;"> <div class="ui-block-a" style="text-align:right;width:75%">Sub-total : &nbsp;</div>	<div class="ui-block-b" style="text-align:left;width:25%">   MYR <span id="subtotal">'+checkoutTotal+'</span>   </div> </div>');
 			/*
 			$('#checkoutItems').append('<div data-theme="f" class="ui-bar ui-grid-a"> 	<div class="ui-block-a" style="text-align:right;width:75%">Taxes : &nbsp;</div>	 <div class="ui-block-b" style="text-align:left;width:25%">    <img src="http://static1.justeat.in/assets/images/mobile/rupee-symbol.png" height="10px">   <span id="tax">0.00</span>    </div> </div>');
 			
@@ -59,9 +59,9 @@ function checkoutSuccess(tblCart,result)
             
             */
 			
-			$('#checkoutItems').append('<div data-theme="f" class="ui-bar ui-grid-a"> <div class="ui-block-a" style="text-align:right;width:75%">Delivery Charges : &nbsp;</div>	 <div class="ui-block-b" style="text-align:left;width:25%">      <img src="http://static1.justeat.in/assets/images/mobile/rupee-symbol.png" height="10px"> <span id="delivery_charges">0.00</span> </div> </div>');
+			$('#checkoutItems').append('<div data-theme="f" class="ui-bar ui-grid-a"> <div class="ui-block-a" style="text-align:right;width:75%">Delivery Charges : &nbsp;</div>	 <div class="ui-block-b" style="text-align:left;width:25%">      MYR <span id="delivery_charges">0.00</span> </div> </div>');
 			
-			$('#checkoutItems').append('<div data-theme="f" class="ui-bar ui-grid-a"> <div class="ui-block-a" style="text-align:right;width:75%">Total : &nbsp;</div>	  <div class="ui-block-b" style="text-align:left;width:25%">  <img src="http://static1.justeat.in/assets/images/mobile/rupee-symbol.png" height="10px">  <span id="grand_total">'+checkoutTotal+'</span>  </div> </div>');
+			$('#checkoutItems').append('<div data-theme="f" class="ui-bar ui-grid-a"> <div class="ui-block-a" style="text-align:right;width:75%">Total : &nbsp;</div>	  <div class="ui-block-b" style="text-align:left;width:25%">  MYR  <span id="grand_total">'+checkoutTotal+'</span>  </div> </div>');
             
             
             /*
