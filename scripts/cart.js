@@ -38,7 +38,7 @@ function dbCart()
 	
 	cartTotal = 0;
 	var db = window.openDatabase("dbmammam", "1.0", "mammam", 1000000);
-	db.transaction(getCart, errorCB);
+	db.transaction(getCart, errorCart);
 		
 	
 		}
@@ -176,7 +176,7 @@ function plusQty(mnId,attrId)
 				
 				
 				dbCart();
-			}, errorCB);
+			}, errorCart);
 		}	
 
 
@@ -185,7 +185,7 @@ function errorCart(err)
 	{
 		
 		
-    alert("some error occured");
+    alert("Cart is Empty");
 		
 	}
 

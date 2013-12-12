@@ -1,6 +1,6 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 
-deliveryCheck();
+
 
 var checkoutTotal = 0.00;
 function onDeviceReady() 
@@ -36,10 +36,13 @@ function checkoutSuccess(tblCart,result)
              document.getElementById('shippingDetails').style.display ='none';   
                 
             }
-			
+			else
+            {
+             deliveryCheck();   
+            }
 			for(var i = 0;i<result.rows.length;i++)
 			{	
-			
+			 
 					$('#checkoutItems').append('<div class="ui-grid-c" style="border-bottom:1px dashed #aaaaaa;font-size:14px;margin-top:10px;">     		<div class="ui-block-a" style="text-align:left;"> 		'+result.rows.item(i).menuName+'  		</div>    	<div class="ui-block-b" style="text-align:center;">     		Rs '+result.rows.item(i).menuPrice+'</div>    	<div class="ui-block-c" style="text-align:center;">     		'+result.rows.item(i).menuQty+'     	</div>     	<div class="ui-block-d" style="margin-bottom:10px;text-align:right; ">   Rs			'+result.rows.item(i).menuTotal+'   	</div>    	  </div>');
 			
 			checkoutTotal = (checkoutTotal) +  (result.rows.item(i).menuTotal);	

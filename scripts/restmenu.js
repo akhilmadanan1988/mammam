@@ -541,7 +541,7 @@ function findTotal()
 								tblCart.executeSql('UPDATE cart SET menuQty="'+qty+'",menuTotal="'+menuCartTotal+'" WHERE id="'+menuId+'"  AND attrId="'+menuCustIdS+'"');
                                 
                                 
-						alert("updated11 "+menuName);
+						alert("updated "+menuName);
                                 
                                  $( "#positionWindow" ).popup( "close" )
 								
@@ -550,7 +550,7 @@ function findTotal()
 						else{
 								
                                
-						alert(menuName+" added to cart1 "+menuName+result.rows.item(i).attrId);
+						alert(menuName+" added to cart ");
                                 
 						 tblCart.executeSql('INSERT INTO cart (id, menuName,isCust, attrId, attrNames, menuQty, menuPrice, menuTotal,imageUrl,restName,restId) VALUES ("'+menuId+'", "'+menuName+'", "'+isMenuCust+'", "'+menuCustIdS+'", "'+menuCustName+'","'+menuPopUpQty+'", "'+tot+'", "'+tot+'","'+imageUrl+'","'+decodeURIComponent(restName[1])+'","'+restId1[1]+'")');
 						
@@ -602,7 +602,7 @@ function findTotal()
                         
 					 tblCart.executeSql('INSERT INTO cart (id, menuName,isCust, attrId, attrNames, menuQty, menuPrice, menuTotal,imageUrl,restName,restId) VALUES ("'+menuId+'", "'+menuName+'", "'+isMenuCust+'", "'+menuCustIdS+'", "'+menuCustName+'","'+menuPopUpQty+'", "'+tot+'", "'+tot+'","'+imageUrl+'","'+decodeURIComponent(restName[1])+'","'+restId1[1]+'")');
                         
-						alert(menuName+" added to cart" + menuCustName);
+						alert(menuName+" added to cart");
                         
                           $( "#positionWindow" ).popup( "close" )
                         
@@ -613,7 +613,7 @@ function findTotal()
                         
                     tblCart.executeSql('INSERT INTO cart (id, menuName,isCust, attrId, attrNames, menuQty, menuPrice, menuTotal,imageUrl,restName,restId) VALUES ("'+menuId+'", "'+menuName+'", "'+isMenuCust+'", "'+menuCustIdS+'", "'+menuCustName+'","'+menuQty+'", "'+menuPrice+'", "'+menuPrice+'","'+imageUrl+'","'+decodeURIComponent(restName[1])+'","'+restId1[1]+'")');
                         
-						alert(menuName+" added to cart" + menuCustName);
+						alert(menuName+" added to cart");
                         
                           $( "#positionWindow" ).popup( "close" )
                     
