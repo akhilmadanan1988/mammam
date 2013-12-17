@@ -2,6 +2,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 var cartTotal = 0;
 var cartGrandTotal = 0;
+ var couponCode;
 	
 function onDeviceReady() 
 		{
@@ -71,13 +72,16 @@ function getCart(tblCart)
              }
               
             }, errorCart);
+            
+           
 			
 			
 		}	
 
 function cartSuccess(tblCart,result)
 		{
-		            
+		     
+            
              $('#cart_list').append('<div class="ui-grid-c cartHeader topBorderSeperation" style="color:red;"> '+result.rows.item(0).restName+' </div>');
 			
 		for(var i = 0;i<result.rows.length;i++)
@@ -94,8 +98,10 @@ function cartSuccess(tblCart,result)
             
             $('#cart_total').html('');
             
-            $('#cart_total').append('<div class="ui-grid-b" style="margin-top:25px;">  	<div class="ui-block-b"> <a href="#popupBasic" data-rel="popup"><input type="submit" value="APPLY COUPON" style="margin-top:15px;margin-left:10px;"></a></div><div class="ui-block-c"><div  style="text-align:left;width:100%;font-size:15px;margin-top:5px">Sub Total: MYR <span id="delivery_charges">'+cartTotal+'</span></div> <div  style="text-align:left;width:100%;font-size:15px;margin-top:5px">Discount Price: MYR 0.00 <span id="delivery_charges"></span></div><div  style="text-align:left;width:100%;font-size:15px;margin-top:5px">Grand Total: MYR <span id="delivery_charges">'+cartTotal+'</span></div></div> </div>');
+            $('#cart_total').append('<div  style="text-align:right;width:100%;font-size:15px;margin-top:20px">Sub Total: MYR <span id="delivery_charges">'+cartTotal+'</span></div> <div  style="text-align:right;width:100%;font-size:15px;margin-top:5px">Discount Price: MYR 0.00 <span id="delivery_charges"></span></div><div  style="text-align:right;width:100%;font-size:15px;margin-top:5px">Grand Total: MYR <span id="delivery_charges">'+cartTotal+'</span></div></div>');
         
+            
+            $('#cart_total').append('<div><a href="#popupBasic" data-rel="popup" style="text-align:center;" id="btnApplyCou"><input type="submit" value="APPLY COUPON" style="margin-top:15px;margin-left:10px;text-align:center;"></a><div>');
             /*
 			$('#cart_total').append('<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-btn-hover-c ui-btn-up-c"><div data-theme="f" class="ui-bar ui-grid-a"> <div class="ui-block-a" style="text-align:right;width:75%">Taxes : &nbsp;</div>	 <div class="ui-block-b" style="text-align:left;width:25%">      <img src="http://static1.justeat.in/assets/images/mobile/rupee-symbol.png" height="10px"> <span id="delivery_charges">0.00</span> </div> </div></li>');
 			
@@ -184,8 +190,8 @@ function plusQty(mnId,attrId)
 function errorCart(err) 
 	{
 		
-		
-    alert("Cart is Empty");
+		//document.getElementById('cartData').style.display = 'none';
+    alert(err + "Cart is Empty");
 		
 	}
 
@@ -194,7 +200,7 @@ function applyCoupon()
 {
     
     
-    var couponCode = document.getElementById('couponCode').value;
+     couponCode = document.getElementById('couponCode').value;
     if(couponCode == "")
     {
     alert("Please enter a valid coupon code");
@@ -204,7 +210,7 @@ function applyCoupon()
     {
                     actionUrl = rootPath;
     
-				data = {ajaxRequest:true,method:'validateDiscountCoupon',argumentz:'{"couponCode":"'+couponCode+'","customerId":"125"}'};
+				data = {ajaxRequest:true,method:'validateDiscountCoupon',argumentz:'{"couponCode":"'+couponCode+'","customerId":"61"}'};
     
 					intiateAjaxRequest("POST", actionUrl, data, couponResponse, couponResponseError);    
     }
@@ -215,6 +221,7 @@ function couponResponse(result)
     $.mobile.loading( "hide" );
    
     var couponRes = JSON.parse(JSON.stringify(result, null, 2));
+     alert(couponRes.status);
     
    if(couponRes.status == 0)
         {
@@ -222,25 +229,29 @@ function couponResponse(result)
        alert(couponRes.message);
        
         }
-      
-   else{
+
         
     if(couponRes.status == 1)
         {
-        
+       
+               alert(122);
             var db = window.openDatabase("dbmammam", "1.0", "mammam", 1000000);
 			db.transaction(function(tx){
 			
                
-					tx.executeSql('CREATE TABLE IF NOT EXISTS disCoupon (couponId integer,couponCode text,type text,value double, minAmt double)');
-                   
-                    //tx.executeSql('INSERT INTO disCoupon (couponId,couponCode,type,value,minAmt) VALUES ()');
                 
+					tx.executeSql('CREATE TABLE IF NOT EXISTS disCoupon (couponId integer,couponCode text,type text,value double, minAmt double)');
+                
+                              
+                
+                    tx.executeSql('INSERT INTO disCoupon (couponId,couponCode,type,value,minAmt) VALUES ("'+couponRes.couponId+'","'+couponCode+'","'+couponRes.couponType+'","'+couponRes.fltDiscountValue+'","'+couponRes.fltMinOrderAmount+'")');
+               
 				checkCoupon();
 			}, errorCart);
         }
+      
        
-       }
+      
 }
 
 function checkCoupon()
@@ -256,7 +267,7 @@ function checkCoupon()
                     
                     if(resp.rows.length >0)
                     {
-                        if(resp.rows.item(0).type == "value")
+                        if(resp.rows.item(0).type == "2")
                         {
                             var discoutAmt = parseFloat(resp.rows.item(0).value); 
                             
@@ -264,22 +275,20 @@ function checkCoupon()
                             
                         }
                         
-                        if(resp.rows.item(0).type == "percent")
+                        if(resp.rows.item(0).type == "1")
                         {
                             var discoutAmt = parseFloat(resp.rows.item(0).value); 
                             cartGrandTotal =parseFloat(cartTotal) * (parseFloat(discoutAmt) /100) 
                             
                         }
                         
+                        alert(cartGrandTotal);
+                        
                     }
                   
                     
                 },errorCart);
-                
-                
                    
-                    //tx.executeSql('INSERT INTO disCoupon (couponId,couponCode,type,value,minAmt) VALUES ()');
-                
 				
 			}, errorCart);
     

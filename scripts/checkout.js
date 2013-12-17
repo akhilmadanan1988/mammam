@@ -1,5 +1,8 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 
+ 
+
+var checkoutRestIds = new Array();
 
 
 var checkoutTotal = 0.00;
@@ -28,6 +31,7 @@ function getCartItems(tblCart)
 
 function checkoutSuccess(tblCart,result)
 		{
+            deliveryCheck();  
 			$('#checkoutItems').html('');
             
             if(result.rows.length == 0)
@@ -36,16 +40,23 @@ function checkoutSuccess(tblCart,result)
              document.getElementById('shippingDetails').style.display ='none';   
                 
             }
-			else
-            {
-             deliveryCheck();   
-            }
+			
 			for(var i = 0;i<result.rows.length;i++)
 			{	
 			 
 					$('#checkoutItems').append('<div class="ui-grid-c" style="border-bottom:1px dashed #aaaaaa;font-size:14px;margin-top:10px;">     		<div class="ui-block-a" style="text-align:left;"> 		'+result.rows.item(i).menuName+'  		</div>    	<div class="ui-block-b" style="text-align:center;">     		Rs '+result.rows.item(i).menuPrice+'</div>    	<div class="ui-block-c" style="text-align:center;">     		'+result.rows.item(i).menuQty+'     	</div>     	<div class="ui-block-d" style="margin-bottom:10px;text-align:right; ">   Rs			'+result.rows.item(i).menuTotal+'   	</div>    	  </div>');
-			
+                
+               if(checkoutRestIds.indexOf(result.rows.item(i).restId) == -1) 
+                    {
+			             checkoutRestIds[i] = result.rows.item(i).restId;
+                   
+                       // alert(result.rows.item(i).restId);
+                    }
+                
+                
 			checkoutTotal = (checkoutTotal) +  (result.rows.item(i).menuTotal);	
+                
+                
 				
 			}
 		
@@ -86,11 +97,14 @@ function deliveryCheck()
             data = {ajaxRequest:true,method:'getDeliveryTime',argumentz:'{}'};
             intiateAjaxRequest("POST", actionUrl, data, getDeliveryTime, errorCheckout);
         
-         actionUrl = rootPath;
+            actionUrl = rootPath;
             data = {ajaxRequest:true,method:'getPaymentTypes',argumentz:'{}'};
             intiateAjaxRequest("POST", actionUrl, data, getPaymentTypes, errorCheckout);
         
-    
+        
+            
+        
+   
     }
 
 function deliveryLIstResponse(result)
@@ -143,7 +157,73 @@ function getDeliveryTime(response)
    $('#deliveryTime').append('<option value='+response[i].id+'>'+response[i].desc+' : '+response[i].startTime+' to '+response[i].endTime+'</option>');
     }
     
+       
+            actionUrl = rootPath;
+            data = {ajaxRequest:true,method:'getRestaurantValidationInCart',argumentz:'{"restrntIdList":"'+checkoutRestIds+'"}'};
+            intiateAjaxRequest("POST", actionUrl, data, getDeliveryDate, errorCheckout);
+    
 //    alert(response[0].id);
+    
+    
+}
+
+function getDeliveryDate(response)
+{
+     $.mobile.loading( "hide" );
+    
+        var respArray = response.RestaurantHolyDays;
+        var restHolidays = new Array();
+    
+    
+    
+    for(var i =0;i<respArray.length; i++ )
+        {
+             
+             restHolidays[i] = respArray[i].RestaurantHolyDays;
+                
+        }
+    
+   
+    
+ var todayDate = new Date();
+    
+    var day = todayDate.getDate();
+    var month = todayDate.getMonth() + 1;
+    var year = todayDate.getFullYear();
+    var restHolidaysList = new Array();
+    
+    
+    for(var i =0; i<15; i++)
+      {
+        
+        var loopDate = new Date(year, month - 1, day + i);
+          var strDate = loopDate.getFullYear()+'-'+ (loopDate.getMonth() + 1)+'-'+loopDate.getDate();
+          
+            
+          
+          if(restHolidays.indexOf(strDate) > (-1))
+                {
+              
+                
+            // alert(restHolidays +" " +strDate);
+                    
+                    
+                    
+              
+                }
+          else
+             {
+              
+          restHolidaysList.push(strDate);  
+              
+             $('#deliveryDime').append('<option value='+strDate+'>'+strDate+'</option>');
+              
+            }
+          
+             
+      }
+    
+   
     
     
 }
@@ -153,11 +233,11 @@ function getPaymentTypes(response)
 {
     
     
-     for(var i = 0;i<response.length;i++)
+    for(var i = 0;i<response.length;i++)
     {
         
-         var res = (response[i]);
-   $('#paymentMethode').append('<option value='+res[0]+'>'+res[1]+'</option>');
+        var res = (response[i]);
+        $('#paymentMethode').append('<option value='+res[0]+'>'+res[1]+'</option>');
     
     }
     
