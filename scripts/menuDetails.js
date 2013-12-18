@@ -581,7 +581,7 @@ function successMenuDetailsCart(tblCart,result)
                         
                         tblCart.executeSql('INSERT INTO cart (id, menuName,isCust, attrId, attrNames, menuQty, menuPrice, menuTotal,imageUrl,restName,restId) VALUES ("'+menuId+'", "'+menuName+'", "'+isMenuCust+'", "'+menuCustIdS+'", "'+menuCustName+'","'+menuPopUpQty+'", "'+menuDetailsPopTotal+'", "'+tot+'","'+imageUrl+'","'+menuDetialsRestName+'","'+menuDetialsRestId+'")');
                         
-                        alert(menuName+ " is added to cart" +menuDetialsRestName +menuDetialsRestId  );
+                        alert(menuName+ " is added to cart" );
                          $( "#popupMenuDetails" ).popup( "close" )
                     
         
@@ -616,7 +616,7 @@ function successMenuDetailsCart(tblCart,result)
 								tblCart.executeSql('UPDATE cart SET menuQty="'+qty+'",menuTotal="'+menuCartTotal+'" WHERE id="'+menuId+'"  AND attrId="'+menuCustIdS+'"');
                                 
                                 
-						alert("updated "+menuName+menuDetialsRestName +menuDetialsRestId );
+						alert("updated " + menuName);
                                 
                                  $( "#popupMenuDetails" ).popup( "close" )
                     
@@ -625,7 +625,7 @@ function successMenuDetailsCart(tblCart,result)
                         else{
 								
                                
-						alert(menuName+" added to cart" +menuDetialsRestName +menuDetialsRestId );
+						alert(menuName+" added to cart"  );
                             
                             var menuCartTotal = 	(menuDetailsPopTotal * menuPopUpQty);
                             
