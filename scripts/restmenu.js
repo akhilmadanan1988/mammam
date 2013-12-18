@@ -437,7 +437,7 @@ function findTotal()
 						//$('#rest_menu_list').append('');						
 						
 						
-						$('#rest_menu_list').append('<a data-role="button" onclick="getData('+loadMore+')" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner"><span class="ui-btn-text">             Load More         </span></span></a>');
+						$('#rest_menu_list').append('<a data-role="button" onclick="getData('+loadMore+')" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c"><span class="ui-btn-inner"><span class="ui-btn-text" style="color:black">             Load More         </span></span></a>');
 						
 					loadMore = loadMore + 3;
 					
